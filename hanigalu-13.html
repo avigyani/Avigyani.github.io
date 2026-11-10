@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>ಬದುಕಿದ ಹನಿಗಳು · ಹನಿ 13 — ಅವಿಜ್ಞಾನಿ</title>
+<link rel="canonical" href="https://avigyani.github.io/hanigalu-13.html">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="ನನ್ನ ನೋವ ಕುರಿತು ಕೇಳಬೇಡ ನಲಿವಿನ ವಿಳಾಸ ಮರೆತ ಹುಡುಗ ನಾನು.!">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="ಅವಿಜ್ಞಾನಿ">
+<meta property="og:url" content="https://avigyani.github.io/hanigalu-13.html">
+<meta property="og:title" content="ಬದುಕಿದ ಹನಿಗಳು · ಹನಿ 13 — ಅವಿಜ್ಞಾನಿ">
+<meta property="og:description" content="ನನ್ನ ನೋವ ಕುರಿತು ಕೇಳಬೇಡ ನಲಿವಿನ ವಿಳಾಸ ಮರೆತ ಹುಡುಗ ನಾನು.!">
+<meta property="og:image" content="https://avigyani.github.io/Assets/og-share.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ಫಕೀರನ ಜೋಳಿಗೆ">
+<meta name="twitter:description" content="ಕಾಡ ಹೂವಿನ ಜಾಡು ಹಿಡಿಯುವವರಿಗೆ">
+<meta name="twitter:image" content="https://avigyani.github.io/Assets/og-share.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Kannada:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAF4E8; --card:#FFFDF7; --ink:#2B2118; --soft:#6B5B4A;
+    --maroon:#701120; --maroon2:#5A0D1A; --gold:#B8860B; --line:#E7DCC4; --cream:#FAF1E4;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;font-size:15px}
+  body{background:var(--paper);color:var(--ink);
+    font-family:"Noto Serif Kannada",Georgia,serif;line-height:1.7}
+  header{position:sticky;top:0;z-index:30;background:rgba(250,244,232,.96);
+    border-bottom:1px solid var(--line)}
+  .bar{max-width:880px;margin:0 auto;padding:9px 20px;display:flex;
+    align-items:center;justify-content:space-between}
+  .brand{font-size:1.25rem;font-weight:700;color:var(--maroon);text-decoration:none}
+  .dots{background:none;border:0;font-size:1.55rem;line-height:1;color:var(--maroon);
+    cursor:pointer;padding:5px 9px;border-radius:10px}
+  /* ---- three-dot panel ---- */
+  #panel{position:fixed;inset:0;z-index:50;display:none}
+  #panel.open{display:block}
+  #panel .scrim{position:absolute;inset:0;background:rgba(43,33,24,.45)}
+  #panel .sheet{position:absolute;top:0;left:0;right:0;max-height:100dvh;display:flex;flex-direction:column;
+    background:
+    radial-gradient(circle at 15% 20%, rgba(250,241,228,.08) 0 6px, transparent 7px),
+    radial-gradient(circle at 85% 70%, rgba(250,241,228,.08) 0 6px, transparent 7px),
+    var(--maroon);border-radius:0 0 20px 20px;padding:16px 20px 12px;
+    box-shadow:0 12px 30px rgba(0,0,0,.35);animation:drop .22s ease}
+  #panel .sheet *{touch-action:pan-y}
+  @keyframes drop{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+  #panel .p-head{display:flex;justify-content:space-between;align-items:flex-start}
+  #panel .p-brand{color:var(--cream);font-size:1.15rem;font-weight:700}
+  #panel .p-tag{color:#F2DDBC;font-size:.82rem}
+  #panel .close{background:none;border:0;color:var(--cream);font-size:1.35rem;cursor:pointer;padding:2px 8px}
+  #panel nav{margin-top:12px;display:grid;gap:6px;overflow-y:auto;min-height:0;
+    -webkit-overflow-scrolling:touch;touch-action:pan-y;overscroll-behavior:contain;
+    transform:translateZ(0);will-change:scroll-position}
+  #panel nav button{background:rgba(250,241,228,.07);border:1px solid rgba(250,241,228,.14);
+    color:var(--cream);border-radius:10px;padding:8px 14px;font:inherit;text-align:left;
+    cursor:pointer;display:flex;justify-content:space-between;align-items:baseline}
+  #panel nav button .en{font-size:.78rem;color:#F2DDBC;font-family:"Playfair Display",serif}
+  #panel nav button.active{background:var(--cream);color:var(--maroon);font-weight:700}
+  #panel .p-follow{margin-top:14px;border-top:1px solid rgba(250,241,228,.16);padding-top:12px;flex:none}
+  #panel .p-follow-t{color:#F2DDBC;font-size:.8rem;font-weight:700;margin-bottom:8px}
+  #panel .socials{margin:0;justify-content:flex-start;gap:15px}
+  #panel .soc{color:#F2DDBC}
+  #panel .soc .ic{color:var(--maroon)}
+  /* ---- layout ---- */
+  .wrap{max-width:880px;margin:0 auto;padding:0 20px}
+  .view{display:none;padding-bottom:10px}
+  .view.active{display:block}
+  .hero{position:relative;text-align:center;overflow:hidden;border-radius:22px;margin-top:8px;min-height:350px;
+    display:flex;align-items:center;justify-content:center;
+    background:#2a0d14 url('Assets/hero-poster.jpg') center 28%/cover no-repeat;
+    box-shadow:0 10px 30px rgba(112,17,32,.25)}
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(43,7,16,.38),rgba(43,7,16,.66))}
+  .hero-inner{position:relative;padding:34px 20px;width:100%}
+  .hero h1{font-size:2.9rem;font-weight:700;color:#FAF1E4;letter-spacing:1px;
+    text-shadow:0 2px 22px rgba(0,0,0,.65),0 0 3px rgba(0,0,0,.5)}
+  .hero .tagloop .track{color:#F2DDBC}
+  .hero-quote{display:inline-block;margin-top:12px;color:#FAF1E4;text-decoration:none;font-size:1rem;
+    text-shadow:0 2px 14px rgba(0,0,0,.7),0 0 3px rgba(0,0,0,.55)}
+  .tagloop{overflow:hidden;white-space:nowrap;margin-top:4px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+  .tagloop .track{display:inline-block;animation:slide 16s linear infinite;
+    color:var(--maroon);font-weight:700;font-size:1.02rem;letter-spacing:.5px}
+  @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  /* ---- social links (compact) ---- */
+  .socials{display:flex;gap:16px;justify-content:center;margin:16px auto 2px}
+  .soc{display:flex;flex-direction:column;align-items:center;gap:3px;
+    text-decoration:none;color:var(--soft)}
+  .soc .ic{width:37px;height:37px;border-radius:50%;background:var(--card);
+    border:1px solid var(--line);display:flex;align-items:center;justify-content:center;
+    color:var(--maroon);box-shadow:0 1px 5px rgba(112,17,32,.06)}
+  .soc .ic .soc-img{width:100%;height:100%;border-radius:50%;object-fit:cover;display:block}
+.soc .soc-letter{font-family:"Playfair Display",serif;font-weight:700;font-size:1.05rem}
+  .soc .nm{font-size:.66rem;font-weight:600}
+  .socials button.soc{background:none;border:0;padding:0;font:inherit;cursor:pointer}
+  h2.sec{font-size:1.3rem;color:var(--maroon);margin:26px 0 12px;text-align:center}
+  h2.sec .en{font-family:"Playfair Display",serif;font-size:.9rem;color:var(--gold);display:block;font-style:italic}
+  /* ---- home: collection cards (the paths) ---- */
+  .paths{display:grid;gap:12px;margin-top:18px}
+  @media(min-width:640px){.paths{grid-template-columns:1fr 1fr 1fr}}
+  .path{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    box-shadow:0 2px 10px rgba(112,17,32,.05);cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0}
+  .path img{width:100%;height:130px;object-fit:cover;object-position:center 32%;display:block}
+  .path .pi{padding:12px 14px 14px}
+  .path h3{font-size:1.08rem}
+  .path .meta{color:var(--gold);font-size:.8rem;font-weight:600}
+  .path .arr{color:var(--maroon);font-weight:700;float:right}
+  /* ---- home: sliding rows of 4 + big posts ---- */
+  .car-row{overflow:hidden;margin-top:14px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}
+  .car-track{display:flex;width:max-content;will-change:transform}
+  .car-track .path{width:196px;flex:none;margin-right:12px}
+  .car-track img{-webkit-user-drag:none;user-select:none}
+  @media(max-width:640px){.car-track .path{width:148px}.car-track .path img{height:104px}}
+  .car-row{touch-action:pan-y;cursor:grab}
+  .car-row:active{cursor:grabbing}
+  .bigrow{display:grid;gap:12px;margin-top:14px}
+  @media(min-width:640px){.bigrow{grid-template-columns:1fr 1fr}}
+  .path.big img{height:235px}
+  @media(max-width:640px){.path.big img{height:205px}}
+  .path.big h3{font-size:1.22rem}
+  /* ---- poem page ---- */
+  .backbtn{background:none;border:1px solid var(--line);border-radius:999px;
+    padding:6px 15px;font:inherit;cursor:pointer;color:var(--maroon);font-weight:600;margin-top:18px}
+  .poempage{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    overflow:hidden;box-shadow:0 3px 14px rgba(112,17,32,.06);margin-top:14px;touch-action:pan-y}
+  .poempage img{-webkit-user-drag:none}
+  .poempage .imgwrap{height:300px;background:#EFE6D2}
+  @media(max-width:640px){.poempage .imgwrap{height:230px}}
+  .poempage .imgwrap img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block}
+  .poempage .inner{padding:20px 24px 22px}
+  .poempage h3{font-size:1.32rem;color:var(--maroon);text-align:center}
+  .poempage .count{text-align:center;color:var(--gold);font-weight:600;font-size:.86rem;margin-top:2px}
+  .poempage .body{white-space:pre-wrap;font-size:1rem;line-height:1.95;margin-top:14px}
+  .poempage .sign{text-align:right;color:var(--maroon);font-weight:700;margin-top:12px}
+  .poemfoot{text-align:center;margin-top:20px}
+  .tea-btn{background:var(--maroon);color:var(--cream);border:0;border-radius:999px;
+    padding:11px 30px;font:inherit;font-weight:700;font-size:1rem;cursor:pointer;
+    box-shadow:0 2px 10px rgba(112,17,32,.18)}
+  .pf-label{color:var(--gold);font-weight:700;font-size:.84rem;margin-top:18px}
+  .controls{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+  .controls button:disabled{opacity:.35;cursor:default}
+  footer .tea-btn{margin-bottom:4px}
+  .music-btn{position:fixed;right:16px;bottom:16px;z-index:60;width:46px;height:46px;border-radius:50%;
+    border:2px solid var(--gold,#F2DDBC);background:var(--maroon);color:#FAF1E4;font-size:1.3rem;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    box-shadow:0 4px 16px rgba(43,7,16,.35)}
+  .music-btn.off{opacity:.55}
+  .music-btn.off::after{content:"";position:absolute;left:6px;right:6px;top:50%;height:2px;
+    background:#FAF1E4;transform:rotate(-38deg)}
+  .music-btn:not(.off){animation:mpulse 2.4s ease-in-out infinite}
+  @keyframes mpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+  .copy-btn{margin-top:12px;background:var(--paper);color:var(--maroon);border:1.5px solid var(--maroon);
+    padding:9px 18px;border-radius:999px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer}
+  .copied{margin-top:8px;font-size:.82rem;color:#0A8041;font-weight:600;min-height:1.1em}
+  footer .pf-label{margin-top:14px}
+  .controls button{background:var(--maroon);color:var(--cream);border:0;border-radius:999px;
+    padding:8px 18px;font:inherit;font-weight:600;cursor:pointer}
+  .controls .pos{color:var(--soft);font-weight:600;font-size:.9rem}
+  
+/* ---- suggestion card (home) + poem comments ---- */
+.suggest-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-top:26px;box-shadow:0 2px 12px rgba(112,17,32,.06)}
+.suggest-t{color:var(--maroon);font-size:1.18rem;text-align:center;margin-bottom:14px}
+.suggest-card form{display:grid;gap:10px}
+.suggest-card input,.suggest-card textarea{font:inherit;font-size:.92rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--paper);color:var(--ink);width:100%}
+.suggest-btn{background:var(--maroon);color:var(--cream);border:0;border-radius:999px;padding:11px;font:inherit;font-weight:700;cursor:pointer}
+/* ---- AI card + panel (compact) ---- */
+.ai-card{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin:10px 0 2px;box-shadow:0 2px 10px rgba(112,17,32,.08)}
+.ai-card .ai-t{font-weight:700;color:var(--maroon);font-size:.95rem;flex:1}
+.ai-card button{background:var(--maroon);color:var(--cream);border:0;border-radius:999px;padding:7px 14px;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer}
+.ai-card button.alt{background:var(--paper);color:var(--maroon);border:1.5px solid var(--maroon)}
+.ai-sheet{position:fixed;left:0;right:0;bottom:0;top:0;z-index:90;display:none}
+.ai-sheet.open{display:block}
+.ai-scrim{position:absolute;inset:0;background:rgba(43,7,16,.45)}
+.ai-box{position:absolute;left:50%;transform:translateX(-50%);bottom:0;width:min(560px,100%);max-height:78vh;overflow:auto;background:var(--paper);border-radius:18px 18px 0 0;padding:14px 16px 18px;box-shadow:0 -6px 30px rgba(43,7,16,.3)}
+.ai-head{display:flex;align-items:center;justify-content:space-between}
+.ai-head .t{font-weight:700;color:var(--maroon);font-size:1rem}
+.ai-x{background:none;border:0;font-size:1.15rem;cursor:pointer;color:var(--soft)}
+.ai-tabs{display:flex;gap:8px;margin:10px 0}
+.ai-tabs button{flex:1;border-radius:999px;padding:8px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;border:1.5px solid var(--maroon);background:var(--paper);color:var(--maroon)}
+.ai-tabs button.on{background:var(--maroon);color:var(--cream)}
+.ai-langs{display:none;flex-wrap:wrap;gap:6px;margin:0 0 8px}
+.ai-langs.show{display:flex}
+.ai-langs button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 11px;font:inherit;font-size:.78rem;cursor:pointer;color:var(--ink)}
+.ai-langs button.on{background:#F2DDBC;border-color:var(--maroon);font-weight:700}
+.ai-box textarea{width:100%;font:inherit;font-size:.92rem;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#FFF;color:var(--ink);resize:vertical}
+.ai-go{width:100%;margin-top:8px;background:var(--maroon);color:var(--cream);border:0;border-radius:999px;padding:10px;font:inherit;font-weight:700;cursor:pointer}
+.ai-go:disabled{opacity:.5}
+.ai-out{display:none;margin-top:10px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.92rem;line-height:1.75;white-space:pre-wrap}
+.ai-out.show{display:block}
+.comments{margin-top:26px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;box-shadow:0 2px 12px rgba(112,17,32,.05)}
+.comments h3{color:var(--maroon);font-size:1.12rem;text-align:center;margin-bottom:10px}
+
+/* ---- welcome popup ---- */
+.wpop{position:fixed;inset:0;z-index:90;background:rgba(43,33,24,.55);display:flex;align-items:center;justify-content:center;padding:22px}
+.wpop.hide{display:none}
+.wpop-card{position:relative;background:var(--paper);border:2px solid var(--maroon);border-radius:20px;padding:30px 24px 24px;max-width:350px;width:100%;text-align:center;box-shadow:0 18px 44px rgba(0,0,0,.4);animation:wpin .28s ease}
+@keyframes wpin{from{transform:scale(.9);opacity:0}to{transform:scale(1);opacity:1}}
+.wpop-x{position:absolute;top:8px;right:10px;background:none;border:0;font-size:1.15rem;color:var(--maroon);cursor:pointer;padding:4px 8px;line-height:1}
+.wpop-q{font-size:1.42rem;font-weight:700;color:var(--maroon);line-height:1.45}
+.wpop-t{color:var(--gold);font-weight:700;font-size:.86rem;margin-top:16px}
+.wpop-socials{display:flex;justify-content:center;gap:15px;margin-top:8px}
+
+/* ---- support ---- */
+  .support{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:24px 22px;text-align:center;margin:32px 0 6px;
+    box-shadow:0 2px 12px rgba(112,17,32,.06)}
+  .support h2{font-family:"Noto Serif Kannada","Playfair Display",serif;font-size:1.35rem;color:var(--maroon)}
+  .support p{color:var(--soft);max-width:520px;margin:8px auto 0;font-size:.95rem}
+  .qr-slot{margin:20px auto 6px;width:216px;height:216px;background:#fff;
+    border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;
+    justify-content:center;padding:8px;box-shadow:0 2px 8px rgba(112,17,32,.07)}
+  .qr-slot img{width:200px;height:200px;display:block}
+  .pay-btn{display:inline-block;margin-top:12px;background:#0A8041;color:#fff;
+    text-decoration:none;padding:10px 24px;border-radius:999px;font-weight:600}
+  .app-row{gap:8px;flex-wrap:wrap;justify-content:center;margin-top:12px}
+  .app-btn{display:inline-block;background:#FFFDF7;color:var(--maroon);border:1.5px solid var(--maroon);
+    text-decoration:none;padding:8px 16px;border-radius:999px;font-weight:600;font-size:.88rem}
+  /* ---- about / photos / awards / book ---- */
+  .about-photo{display:block;margin:4px auto 12px;width:110px;height:110px;object-fit:cover;
+    border-radius:50%;border:3px solid var(--gold)}
+  .foreword{max-width:640px;margin:26px auto 0;background:var(--card);border:1px solid var(--line);
+    border-left:4px solid var(--gold);border-radius:12px;padding:20px 22px;text-align:left}
+  .foreword h3{color:var(--maroon);font-size:1.05rem;margin-bottom:10px}
+  .foreword h3 span{color:var(--gold);font-family:"Playfair Display",serif;font-style:italic;font-size:.86rem}
+  .foreword p{margin-bottom:10px;font-size:.94rem}
+  .fw-sign{text-align:right;color:var(--maroon);font-weight:700}
+  .link-btn{margin-top:22px;background:transparent;border:1.5px solid var(--maroon);color:var(--maroon);
+    border-radius:999px;padding:9px 24px;font:inherit;font-weight:700;cursor:pointer}
+  .about-txt{max-width:600px;margin:0 auto;text-align:center}
+  .about-txt .en{color:var(--soft);margin-top:10px}
+  .about-channels{text-align:center;margin-top:16px;color:var(--maroon);font-weight:600;font-size:.92rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:11px}
+  .grid figure{border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--card)}
+  .grid img{width:100%;height:155px;object-fit:cover;display:block}
+  .grid figcaption{padding:6px 9px;font-size:.8rem;color:var(--soft);text-align:center}
+  .motif{text-align:center;color:var(--gold);font-size:1.4rem;margin:22px 0}
+  .book-img{display:block;width:215px;margin:6px auto;border-radius:6px 12px 12px 6px;
+    box-shadow:8px 10px 24px rgba(43,33,24,.35)}
+  .book-title{text-align:center;font-size:1.3rem;color:var(--maroon);font-weight:700;margin-top:16px}
+  .book-author{text-align:center;color:var(--soft)}
+  .book-price{text-align:center;margin-top:8px;font-size:1.05rem}
+  .book-price b{color:var(--maroon);font-size:1.2rem}
+  .book-price s{color:var(--soft)}
+  .book-quote{max-width:520px;margin:16px auto 0;text-align:center;font-style:italic;
+    color:var(--ink);white-space:pre-wrap}
+  .book-note{max-width:560px;margin:12px auto 0;text-align:center;color:var(--soft);font-size:.93rem}
+  .buy-row{display:flex;flex-direction:column;gap:10px;align-items:center;margin-top:18px}
+  .buy-btn{display:inline-block;background:var(--maroon);color:var(--cream);
+    text-decoration:none;padding:11px 30px;border-radius:999px;font-weight:700}
+  .buy-btn.alt{background:transparent;color:var(--maroon);border:1.5px solid var(--maroon)}
+  .awards-list{display:grid;gap:14px;max-width:560px;margin:0 auto}
+  .award-card{background:var(--card);border:1px solid var(--gold);
+    border-radius:16px;padding:22px;text-align:center;box-shadow:0 2px 12px rgba(184,134,11,.12)}
+  .award-card .aw{font-size:1.25rem;color:var(--maroon);font-weight:700}
+  .award-card .ay{color:var(--gold);font-weight:700;font-size:1.05rem}
+  .award-card .ab{color:var(--soft);margin-top:6px;font-size:.93rem}
+  .award-img{display:block;width:min(300px,82%);margin:0 auto;border-radius:12px;
+    box-shadow:0 6px 20px rgba(43,33,24,.25)}
+  footer{border-top:1px solid var(--line);margin-top:40px;padding:22px 20px 32px;
+    text-align:center;color:var(--soft);font-size:.88rem}
+  footer .sig{color:var(--maroon);font-weight:700;font-size:1rem}
+  .notif{position:relative;height:58px;margin:10px 0 2px;border-radius:14px;overflow:hidden;background:linear-gradient(135deg,rgba(242,221,188,.88),rgba(250,241,228,.78));border:1px solid rgba(112,17,32,.25);box-shadow:0 2px 10px rgba(112,17,32,.12);touch-action:pan-y;-webkit-user-select:none;user-select:none}
+  .ntrack{display:flex;height:100%;will-change:transform}
+  .nslide{flex:0 0 100%;display:flex;align-items:center;justify-content:center;padding:6px 12px;font-size:1.1rem;font-weight:600;line-height:1.35;color:#701120;text-align:center;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <a class="brand" href="#" data-goto="poems">ಅವಿಜ್ಞಾನಿ</a>
+    <button class="dots" id="menuBtn" aria-label="Menu">⋮</button>
+  </div>
+</header>
+
+<div class="wpop" id="welcomePop">
+  <div class="wpop-card">
+    <button class="wpop-x" id="wpopClose" aria-label="Close">✕</button>
+    <p class="wpop-q">ಅವಿಜ್ಞಾನಿ ಯನ್ನು ಹುಡುಕುತ್ತಿದ್ದೀರಾ!?</p>
+    <p class="wpop-t">ಹಿಂಬಾಲಿಸಿ</p>
+    <div class="socials wpop-socials">
+        <a class="soc" href="https://www.instagram.com/avigyani"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="nm">Instagram</span></a>
+        <a class="soc" href="https://facebook.com/avigyaani"><span class="ic"><span class="soc-letter">f</span></span><span class="nm">Facebook</span></a>
+        <a class="soc" href="https://www.youtube.com/@homosep"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="M10.2 9.3v5.4l4.8-2.7z" fill="#FFFDF7"/></svg></span><span class="nm">YouTube</span></a>
+        <a class="soc" href="https://kannada.pratilipi.com/user/ಅವಿಜ್ಞಾನಿ-t1qb7i8yqx"><span class="ic"><img class="soc-img" src="Assets/pratilipi-logo.jpg" alt="Pratilipi"></span><span class="nm">Pratilipi</span></a>
+    </div>
+  </div>
+</div>
+
+<div id="panel">
+  <div class="scrim" id="scrim"></div>
+  <div class="sheet">
+    <div class="p-head">
+      <div>
+        <div class="p-brand">ಅವಿಜ್ಞಾನಿ</div>
+        <div class="p-tag">ಖಾಲಿ ಜೇಬಿನ ಫಕೀರ</div>
+      </div>
+      <button class="close" id="closeBtn" aria-label="Close">✕</button>
+    </div>
+    <nav id="menuNav">
+      <button data-view="about">ನಿಮ್ಮ ಕುತೂಹಲಕ್ಕೆ</button>
+      <button data-view="poems" class="active">ಗೀಚಿಟ್ಟಿದ್ದು</button>
+      <button data-view="photos">ಚೆಹರೆಗಳು</button>
+      <button data-view="awards">ಕಡಿದು ಗುಡ್ಡೆ ಹಾಕಿದ್ದು</button>
+      <button data-view="book">ಅಚ್ಚಾಗಿದ್ದು</button>
+      <button data-view="chaya">ಚಾಯ ಕೊಡಿಸಿ</button>
+    </nav>
+    <div class="p-follow">
+      <div class="p-follow-t">ಹಿಂಬಾಲಿಸಿ</div>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/avigyani" data-net="instagram"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="nm">Instagram</span></a>
+        <a class="soc" href="https://facebook.com/avigyaani" data-net="facebook"><span class="ic"><span class="soc-letter">f</span></span><span class="nm">Facebook</span></a>
+        <a class="soc" href="https://www.youtube.com/@homosep" data-net="youtube"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="M10.2 9.3v5.4l4.8-2.7z" fill="#FFFDF7"/></svg></span><span class="nm">YouTube</span></a>
+        <a class="soc" href="https://kannada.pratilipi.com/user/ಅವಿಜ್ಞಾನಿ-t1qb7i8yqx" data-net="pratilipi"><span class="ic"><img class="soc-img" src="Assets/pratilipi-logo.jpg" alt="Pratilipi"></span><span class="nm">Pratilipi</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="wrap">
+<section class="view active" id="view-poem">
+    <a class="backbtn" id="backBtn" href="index.html">‹ Home</a>
+    <div class="poempage" id="poempage">
+      <div class="imgwrap"><img id="ppImg" src="Assets/hani-13.jpg" alt="ಬದುಕಿದ ಹನಿಗಳು"></div>
+      <div class="inner">
+        <h3 id="ppTitle">ಬದುಕಿದ ಹನಿಗಳು</h3>
+        <div class="count" id="ppCount">ಹನಿ 13 / 45</div>
+        <div class="body" id="ppBody">ನನ್ನ ನೋವ ಕುರಿತು
+ಕೇಳಬೇಡ
+ನಲಿವಿನ ವಿಳಾಸ
+ಮರೆತ ಹುಡುಗ ನಾನು.!</div>
+        <div class="sign">-ಅವಿಜ್ಞಾನಿ</div>
+        <div class="controls" id="ppControls" style="display:flex">
+          <button id="ppPrev">‹ ಹಿಂದೆ</button>
+          <span class="pos" id="ppPos">13 / 45</span>
+          <button id="ppNext">ಮುಂದೆ ›</button>
+        </div>
+      </div>
+    </div>
+    <div class="poemfoot">
+      <div class="pf-label" style="margin-top:2px">ಹಂಚಿಕೊಳ್ಳಿ</div>
+      <div class="socials">
+        <button class="soc" data-share="fb" data-scope="poem"><span class="ic"><span class="soc-letter">f</span></span><span class="nm">Facebook</span></button>
+        <button class="soc" data-share="ig" data-scope="poem"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="nm">Instagram</span></button>
+        <button class="soc" data-share="x" data-scope="poem"><span class="ic"><span class="soc-letter">X</span></span><span class="nm">X</span></button>
+        <button class="soc" data-share="tg" data-scope="poem"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span><span class="nm">Telegram</span></button>
+        <button class="soc" data-share="wa" data-scope="poem"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span class="nm">WhatsApp</span></button>
+        <button class="soc" data-share="mail" data-scope="poem"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span class="nm">Email</span></button>
+      </div>
+      <button class="copy-btn" id="poemTrBtn">🌐 ಈ ಕವನವನ್ನು ಅನುವಾದಿಸಿ</button><br>
+      <button class="tea-btn" data-goto="chaya">☕ ಚಾಯ ಕೊಡಿಸಿ</button>
+      <div class="pf-label">ಹಿಂಬಾಲಿಸಿ</div>
+      <div class="socials">
+        <a class="soc" href="https://www.instagram.com/avigyani"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="nm">Instagram</span></a>
+        <a class="soc" href="https://facebook.com/avigyaani"><span class="ic"><span class="soc-letter">f</span></span><span class="nm">Facebook</span></a>
+        <a class="soc" href="https://www.youtube.com/@homosep"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="M10.2 9.3v5.4l4.8-2.7z" fill="#FFFDF7"/></svg></span><span class="nm">YouTube</span></a>
+        <a class="soc" href="https://kannada.pratilipi.com/user/ಅವಿಜ್ಞಾನಿ-t1qb7i8yqx"><span class="ic"><img class="soc-img" src="Assets/pratilipi-logo.jpg" alt="Pratilipi"></span><span class="nm">Pratilipi</span></a>
+      </div>
+    </div>
+
+    <div class="comments" id="poemComments">
+      <h3>ಪ್ರತಿಕ್ರಿಯೆಗಳು · Comments</h3>
+      <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+      <div id="waline"></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <button class="tea-btn" data-goto="chaya">☕ ಚಾಯ ಕೊಡಿಸಿ</button>
+  <div class="pf-label">ಹಿಂಬಾಲಿಸಿ</div>
+  <div class="socials">
+    <a class="soc" href="https://www.instagram.com/avigyani"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="nm">Instagram</span></a>
+    <a class="soc" href="https://facebook.com/avigyaani"><span class="ic"><span class="soc-letter">f</span></span><span class="nm">Facebook</span></a>
+    <a class="soc" href="https://www.youtube.com/@homosep"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16"><rect x="2.5" y="5.5" width="19" height="13" rx="4" fill="currentColor"/><path d="M10.2 9.3v5.4l4.8-2.7z" fill="#FFFDF7"/></svg></span><span class="nm">YouTube</span></a>
+    <a class="soc" href="https://kannada.pratilipi.com/user/ಅವಿಜ್ಞಾನಿ-t1qb7i8yqx"><span class="ic"><img class="soc-img" src="Assets/pratilipi-logo.jpg" alt="Pratilipi"></span><span class="nm">Pratilipi</span></a>
+  </div>
+  <div class="pf-label">ಹಂಚಿಕೊಳ್ಳಿ</div>
+  <div class="socials">
+    <button class="soc" data-share="fb" data-scope="site"><span class="ic"><span class="soc-letter">f</span></span><span class="nm">Facebook</span></button>
+    <button class="soc" data-share="ig" data-scope="site"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></span><span class="nm">Instagram</span></button>
+    <button class="soc" data-share="x" data-scope="site"><span class="ic"><span class="soc-letter">X</span></span><span class="nm">X</span></button>
+    <button class="soc" data-share="tg" data-scope="site"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg></span><span class="nm">Telegram</span></button>
+    <button class="soc" data-share="wa" data-scope="site"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span><span class="nm">WhatsApp</span></button>
+    <button class="soc" data-share="mail" data-scope="site"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span class="nm">Email</span></button>
+  </div>
+  <div class="sig">-ಅವಿಜ್ಞಾನಿ</div>
+  <div>ಸರ್ವ ಹಕ್ಕುಗಳೂ ಕವಿಯವು · All poems © Avigyani</div>
+</footer>
+
+<div class="ai-sheet" id="aiSheet">
+  <div class="ai-scrim" id="aiScrim"></div>
+  <div class="ai-box">
+    <div class="ai-head"><span class="t">🤖 ಅವಿಜ್ಞಾನಿ AI</span><button class="ai-x" id="aiClose" aria-label="Close">✕</button></div>
+    <div class="ai-tabs">
+      <button id="tabAsk" class="on">AI ಯನ್ನು ಕೇಳಿ</button>
+      <button id="tabTr">ಅನುವಾದಕ</button>
+    </div>
+    <div class="ai-langs" id="aiLangs">
+      <button data-lang="English" class="on">English</button>
+      <button data-lang="Hindi">Hindi</button>
+      <button data-lang="Kannada">Kannada</button>
+      <button data-lang="Tamil">Tamil</button>
+      <button data-lang="Telugu">Telugu</button>
+      <button data-lang="Malayalam">Malayalam</button>
+    </div>
+    <textarea id="aiInput" rows="3" placeholder="ಪ್ರಶ್ನೆ ಕೇಳಿ…"></textarea>
+    <button class="ai-go" id="aiGo">ಕಳುಹಿಸಿ</button>
+    <div class="ai-out" id="aiOut"></div>
+  </div>
+</div>
+
+<audio id="bgMusic" src="Assets/sufi-music.mp3" loop preload="auto"></audio>
+<button class="music-btn off" id="musicBtn" aria-label="Sufi music on/off">♪</button>
+
+<script>
+
+const DATA = {"collections": [{"id": "rangu", "title": "ಬದುಕಿಗೆ ರಂಗು", "meta": "12 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/rangu.jpg", "body": "ಬದುಕಿಗೆ ರಂಗು ಮೆತ್ತುವ ಈ ಉಸಾಬರಿ, ಶತಮಾನಗಳಿಂದ ನನ್ನ ಬೆನ್ನು ತೊರೆದಿಲ್ಲ.\nಇನ್ನೂ ರೂಪ ಬೇಕು, ರೂಪ ಬೇಕು ಎನ್ನುವ ಸದ್ಧಿಗೆ, ಕುಂಚದ ಕಣ್ಣೀರಷ್ಟೇ ಇಂಗಿ ಹೋಗುತ್ತಿದೆ.\nಪ್ರೀತಿಯ ಬಣ್ಣ ಹಚ್ಚಿದಾಗ, ಮೋಸದ ಚಿತ್ತಾರವೂ ಅರಳುತ್ತದೆ.\nಪ್ರೇಮದ ಚಿನ್ಹೆ ಇಟ್ಟಲ್ಲಿ, ಕಾಮದ ಮೊಗ್ಗು.\nನಲಿವಿನ ನೆರಳಾಡಿಸಿದ್ದಷ್ಟೇ, ದುಃಖ ಸಾಗರವೇ ಹರಿಯತೊಡಗುತ್ತದೆ.\nಕ್ಯಾನ್ವಾಸ್ ತುಂಬಾ ಸುಖದ ಬಣ್ಣ ಹುಡುಕುತ್ತೇನೆ, ಕೈಗೆಟಕುವುದು ದರ್ದಿನ ಕುಪ್ಪಿಗಳು.\nಸ್ನೇಹದ ರೇಖೆ ಎಳೆದಲ್ಲಿ, ನಂಜಿನ ಚುಕ್ಕೆ ಲಗ್ಗೆ ಇಟ್ಟಂತೆ.\nನಂಬಿಕೆಯ ಗೆರೆಗೆ, ದ್ರೋಹದ ಶೇಡ್ ಅಡ್ಡ ಬರುತ್ತದೆ.\nಪರಿಪೂರ್ಣ ಬಣ್ಣ ಮೆತ್ತಲಾಗದಿದ್ದಾಗ, ಬದುಕಿನ ಒಂದೇ ಹನಿ ಚಿಮುಕಿಸ ನೋಡುತ್ತೇನೆ.\nಒಳಗಿಳಿದ ಪ್ರತಿ ಬೊಟ್ಟುಗಳೂ, ಸಾವಿನ ಅಮೂರ್ತ ರೂಪವಾಗಿ ಮಾರ್ಪಾಟುಗೊಳ್ಳುತ್ತದೆ.\nಈ ರಂಗಿನ ಉಸಾಬರಿ ದಕ್ಕುವುದಿಲ್ಲ ನನಗೆ.\nಇನ್ನೂ ಬೇಕೆನ್ನುವ ಘೋಷಣೆ ನಿಲ್ಲುವುದಿಲ್ಲ, ಕೊನೆಗೆ!"}]}, {"id": "preeti", "title": "ಅವನ ಪ್ರೀತಿ", "meta": "33 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/preeti.jpg", "body": "ಅವನನ್ನು ತುಂಬಾ\nಪ್ರೀತಿಸುತ್ತಾರೆ ಹಿಂದಿನಿಂದ;\nಅವನಿಗದು\nತೀರಾ ತಿಳಿಬಯಸದ ವಿಷಯ\nಅಥವಾ\nನಿರಾಸಕ್ತಿ ಸಮಾಚಾರ.\n\nಕತ್ತಲು ಕಣ್ಣಿನವನು\nಲೋಕದ ಬೆಳಕಿಗೆ\nಕುರುಡು ನಡೆಯವನು;\nಜಗದ ನಾಲಿಗೆಗೆ\nರುಚಿಯಿಲ್ಲದ ಮೀನಿನಂತವನು.\n\nಇಂತಿಪ್ಪ ಇವನ\nಊರು ತುಂಬಾ ಪ್ರೀತಿಸುತ್ತಾರೆ;\nಕಾಣದ ಗಾಳಿ ಎಂಬಂತೆ\nನೋಡಬೇಕೆಂಬ\nಅರುಂಧತಿ ನಕ್ಷತ್ರದಂತೆ.\n\nಅವ ತುಂಬಾ ಕಾಡುತ್ತಾನೆ\nನಿಮ್ಮದೇ ಖಾಯಿಲೆಯಂತೆ;\nದವಾಯಿ ಹುಡುಕಬೇಡಿ\nಅಭ್ಯಾಸವಾಗುತ್ತಾನೆ\nನಿಮ್ಮದೇ ಆದತ್ತಿನಂತೆ.\n\nಅಂತವನೊಬ್ಬ ನಿಮ್ಮ\nಬಳಿ ಹಾದುಹೋಗುತ್ತಾನೆ;\nಆದರೆ ಆಗ ಯಾವ\nಕಾಗದ ಅಲುಗಾಡುವುದಿಲ್ಲ,\nಬದಲಿಗೆ,ಸಮಯ\nಆ ನಿಮಿಷಗಳನ್ನು ಕಡ\nತೆಗೆದುಕೊಳ್ಳುತ್ತದೆ\nನಿಮ್ಮಿಂದ ಮುಂದೆಂದಿಗೂ.!"}]}, {"id": "hanigalu", "title": "ಬದುಕಿದ ಹನಿಗಳು", "meta": "45 ಹನಿಗಳು · drops", "slideLabel": "ಹನಿ", "slides": [{"img": "Assets/hani-01.jpg", "body": "ಸತಾಯಿಸುವ ಸಾವಿಗೇನು\nಗೊತ್ತು\nಬದುಕುವ ದರ್ದು..!?"}, {"img": "Assets/hani-02.jpg", "body": "ದಿನಾ ಸಾಯುವುದನ್ನು\nಕಲಿತಿದ್ದೇನೆ ಬದುಕೇ\nಬದುಕುವುದನ್ನೊಮ್ಮೆ\nಕಲಿಸಿಕೊಡು.!"}, {"img": "Assets/hani-03.jpg", "body": "ಡೊಂಕಾಗಿ ನಡೆದಾಗ\nಮುಸಿ ನಗುವ ಸಂತೆಯವರು\nಕಾಲ ಊತದ ಕುರಿತು\nತರ್ಕಿಸಿದ್ದಿಲ್ಲ.!"}, {"img": "Assets/hani-04.jpg", "body": "ಬದುಕು ಬಾಗಲು\nಕಲಿಸಿತು ಬಾಗಿದೆ\nಈಗ ಈ ಕಲೆ\nಮಾಗಿದೆ..!"}, {"img": "Assets/hani-05.jpg", "body": "ನಾ ಗಳಿಸಿಕೊಂಡಿದ್ದೆಲ್ಲ\nಗಾಳಿಮಾತು\nಬದುಕಿದ್ದಷ್ಟೇ ಕವಿತೆ.!"}, {"img": "Assets/hani-06.jpg", "body": "ಬದುಕು ಮಗುವಿನ\nಖುಷಿಯಾಗಲಿಲ್ಲ\nಮುಪ್ಪಿನ ನಂಬುಗೆಯಾದರೂ\nಆಗಿಹೋಗಲಿ..!"}, {"img": "Assets/hani-07.jpg", "body": "ನನ್ನ ದಿನಮಾನದ\nಗಡಿಯಾರ ಬಿಕ್ಕುವುದನ್ನಷ್ಟೇ\nಕಲಿತುಕೊಂಡಿದೆ\nಮತ್ತು ನಾನೂ..!"}, {"img": "Assets/hani-08.jpg", "body": "ಅಂಗೈಯಗಲ\nನಸೀಬಿನವನಲ್ಲಿ\nಬೊಗಸೆಯಷ್ಟಿನ\nದರ್ದು..!"}, {"img": "Assets/hani-09.jpg", "body": "ದಲ್ಲಾಳಿತನದ\nಜಗತ್ತಿದು\n'ಫಕೀರಾ,\nನಿನ್ನ ಕಫನ್ ಕೂಡ\nಲಾಭದ ಲೆಕ್ಕಾಚಾರಕ್ಕೆ\nಬಟವಾಡೆಯಾಗುತ್ತದೆ.!"}, {"img": "Assets/hani-10.jpg", "body": "ನನ್ನ ನತದೃಷ್ಟತೆಯಲ್ಲಿ\nನೀನಷ್ಟೇಯಲ್ಲ\nಈ ಬದುಕು ಕೂಡ..!"}, {"img": "Assets/hani-11.jpg", "body": "ಸುಡುವ\nಬದುಕ ಮೇಲೆ\nಹೊಗೆಯಾಡಿಸುವ\nನೋವು..!"}, {"img": "Assets/hani-12.jpg", "body": "ಬದುಕ ಬಗ್ಗೆ\nರಮ್ಯವಾಗಿ ಬರೆದವ\nತನ್ನ ನಿಜಾಯಿತಿಯ\nದಾಖಲಾತಿ ಮಾಡಲಾಗದೇ\nಮರಗುತ್ತಾನೆ.!"}, {"img": "Assets/hani-13.jpg", "body": "ನನ್ನ ನೋವ ಕುರಿತು\nಕೇಳಬೇಡ\nನಲಿವಿನ ವಿಳಾಸ\nಮರೆತ ಹುಡುಗ ನಾನು.!"}, {"img": "Assets/hani-14.jpg", "body": "ನೀ ನೀನಾಗಿಯೇ ಇರು\n'ಅವಿ,\nಇಲ್ಲಿಯವರಿಗೆ\nಸಂತನಾಗುವಷ್ಟು ಹಪಾಹಪಿ\nಮನುಷ್ಯನಾಗಲು ಇಲ್ಲ.!"}, {"img": "Assets/hani-15.jpg", "body": "ಬದುಕಿಗಾಗಿ\nಬಾಗುತ್ತೇನೆ ಬಹಳವೇ\nದಕ್ಕಿದ್ದು ಬೆನ್ನುಲುಬ ನೆಟ್ಟಿಗೆ\nಮುರಿಯುವ ಸದ್ದಷ್ಟೇ.!"}, {"img": "Assets/hani-16.jpg", "body": "ಊತ ಕಾಲಿನದ್ದೇ\nಆಗಿತ್ತು\nಗೀರೆಳೆದದ್ದು ಬದುಕಲ್ಲಿ.!"}, {"img": "Assets/hani-17.jpg", "body": "ನಿನ್ನ ಬಿರಿದ ತೇಗಿಗಿಂತ\nನನ್ನ ಹಸಿವ ಕೂಗು\nಜೋರಾಗಿ ಕೇಳಿಸುತ್ತದೆ"}, {"img": "Assets/hani-18.jpg", "body": "ನಿನ್ನ ಹಿಸಾಬಿನ\nಅಳತೆಗೋಲು\nಸರಿಯಿರಲಿ ಖುದಾ\nಬೆವರ ಲೆಕ್ಕ ಹೇಳಲಿಕ್ಕಿದೆ\nನನಗೆ..!"}, {"img": "Assets/hani-19.jpg", "body": "ಸೋಲಿನ ಕುರಿತು ಪರಾಧಿ\nಇಲ್ಲ ನನಗೆ\nನಸೀಬಿನ ಗೆರೆಯೇ\nಅಳಿದ ಹುಡುಗ ನಾನು..!"}, {"img": "Assets/hani-20.jpg", "body": "ಧ್ಯಾನಸ್ಥ ಹೂವಿನ ಮೌನ\nಮರಣ ಮೃದುಂಗವಾಗಿದೆ ಈಗ\nಪಕಳೆಯ ಮಿಡಿತ ಮಸಣದ\nಕೂಗು.!"}, {"img": "Assets/hani-21.jpg", "body": "ನನ್ನ ಪರಿತಾಪಗಳು\nನಿನ್ನ ಸಂತಾಪದ\nಹುಕಿಗಾಗಿ ಅಲ್ಲ,\nಬದುಕು ದಕ್ಕದ ಸಲುವಾಗಿ..!!"}, {"img": "Assets/hani-22.jpg", "body": "ನನ್ನ ಕಡದ ಕೈ\nಕೊಳೆಯಾಗಿ ಕಾಣಬಹುದು\nಒರೆಸಿಕೋ ಕಣ್ಣ\nಮಸಿ ಮೈಯಲಲ್ಲ\nಮನಸ್ಸಿನಲ್ಲಾಗಿದೆ ನಿನ್ನ.!"}, {"img": "Assets/hani-23.jpg", "body": "ಪ್ರೀತಿ ಪ್ರೇಮ\nಕಾಮದ ಕುರಿತು\nರಮಣೀಯವಾಗಿ\nಬರೆಯಬಹುದಾಗಿತ್ತು\nಹಸಿವಿರದಿದ್ದರೆ.!"}, {"img": "Assets/hani-24.jpg", "body": "ಬೆರಳು ಚಾಚದಿರಿ\nನನ್ನತ್ತ ಕವಿಯೆಂದು\nಬೆಸೆಯಲಾರೆ ಗೆರೆಯನ್ನು\nಬದುಕಿರದರಲ್ಲಿ.!"}, {"img": "Assets/hani-25.jpg", "body": "ರಾತ್ರಿಗಳೆಷ್ಟೋ ಜಾರಿ ಹೋದವು\nಕನಸ ದೀಪ ಆರದಿರಲೆಂಬ\nಪ್ರಾರ್ಥನೆಯಲ್ಲಿ\nಗೀರ ಬೊಗಸೆ ನನ್ನದು ಖುದಾ\nಹರಿಯದಿರು ಇನ್ನೂ ತುಸು\nಹೊಲಿಗೆ ನೂಲೂ ಖಾಲಿ ಇಲ್ಲಿ.!"}, {"img": "Assets/hani-26.jpg", "body": "ನನ್ನ ಹಾಡಿಯ\nಕತ್ತಲ ಹಾಡು\nನುಡಿಸಿಕೊಳ್ಳುತ್ತದೆ\nಮುಳ್ಳು ತಂತಿಯ ರಾಗವ\nನೋವ ಸ್ವರಗಳಿಂದ\nಕೇಳಬೇಡ ನೀನು\nತಾಳ್ಭಾಗದ ಸುರೆಯ\nಸ್ವಾದದ ನಿರೀಕ್ಷೆಯಲ್ಲಿ.!"}, {"img": "Assets/hani-27.jpg", "body": "ನಿನ್ನ ಸನ್ಮಾನಗಳ\nಬೆಂಕಿ ನನ್ನ ಸುಡದಿರಲಿ\nನಾನು ಬಿಟ್ಟು\nಬಯಲ ಹಿಡಿದಿದ್ದೇನೆ\nಬೆತ್ತಲಾಗಿ\nಬಾ ಇಲ್ಲಿ ವಿರಮಿಸು\nನಾನಿಲ್ಲದ ಜಗತ್ತು\nಅದೆಷ್ಟು ರಮ್ಯ.!"}, {"img": "Assets/hani-28.jpg", "body": "ಆಟಿಕೆಗಳಿದ್ದವು\nನಿನ್ನವೇ ಬಹಳಷ್ಟು\nಖುದಾ\nನನ್ನ ಬದುಕಲ್ಲಿ\nಆಡುವುದರಲ್ಲೇನು\nಉತ್ಸುಕತೆ..!"}, {"img": "Assets/hani-29.jpg", "body": "ನವಿಲು ನೀನು\nಗರಿಬಿಚ್ಚು ಯಥೇಚ್ಛವಾಗಿ\nರೆಕ್ಕೆ ಮುರಿದ\nನನ್ನ ಹಾಡು ಕೇಳುವಂತದ್ದಲ್ಲ.!"}, {"img": "Assets/hani-30.jpg", "body": "ನನ್ನ ಸಾವಾದರೂ\nಸುದ್ಧಿಯಾಗಬೇಕು\nಅಂದಾದರೂ\nಅರಿಯಬಹುದು\nನಾ ಬದುಕಿದ್ದರ ಕುರಿತು\nಈ ಕುರುಡು ಜಗತ್ತು.!"}, {"img": "Assets/hani-31.jpg", "body": "ಬದುಕಿನ ನಶೆ\nಇಳಿದಿದೆ\n'ಜನಾಬ್,\nಸಾವಿನ ಮೈಖಾನ\nಹೊಕ್ಕಬೇಕೀಗ..!"}, {"img": "Assets/hani-32.jpg", "body": "ಸಾವು ಕೂಡ\nಉಡಾಫೆ ಮಾಡುವ\nಧರವೇಸಿಯ ಧೈನ್ಯತೆಗೆ\nಲೋಕ ಮರುಗುತ್ತದೆ\nಬಹಳವೇ.!"}, {"img": "Assets/hani-33.jpg", "body": "ಬದುಕ\nಬೆನ್ನೆಲುಬಿನಲ್ಲಿ\nನೆಟ್ಟಿಗೆ ಮುರಿಯುವುದಷ್ಟೇ\nಸದ್ದು.!"}, {"img": "Assets/hani-34.jpg", "body": "ಕಡಲಾಗಬೇಕಿತ್ತು\nಕುದಿವ ಬೇಗುದಿಯ\nಒಡಲೊಳಗಿಟ್ಟುಕೊಳ್ಳಲು.!"}, {"img": "Assets/hani-35.jpg", "body": "ಖಾಲಿ ಕೈ ಹುಡುಗನ\nಕನಸುಗಳೂ ಲಾಟರಿ\nಟಿಕೇಟಿನಂತೆ\nಅಗಾಧ ಬಹಳವೇ\nದಕ್ಕುವುದಷ್ಟೇ\nಶೂನ್ಯ..!"}, {"img": "Assets/hani-36.jpg", "body": "ಯಾವ ಕೈಗಳಿಲ್ಲ\nತಳಹದಿಯ\nಮೇಲೆತ್ತಲು\n'ಅವಿ,\nಇಲ್ಲಿ\nಕೈ ಬೀಸುವುದನ್ನೇ\nರೂಢಿಸಿಕೊಂಡವರಿದ್ದಾರೆ.!"}, {"img": "Assets/hani-37.jpg", "body": "ಅಸಲಿಯಾಗಿ ನಗಲಾಗದ\nನಾನು ನಕಲಿಯಾಗಿ\nಯಾರನ್ನೂ ನಗಿಸಿದ್ದಿಲ್ಲ\nಬದುಕೇ ನೀ ಅದೆಷ್ಟು\nಸೋಜಿಗ.!"}, {"img": "Assets/hani-38.jpg", "body": "ದಾರಿ ದೊರಕದ\nಮುಸಾಫಿರನ\nಬದುಕಷ್ಟೇಯಲ್ಲ\nಸಾವೂ ಬಲು ದುಬಾರಿ.!"}, {"img": "Assets/hani-39.jpg", "body": "ಬದುಕ ಹಾಳೆ\nಹರಿದವನಲ್ಲಿ\nಬದಲಾಗುವ ತಾರೀಖಿನ\nಕುರಿತು ಆವೇಶವಿಲ್ಲ.!"}, {"img": "Assets/hani-40.jpg", "body": "ಸಾವಷ್ಟೇ ಹಿತವೆನಿಸುವುದೇ\nಬದುಕು ಕಲಿಸುವ\nಬಹುದೊಡ್ಡ ಪಾಠ.!!"}, {"img": "Assets/hani-41.jpg", "body": "ನಿನ್ನ ದಿನಗಳಾದರೂ\nಹಸಿರೆಲೆಯ ನಗುವಾಗಲಿ\nಬಾಡುವುದು ನಾನು\nಕಲಿತುಕೊಂಡು ಬಿಟ್ಟಿದ್ದೇನೆ.!"}, {"img": "Assets/hani-42.jpg", "body": "ಇನ್ನೊಂದು\nದುರ್ಗಮ ದಿನ\nದುಗುಡ ಕವಿತೆ\nಹಾಗೂ\nಸ್ವರ್ಗದ ತೋಪಿನಲ್ಲಿ\nಬರೆಯದ ನನ್ನೀ\nದಿನಚರಿ..!"}, {"img": "Assets/hani-43.jpg", "body": "ಉಳಿಯುತ್ತವೆ ದಾರಿ\nಮುಗಿದ ಮೇಲೂ\nನನ್ನ ನಡಿಗೆ\nಹೆಜ್ಜೆಗಿಲ್ಲಿ ತಕರಾರಿಲ್ಲ\nಗುರಿಯ ಬಗೆಗೆ..!"}, {"img": "Assets/hani-44.jpg", "body": "ನೋವ ಎಸಳಾಗಿ\nಬಾಡಿದ್ದೇನೆ\nಬದುಕು\nಭಯಾನಕತೆಯ ಗೀರು.!"}, {"img": "Assets/hani-45.jpg", "body": "ನೀವು ಕೇಳಬಹುದು\nಬದುಕೆಷ್ಟು ಕಂಡೆ ನೀನು\nಉಗುರ ಮೇಲೆ ನಿಂತು\nಶ್ವಾಸಿಸಿಕೊಳ್ಳುವಷ್ಟೆಂದು\nಹೇಳಬಲ್ಲೆ ಆಗ....!"}]}, {"id": "poem-1", "title": "ಅಮಲು ಹನಿಗಳು", "meta": "35 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-1.jpg", "body": "ಅಮಲು ಹನಿಗಳು.!\n\nಒಂದು ಪವಿತ್ರ\nದಿನಾಂತದಲ್ಲಿ ಸೇರೋಣ\nವೈನ್ ನದಿಯ ದಂಡೆಯಲ್ಲಿ\nಶರಾಬಿನ ಹೊದಿಕೆ ಹೊರಿಸಿ\nಅಮಲಿನ ತುಟಿಗಳಿಂದ\nಒಲವ ಹರಿಸುತ್ತಾ\nನಮ್ಮ ನುಣುಪಿಗೆ\nಲೋಕವೇ ಪ್ರಶ್ನೆಯಿಟ್ಟುಬಿಡಲಿ.!\n\nನಿನ್ನ ನೆನಪಾದಾಗಲೆಲ್ಲಾ\nಮತ್ತಾಗುತ್ತೇನೆ\nಮಧುಶಾಲೆಯಲ್ಲವೂ\nನಿಮಿತ್ತ ಮಾತ್ರ.!\n\nನಿನ್ನ ಬೆತ್ತಲೆ\nಬೆನ್ನು ಮುತ್ತಿದ್ದಷ್ಟು\nನನ್ನ ತುಟಿ ಹರೆಯ\nಪಡೆಯುತ್ತದೆ ಕನಸಿನಲ್ಲಿ.!\n\nಚಂದ್ರನೂ\nಮಧು ಕುಡಿದಿರಬೇಕು\nನಿನ್ನ ಗಲ್ಲಕಚ್ಚಿ\nಮೊಗಕಂಡಾಗಲೆಲ್ಲಾ\nಹೊಳೆಯುತ್ತಾನೆ ನಿನ್ನಂತೆ..!\n\nನಾ ತೀರಾ ಪೋಲಿಯಾಗೋದು\nನೀ ಕಣ್ಣುಗಳಿಂದಾನೇ\nಅಮಲೇರಿಸುವಾಗ..!\n\nನಾವೆಂದಿಗೂ\nಮುಟ್ಟಿಸಿಕೊಳ್ಳಲಿಲ್ಲ\nಬೆರಳುಗಳನ್ನು\nಆದರೂ ನೀ ಹೂವಾದೆನಾನು ಮಕರಂದ..!"}]}, {"id": "poem-2", "title": "ನನ್ನ ಮರಣ ಶಾಸನವನ್ನು ನಾನೇ ಓದುತ್ತೇನೆಂದು", "meta": "23 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-2.jpg", "body": "ನನ್ನ ಮರಣ ಶಾಸನವನ್ನು ನಾನೇ ಓದುತ್ತೇನೆಂದು\nಹೇಗೆ ಹೇಳಲಿ\nನನ್ನಾತ್ಮಕ್ಕೆ ಕಫನ್ ನಾನೇ ತೊಡಿಸುವುದೆಂದು\nಹೇಗೆ ಬರೆಯಲಿ\n\nಸಿಕ್ಕಿನ ಎಳೆ ಎಳೆದು ಉಸುರುವ ಹೃದಯಗಳ ಬಜಾರಿದು\nನನ್ನ ಚರಮಗೀತೆಯ ಪದ ನಾನೇ ಕಟ್ಟುತ್ತೇನೆಂದು\nಅದ್ಹೇಗೆ ಹಾಡಲಿ\n\nಕಾಸಗಲ ಬದುಕಿಗೆ ದಕ್ಕೋದು ನಾಲ್ಕು ಭುಜ\nಮೊಳ ಬಟ್ಟೆ ಕೊನೆಗೆ\nಉರಿದು ಉರಿದು ಕಪ್ಪಿಟ್ಟ ಚಿತ್ರ\nಉಳಿಸಿ ಹೇಗೆ ಹೋಗಲಿ\n\nಕಿಟಕಿ ಸಂಧಿಯನ್ನು ಮುಚ್ಚಿ ಬೆಳಕ ಕಾದ\nದರವೇಸಿ ನಾನು\nಕದಡಿದ ನೀರಲ್ಲಿ ನನ್ನ ಬಿಂಬ ಇಲ್ಲವೆಂದು\nಹೇಗೆ ದೂರಲಿ\n\nಹುಣ್ಣು ಹೆಜ್ಜೆ ಹಾದಿಯ ತಕರಾರಲ್ಲಿ\nಪಾದದ ಪಾಪ\nಕತ್ತಲು ಕಣ್ಣಿನ 'ಅವಿ'ಯ ಕವಿಯಿಂದ\nಜಗವ ಹೇಗೆ ನೋಡಲಿ"}]}, {"id": "poem-3", "title": "ಯಾರೂ ಸುಳಿಯದ", "meta": "31 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-3.jpg", "body": "ಯಾರೂ ಸುಳಿಯದ\nಒಂಟಿತನಕ್ಕೆ ಜೋತು ಬೀಳುತ್ತೇನೆ\nಎದೆಬಿರಿದ ಸದ್ದು\nಎಲ್ಲೂ ಕೇಳಿಸಿದರಲಿಯೆಂದು\nನಯನಾಜೂಕು ಮುಡಿಗೇರಿಸಿಕೊಂಡ\nಈ ದುನಿಯಾದಲ್ಲಿ\nನನ್ನ ನೋವು ತೂಗುವುದಿಲ್ಲ\nತೂಸುವಾದರೂ\n\nಪಕ್ಕವಾಗುತ್ತೇನೆ\nಕಪಟವಿಲ್ಲದ\nದರ್ದಿನ ಸಂಗ\nಯಾವ ತಕ್ಕೆಯೂ ಇರದಾಗಿನ\nಹೊತ್ತು ಬಿಕ್ಕಳಿಕೆಯೂ\nಸಾಂತ್ವನವನಿಸುತ್ತಿದೆ\n\nಯಾವೊಂದೂ ವಾಗ್ದಾನವೂ\nನೆಲೆಗೊಳ್ಳದ ಹೊತ್ತು\nಕತ್ತಲ ಕಂಡದಲ್ಲಿ ಪಾದ\nಊರಿಕೊಳ್ಳುತ್ತೇನೆ\nಮತ್ತು ಕದಡಿದ ಬಿಂಬ\nಬೆಳಕನರಸುವುದಿಲ್ಲ\nಬದಲಾಗಿ ಹನಿಯಲಿ\nಚೂರಾಗಿ ಸೋಲುತದೆ\n\nಬಾಗಿದಷ್ಟು ಬೆಂಡೆತ್ತುವ\nಬದುಕ ಬಾಸುಂಡೆಗೆ\nಹಕೀಮನಿಲ್ಲದೇ ಅಲೆಯುತ್ತೇನೆ\nಒಂಟಿಹೆಜ್ಜೆ ಕಿತ್ತಿದರೂ\nನೆರಳ ಊರಿನಲ್ಲಿ\nವಿರಮಿಸಲು ಅರೆಘಳಿಗೆಯಾದರೂ...!"}]}, {"id": "poem-4", "title": "ನಿನ್ನ ಬೆತ್ತಲೆ ಪಾದಗಳಿಗೊಮ್ಮೆ", "meta": "24 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-4.jpg", "body": "ನಿನ್ನ ಬೆತ್ತಲೆ ಪಾದಗಳಿಗೊಮ್ಮೆ\nನಾ ಮುತ್ತನಿಟ್ಟು ಬಿಡಬೇಕು\nಆದದ್ದಾಗಲಿ ಇಲ್ಲೇ ಪಕ್ಕದಲ್ಲಿ ತೋಳಿಗೆ ಒರಗಿ ಕೂರು ಸಣ್ಣ ಮಟ್ಟದ\nಅಪರಾಧವಾದರೂ ಪರವಾಗಿಲ್ಲ\n\nಜುಮುಕಿ ಹೊತ್ತ ಕಿವಿಗಳನ್ನೇ ದಿಟ್ಟಿಸಿ ನೋಡುತ್ತೇನೆ\nಅವೆಷ್ಟು ಲೀಲಾಜಾಲವಾಗಿ\nನಿನ್ನಲ್ಲೇ ಲೀನವಾಗಿದೆ\nನೀ ತಿರುಗುವ ದಿಕ್ಕಿಗಲ್ಲ ದಿಕ್ಕೂಚಿಯಂತೆ ತಿರುಗುತ್ತದೆ\nತೋರು ಬೆರಳಿನಿಂದ ಒಮ್ಮೆ\nಮುಟ್ಟಿ ನಿನಾದ ಹೊರಡಿಸುತ್ತೇನೆ\n\nಮೌನ ಹೊತ್ತ ತುಟಿಗಳನೊಮ್ಮೆ ಬಿಡಿಸಿ ಮಾತಿನ ಮೆಹಂದಿ ಹಚ್ಚುತ್ತೇನೆ\nಲೇ ಇವಳೇ,\nನನ್ನವಳೆಂಬ ಕಿರು ಪರಿಚಯ ಮಾತಿಗೂ ಮಾಡಿಕೊಡು\nಆದದ್ದಾಗಲಿ ಜರುಗುವ ಅಪವಾದವೆಲ್ಲಕ್ಕೂ ನನ್ನ ಹೆಸರ\nಅಚ್ಚೊತ್ತುತ್ತೇನೆ\n\nನಿನ್ನತನದ ಪರಿಧಿಯೊಳಗೆ ನಾನೊಬ್ಬ ಖಾಸಾ ಆಗಿರುವಂತೆ\nತಿಳಿದಿದ್ದೇನೆ ಯಾಕೋ ಕಾಣೆ,\nನಿನ್ನ ಮುನಿಸುಗಳನ್ನೇ ಈವರೆಗೂ ಉಸಿರಿಸಿದ್ದೇನೆ ಹುಡುಗೀ\nಮೊದಲಬಾರಿಗೆ ಬಿಗಿದಪ್ಪಿ ತೋಳಿಗೆ ಒರಗಿ ಕೂರು\n\nಸಣ್ಣ ಮಟ್ಟದ ಅಪರಾಧವಾದರೂ ಪರವಾಗಿಲ್ಲ..!"}]}, {"id": "poem-5", "title": "ನನ್ನ ಸಾವಿಗೆ", "meta": "53 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-5.jpg", "body": "ನನ್ನ ಸಾವಿಗೆ\nನಾ ಮಾದಕತೆ ತುಂಬಿಟ್ಟಿದ್ದೇನೆ\nಬಹುವಾಗಿ\nಚೆಲುವನ ಕಾಯುವ\nಕನ್ಯೆಯ ಕತ್ತಲ ದೂಡುವ\nಕ್ಷಣಗಳಂತದ್ದು\nಮೊದಲ ಬಾರಿ ಪ್ರೇಮಿಸಲಾಗಿ\nದೂರಾಗಿ ಇರುವ ವಿರಹಿ\nಹುಡುಗನ ಕನವರಿಕೆಯಂತದ್ದು\n\nಬಗೆ ಬಗೆಯ ಚೆಲುವ\nಅಚ್ಚಾಗಿಸಿದ್ದೇನೆ\nನನ್ನ ಸಾವಿನ\nದಿನಮಾನ ನನ್ನ ದೂರದೃಷ್ಟಿಯಲ್ಲಿ\nಊರಿಡೀ ಯುವತಿಯರ\nಮನಗದ್ದು ಬೀಗುವ\nಹುರಿಮೀಸೆ ಕೌಮಾರನ ಗತ್ತು\nಯಾರಿಗೂ ಸಿಕ್ಕದೆ ಸಿಕ್ಕ ನಗು\nಚೆಲ್ಲಿ ನಿದ್ದೆಗೆಡಿಸುವ\nಒರಗೆಯ ಕನಸಿನ ರಾಣಿಯ\nಬೆತ್ತಲೆ ಬೆನ್ನಿನಂತದ್ದು\n\nನಾಜೂಕು ತೊಟ್ಟು\nಉರಿದುರಿದು ನಗುವ\nಕಂದೀಲ ಕಣ್ಣ ಸೂಕ್ಷ್ಮತೆ\nನೆಲವ ತೋಯ್ದು ಹರಿದು\nಯಾವ ದಂಡೆಗೂ ದಕ್ಕದೆ\nಬಿಸುಟಿಕೊಂಡು ಹೋಗುವ\nನದಿಯ ಪಾದರಸ ನಡಿಗೆ\nನನ್ನ ಸಾವಿಗೆಲ್ಲ ಬೆಳಕ\nನೆರಳ ಕಪ್ಪು ಕಣ್ಣೆಸಿಯಿದೆ\nಹೀಗೆಲ್ಲಾ\n\nಬಟಾಬಯಲ ಮುಗುಳ್ನಗು\nಪ್ರೇಮಿಸುವವನ ಕಣ್ಣು ಹೊಳಪು\nಧೈನ್ಯತೆ ತುಂಬಿಕೊಂಡ\nಬಡವನ ದೈನೇಸಿತನ\nಹೊಟ್ಟೆ ತುಂಬಿದ ಹಸಿದವನ\nನೆಮ್ಮದಿ\nಮೋಕ್ಷ ಹುಡುಕುವವನ ಕಾತರ\nನನ್ನ ಸಾವಿನ ತರಹೇವಾರಿ\nಮಗ್ಗಲುಗಳು\n\nಆದರೆ...\n\nಈ ಮನೆಯವರು\nಭಯಪಡಿಸುತ್ತಾರೆ\nಸಾವು ಭಯಾನಕವೆಂಬಂತೆ\nನಿಸ್ತೇಜವಾದ ಕಣ್ಣುಗಳು\nನೀಟಾಗಿ ಹರಡಿಕೊಂಡ ಕೈಕಾಲುಗಳು\nನನಗೆ ನೆಮ್ಮದಿಯನ್ನು\nಉಟ್ಟುಕೊಂಡ\nಬಿಳಿಬಟ್ಟೆಯಷ್ಟೇ ಕಾಣುತ್ತದೆ..!"}]}, {"id": "poem-6", "title": "ಮಳೆಬೆನ್ನಿನ ಚಾಪೆಯಲ್ಲಿ", "meta": "39 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-6.jpg", "body": "ಮಳೆಬೆನ್ನಿನ ಚಾಪೆಯಲ್ಲಿ\nನಿದ್ದೆ ಹೊತ್ತ ಕತೆಗಳು\nಇಲ್ಲಿ ಕೇಳಿಸಬೇಡಿ\n\nಬಿಸಿಲ ನೆತ್ತಿಯ\nದೊರಗಿನಲ್ಲಿ ಪಾದ\nತಿವಿದವ ನಾನು\n\nಗೊರಕೆಯ ತುದಿಯ\nಕನಸ ರೆಕ್ಕೆ ಬಿಚ್ಚಿಡಲೂಬೇಡಿರಿ\nಇಲ್ಲಿ\nಹಸಿವು ತಿಂದ ಕನಸುಗಳಷ್ಟೇ\nಕೊಂಪೆಯಾಗಿರುವಾಗ\n\nಮಣಿಮೂಡಿದ\nನಗುವಿನಂಗಡಿಯ\nಕಿತಾಬು ತೆರೆಯದಿರಿ\nಕಣ್ಣೀರ ಒದ್ದೆಹಾಳೆಗಳೂ\nಬಣಗುತವೆ ಚಳಿಯಲ್ಲಿ\n\nಸಡಗರದ ಪೋಷಾಕು\nಧರಿಸಗೊಡದಿರಿ\nದುಮ್ಮಾನದ ಸರಕು\nಒಯ್ಯುವ ಬೆತ್ತಲೆಯೆದೆಯ\nಎದುರು\n\nನೆಮ್ಮದಿಯ ರಂಗು\nಜಿಮುಕಿ ಅಲುಗಾಡದಿರಲಿ\nದುಃಖ ವಹಿವಾಟಿನ\nಸಂತೆಯ ಮುಂದೆ\n\nಗೆಲುವಿನ ಸುವಾರ್ತೆ\nಡಂಗೂರ ಭಾರಿಸದಿರಿ\nಸೋತಕದ ಮನೆಯ\nಭಾವಣೆಯ ಮೇಲೆ\n\nಯಾಕೆಂದರೆ\nಬಿಸಿಲ ನೆತ್ತಿಯ\nದೊರಗಿನಲ್ಲಿ ಪಾದ ತಿವಿದವ ನಾನು..!"}]}, {"id": "poem-7", "title": "ಗುನುಗುತ್ತೇನೆ ಯಾವುದೋ", "meta": "35 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-7.jpg", "body": "ಗುನುಗುತ್ತೇನೆ ಯಾವುದೋ\nಹಾಡನ್ನು ಯಾವುದೇ ರಾಗವಿಲ್ಲದೇ\n\nಈ ಮೊದಲೂ ಇನ್ನಾರಿಗೋ ಇಷ್ಟದ ಹಾಡಾಗಿದ್ದಿರಬಹುದು ಅದು\nನೋವು ಪವಡಿಸಿ ಬರುವಾಗ\nಉಮ್ಮಳಿಕೆಗೆ ಕಾರಣ ಹೇಳಲಾಗುವುದಿಲ್ಲ\n\nಹಾಡು ಅಪ್ಟವಾಗಲು\nಬರಿಯ ಖುಷಿಯಷ್ಟೇಯಲ್ಲ\nತೊಟ್ಟು ಕಳಚಿದ\nಎಲೆಯ ಬೇನೆಯಷ್ಟಾದರೂ\nನೋವೂ ನಿಮಿತ್ತವಾಗಬಹುದು\n\nಈ ಸಂಜೆ ಯಾರಿಗೋ ಸಂತೋಷ ಕೋಡೋದಿರಬಹುದು\nಹುಟ್ಟಿದ ಪಾರ್ಟಿ ಹನಿಮೂನಿಗೆ\nಟೊಂಕಕಟ್ಟಿದ ಕಾಲುಗಳು\nಬೆಟ್ ಮ್ಯಾಚಲ್ಲಿ ಗದ್ದು ಕುಪ್ಪಳಿಸೋ\nಬಿಸಿ ಟೀಶರ್ಟ್ಗಳು\nಈ ಗೋಡೆಯ ಒಳಗೆ\nಬಿಸಿಯದೆಯ ಮೇಲೆ\nಉಕ್ಕಿ ಬರುವ\nನೋವ ಲೆಕ್ಕ ಮಾತ್ರ ಹಾಕಬಲ್ಲೆ ನಾ\n\nಬೆಳಕ ಹೊದ್ದ ಮಿಂಚುಹುಳ\nಲೋಕ ಬೆಳಗುವ\nಧಾವಂತಕ್ಕೆ ಕಡದ\nಬೆಳಕ ಚಂದ್ರ ಕೇಕೆ\nಹಾಕುತ್ತಾನೆ\n\nಹಾಗೆಲ್ಲಾ...\n\nಗುನುಗುತ್ತೇನೆ\nಅದ್ಯಾವುದೋ\nಹಾಡನ್ನು ರಾಗದಾಚೆಗೆ\nಇಣುಕಿಸಿ ಅಣುಕಿಸುತ್ತಾ..!"}]}, {"id": "poem-8", "title": "ಹೃದಯ ಮಾತನಾಡುತ್ತದೆ", "meta": "50 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-8.jpg", "body": "ಶ್!....\n\nಹೃದಯ ಮಾತನಾಡುತ್ತದೆ\n\nಯಾವಾಗ ಮೆದುಳ ಕಿವಿಗಳು\nಮುಚ್ಚಿರುತ್ತದೋ ಅವಾಗೆಲ್ಲ\nಹೃದಯಕ್ಕೆ ನಾಲಿಗೆ\nಕೊಟ್ಟಿದ್ದರೂ\nಕೇಳಬೇಕಾದ ಮಾತು\nಕೇಳಲೇಬಾರದಪ್ಪಿನ\nದೊಡ್ಡ ದೊಡ್ಡ ಕಿವಿಗಳು\nಮೆದುಳ ಬಳ್ಳಿಯಲ್ಲಿ\nಅಡರಿಕೊಂಡಿವೆ\n\nಹೃದಯ\nಮಾತನಾಡುತ್ತಲೇ ಇತ್ತು\nಯಾವಾಗೆಲ್ಲ ನಾ\nಕವಿಯಗಲಿಸಿದ್ದೇನೋ ಅವಾಗೆಲ್ಲ\nಹೃದಯಕ್ಕೆ ಗೊತ್ತಿಲ್ಲ ಮೆದುಳಿನ\nಕಿವಿಗಳ ಬಗ್ಗೆ\nಮೆದುಳಿನ್ನೂ ನೋಡಿಲ್ಲ\nಹೃದಯದ ನಾಲಿಗೆ ಕಡೆಗೆ\n\nಈ ಹಾಳಾದ ಹೃದಯ\nಬೈಯುತ್ತದೆ\nಮೆದುಳು ಮಾತನಾಡುತ್ತಿರುವಾಗ\nಈ ದರವೇಸಿ ಮೆದುಳು\nಮರಗುತ್ತದೆ\nನಿಷ್ಕಾಪಿ ಹೃದಯ ಕಿವಿಮುಚ್ಚಿಟ್ಟಾಗ\nಮೆದುಳಿನ ಕಿವಿಗೆ ಕಾದಕಬ್ಬಿಣವನ್ನೇ\nತುರುಕಿಟ್ಟಿದ್ದೇವೆ\nಹೃದಯದ ನಾಲಿಗೆ ಚಲಿಸಿತ್ತಾದರೂ\nಹೇಗೆ?\n\nಯಾರದರೂ ಕೇಳಿಸಿಯಾರು\nಹೃದಯಕ್ಕೆ ಭಯವಿದೆ\nಎಲ್ಲ ಕೇಳಿಸಿಕೊಳ್ಳಬೇಕು\nಮೆದುಳಿಗೆ ಹುಂಬವಿದೆ\nನಾಲಿಗೆಯ ನರಳಾಟವೊಂದ\nಹೊರತು ಮೆದುಳಕಿವಿ\nಎಲ್ಲವನ್ನೂ ಕೇಳುತ್ತದೆ\nಬಹಳವಾಗಿ\n\nಆದರೂ....\n\nನಾಲಿಗೆ ಮಾತಾಡಬೇಕು\nಕಿವಿ ಮುಚ್ಚಿದಿದ್ಯಾಗ\nಹೃದಯದ ಬಡಿತ\nಬಡಿಯಬೇಕು ಮೆದುಳಿಗೆ\nನಾವು ಆಗುವುದೇ ಆಗ..!"}]}, {"id": "poem-9", "title": "ಒಂದು ದಿವ್ಯ ಮೌನ", "meta": "50 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-9.jpg", "body": "ಒಂದು ದಿವ್ಯ ಮೌನ\nಸೂತಕದ ಆಚೆಗಿನಂತೆ\nಆವರಿಸಿಕೊಂಡರೆ\nಸಾವಧಾನವಾಗಿ\nಏನನ್ನು ತರ್ಕಿಸಬಹುದು\n\nಮಹಡಿಗಳಂತೆ ಕಟ್ಟಿರುವ\nನಂಬಿಕೆಯ ನೂಲು\nಶಿಥಿಲಗೊಳ್ಳುವುದರದ್ದೋ\nಹಗ್ಗ ಹರಿದು ಬಿಟ್ಟ\nಕನಸಿನ ಗಾಳಿಪಟಗಳ\nಪಟ್ಟಿಯದ್ದೋ\n\nಈ ಮಳೆ ಚಳಿ\nಋತುವಿನ ವಿಪರೀತ\nಮೋಜಿಗೂ ಉಲ್ಲಾಸವಾಗದ\nಸಂಜೆಗಳಲ್ಲ\nಯಾವ ತಾಜಾ ಉಪಾಸವಿಲ್ಲದೇ\nಕಳೆದು ಹೋಗುವಾಗ\nಕೆನೆಕಟ್ಟಿದ ಕಣ್ಣುಪಾಪೆಯ\nಗಾಢತೆಯೂ\nಕಥೆಗಳನ್ನ ಹೇಳ\nಬಯಸುತ್ತದೆ\n\nಚಿಂದಿಗೋಡಿದ\nದಿನಗಳ ಒಟ್ಟು\nಮೊತ್ತ ಕಳೆಬರಹ\nಹೊಸ ಹೊಸ ರೂಪ\nತಾಳತೊಡುತ್ತದೆ\nಚಿಂತಿತಗೊಳ್ಳಲು\nಬಹುವಾದ ಕಾರಣಗಳಾಗ\nಬಹುದು\n\nಕಾಲದ ಕುಡುಗೋಲಿನ\nಸದ್ದು ಹೊಸದಾಗಿ\nಪ್ರತಿಬಾರಿ ಗುದ್ದುತ್ತವೆ ಈಗ\nಫಕತ್\nಒದೆ ಮಾಮೂಲಿ\nಎಂಬಂತಿನ ವಾಡಿಕೆ\n\nಆದರೂ..\n\nಚರಮಗೀತೆಯಂತೆ\nಅವಸಾನವಾಗಬಲ್ಲ\nಆ ದಿವ್ಯ ಮೌನ\nಪವಿತ್ರವಾಗಿಯೇ\nಉಳಿಯಬಹುದಿತ್ತು\nತರ್ಕವೂ\nಯಾವ ರಾಗವನ್ನೂ\nನುಡಿಸದ ಹೊತ್ತಿನಲ್ಲಿ..!"}]}, {"id": "poem-10", "title": "ಯಾರದೋ ನೋವಿಗೆ", "meta": "39 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-10.jpg", "body": "ಯಾರದೋ ನೋವಿಗೆ\nಇನ್ನಾರದೋ ಹಾಡಿಗೆ\nನನ್ನದೂ ಸೇರಿಸಿ\nಲೆಕ್ಕಿಸಿಕೊಳ್ಳುತ್ತಿದ್ದೇನೆ\n\nನಾನೇನು ಭಿನ್ನವಾಗಿ\nದುಃಖಿಸುತ್ತಿದ್ದೇನೆಯೇ.!?\n\nಎಲ್ಲಾ ಮನೆಯ\nಕಿಟಕಿಯಲ್ಲೂ ತುಮುಲದ\nಗಾಳಿ ಸೂಸುವುದಂಟು\nಕೆಲವು ಚಿಲಕ ತೆರೆದು\nಒಂದಿಷ್ಟು ಕದ ಮುಚ್ಚಿ\n\nನಾನೇನು ಬಹುವಾಗಿ\nಉಸಿರುಗಟ್ಟಿಸಿಕೊಳ್ಳುತ್ತಿದ್ದೇನೆಯೇ.?\n\nಹೆಜ್ಜೆಗೂ ಹೊಂದವ\nಹೊದ್ದ ರಸ್ತೆಗಳಂಟು\nಬಹುಪಾಲು ಕತ್ತಲೆಯಲ್ಲ\nಒಂದಿಷ್ಟು ಬೆಳಕ ಬಟ್ಟೆಯಲ್ಲ\n\nನಾನಷ್ಟೇ ಎಡವಿ\nನಡೆಯುತ್ತಿದ್ದೇನೆಯೇ?\n\nಎಲ್ಲೆಲ್ಲಿಯೂ ತೇಪೆಗೆ\nಜನಸಂದಣಿಯುಂಟು\nಕೆಲವು ಮುರಿಸಲ್ಪಟ್ಟದ್ದು\nಇನ್ನೊಂದಿಷ್ಟು ಮುರಿತಕ್ಕೊಳಗಾಗಿದ್ದು\n\nನಾನಷ್ಟೇ\nಗಾಯ ಕೆರೆದು\nವ್ರಣಗೊಳಿಸುತ್ತಿದೇನೆಯೇ.\nವಸ್ತುತಾ...\nಇನ್ನಾರದ್ದೋ ಹಾಡಿನಲ್ಲಿ\nನೋವಿನಲ್ಲಿ ನನ್ನ\nಕಂಡುಕೊಳ್ಳುತ್ತೇನೆ\nಅದಷ್ಟನ್ನೂ ನಾ\nಬದುಕುವ ಕಾರಣದಿಂದ..!"}]}, {"id": "poem-11", "title": "ಮತ್ತೆ ನಾನು", "meta": "39 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-11.jpg", "body": "ಮತ್ತೆ ನಾನು\nನನಗೆ ಸಿಗುವಾಗ\nಯಾವ ಸಮಾಧಾನವಿದೆ\nನನ್ನಲ್ಲಿ ಸಹಜವಾಗಿ\nಹೇಳಲು?\n\nಬದುಕ ಹುಡುಕುತ್ತಾ\nಅಲೆದ ದಿನಮಾನಗಳು\nಸೂಜಿಗಲ್ಲಿನಂತೆ\nಚುಚ್ಚಿದ್ದಷ್ಟೇ ನೆನಪಿಟ್ಟುಕೊಳ್ಳುತ್ತದೆ\n\nನಾನದರೋ\nಷಹರದ ಮಹಡಿಯಲ್ಲಿ\nಗೂಡು ಮರೆತ\nಪಾರಿವಾಳ\nನೆಲೆಯ ದಿಕ್ಕನ್ನೂ\nಮರೆತ ದಿಕ್ಕೂಚಿ\n\nನನ್ನಲ್ಲಿನ ನಿಜಾಯಿತಿ\nಇರಿದ ಕಥೆಗಳಷ್ಟೇ\nಬಾಯಿ ಸಿಹಿಮಾಡಿಕೊಳ್ಳುವ\nಸಬೂಬುಗಳು\nಹಾಳೆ ಹರಿದ ಪುಸ್ತಕ\n\nನೋವ ಗಂಧ\nಮೆತ್ತಿಕೊಂಡ\nನೊಗ\nಇನ್ಯಾವ ಸುವಾಸನೆಯನ್ನೂ\nಘಮಿಸುವುದಿಲ್ಲ\n\nಮತ್ತು ಇದು\nವಿರಳವಾಗಿರಬಹುದಾದ\nಸಮಾಚಾರ\nನನಗನಿಸುವಂತೆ\n\nಮತ್ತೀಗ\nತೊರೆದುಹೋದ ನನಗೆ\nನಾನು ಸಿಕ್ಕುವ\nಸಮಯ ಭಯವನ್ನಷ್ಟೇ ಉಳಿಸಿಕೊಂಡಿದೆ..!"}]}, {"id": "poem-12", "title": "ನಾನು ಹೀಗೆಯೇ", "meta": "39 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-12.jpg", "body": "ನಾನು ಹೀಗೆಯೇ\nಬದುಕಿಹೋಗುತ್ತೇನೆ\nಕಾಡು ಹೂವಂತೆ\nಅನಾಮಿಕ ಗಾಳಿಯಂತೆ\nಯಾವ ಗುರುತೂ\nಉಳಿಸಿಕೊಳ್ಳದ\nದೊಪ್ಪನೆ ಬಿದ್ದ ಮಳೆ\nಹನಿಯಂತೆ\n\nನನ್ನ ಜಾಡು\nಹಿಡಿಯಬೇಡ\nಮುಳ್ಳುಗಳಿರಬಹುದು\nನಿನ್ನ ಪಾದದ ಕಾಳಜಿ\nನನಗೆ\n\nಅಂದೂಕೋ\nನಾ ಬರಿಯ ಮಿಂಚೆಂದು\nಕ್ಷಣದಲ್ಲಿ ಶೂನ್ಯ\nಸೇರುತ್ತೇನೆ\nಬದಲಾಗಿ\nಬಿಡದೇ ಸುರಿಯುವ\nಆಟಿ ಮಳೆಯಾಗಲಾರೆ\n\nನಾ ಮಿಣುಕಿ\nಹೋಗುವ ಕಣ್ಣನ್ನೇ\nಅಥವಾ\nನಯವಾಗಿ ಜಾರಿಹೋಗುವ\nಹೆಸರಿಲ್ಲದ ಸಮಯ\nಶ್ವಾಸ ಆಗಿರಲಾರೆ\nಬದುಕುವಷ್ಟು\nಎಳೆದಳೆದು ಬಿಡಲು\n\nಹೀಗೆಯೇ\nಬದುಕಿಬಿಡುತ್ತೇನೆ\nದಕ್ಕಿದ್ದನ್ನು ನೋಯುತ್ತಾ\nನೊಂದ ಸಲುವಾಗಿ\nಬೇಯುತ್ತಾ\nನಗುವಾಗಲಾರೆ ಎಂದಿಗೂ\nತುಟಿಯಂಚಲಿನಿನ್ನ ಸ್ವಂತದ್ದಿರುವಂತೆ..!"}]}, {"id": "poem-13", "title": "ಕನಸು ಸಿಕ್ಕಲಾರೆ", "meta": "38 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-13.jpg", "body": "ಕನಸು ಸಿಕ್ಕಲಾರೆ\nಕಡದ ಕೈಯೊಳಗೆ ಎಂದಿತು\nಹಾರಲು ಬಿಟ್ಟೆ\nದಡ ಸಿಕ್ಕದ ಹನಿಗೆ\nಬದುಕು ದಕ್ಕಲಾರೆ ಎಂದಿತು\nಹರಿಯಲು ಬಿಟ್ಟೆ\n\nನೋವ ಗುಡಿಸಿ ಗುಡಿಸಿ\nಸೂಡಿ ಸವೆದದ್ದೇ ತೂಕ\nಬರಡು ಬೋಳಿನ ಮರಕೆ\nನಲಿವು ನಿಲುಕಲಾರೆ ಎಂದಿತು\nತೊರೆದು ಬಿಟ್ಟೆ\n\nಬಿಕ್ಕಳಿಕೆಯ ಕಚ್ಚಿ ಕಚ್ಚಿ\nಹದ ಮಾಡ ಕಲಿತಿದ್ದೇನೆ\nದೊಗರು ಮುಖದ ಗೀರಿನ\nಮೇಲೆ ಮುಗುಳು ನಗೆ\nಮೂಡಲಾರೆ ಎಂದಿತು\nಮನ್ನಿಸಿ ಬಿಟ್ಟೆ\n\nಸವೆದ ಚಪ್ಪಲಿ ನನ್ನ\nಪಾದದ ಗುರುತು\nಹೇಳುತ್ತದೆ ತಿಳಿದುಕೋ\nವಿಳಾಸವಿರದ ನಡಿಗೆಗೆ\nಆಶ್ವಾಸನೆ ನಿಲ್ಲಲಾರೆ ಎಂದಿತು\nಮರೆತು ಬಿಟ್ಟೆ\n\nಏನುಂಟು ಏನಿಲ್ಲ\nನನ್ನ ಖಾಲಿ ಜೋಳಿಗೆಯಲ್ಲಿ\nಇಣುಕುತ್ತದೆ ಈ ಜಮಾನ\nಬೆವರು ಬಸಿದ\nಕಥೆಯಷ್ಟೇ ಎಂದಿತು\nಹಾಳೆ ಹರಿದು ಬಿಟ್ಟೆ\n\nಬಿಡುವುದೇ ಬದುಕು\nಹಿಡಿದುಕೊಳ್ಳುವುದಲ್ಲ ಪ್ರಿಯ ಹುಡುಗ\nಜಗತ್ತಿನ ನಾಜೂಕುತನ\nಒಗ್ಗಲಾರೆ ಎಂದಿತುಮರೆತು ಬಿಟ್ಟೆ..!"}]}, {"id": "poem-14", "title": "ಹೇಳಿದ್ದು ಕೇಳಿದ್ದೇನೆ", "meta": "31 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-14.jpg", "body": "ಹೇಳಿದ್ದು ಕೇಳಿದ್ದೇನೆ\nಅವರು\n'ಸಮಯ'\nಗಾಯವನ್ನು\nಗುಣಪಡಿಸುತ್ತದೆ\nಯೆಂದು\nಅದೊಂದು ನಂಬಬಯಸುವ\nಸುಳ್ಳು\n\nಗಾಯದ ನಂಜು\nಏರಿಸಿದ್ದೇ ಮಿಕ್ಕಿದೆ\nಸಮಯ\nಯಾವ ಹಕೀಮನೂ\nಆಗಿದ್ದಿಲ್ಲ\n\nವ್ರಣಗೊಂಡ\nಬರೆಯ ಬಳೆ\nಕೈ ತೊಡಿಸಿಕೊಂಡ\nನನಗೆ\nಕಾದಷ್ಟೂ ಕೇಳಿದ್ದು\nಬಳೆ ಹೊಡೆದ ಸದ್ದು\n'ಸಮಯ'\nಜೋಡಿಸುವುದಲ್ಲ\nಬೇರ್ಪಡಿಸುವುದಷ್ಟೇ\n\nಸೈತಾನನಾಗಬಲ್ಲದು\nಯುದ್ಧ\nಸಮಯ ಅಥವಾ\nನೋವಿನೊಂದಿಗಾಗಿದ್ದೂ\nಸೈನಿಕ ಗಾಯಾಳು\nಆಗಿದ್ದರೆ..!"}]}, {"id": "poem-15", "title": "ಒಂದು ಹರಿತವಾದ ಬೇನೆ", "meta": "32 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-15.jpg", "body": "ಒಂದು ಹರಿತವಾದ ಬೇನೆ\nತಡವಿದಷ್ಟೂ ಊನ\nದಿನಗಳೂ ಉರಿ ಮೇಲಿನ\nಉಪ್ಪಿನಂತೆ ಈಗಲ್ಲಾ\n\nನರ ಮುರಿದ\nನಾಳೆಗಳೆಲ್ಲವೂ\nನಂಜೇರಿಸುವ ಈ ಹೊತ್ತು\nಮುಗುಳ್ನಗೆಗಳೂ ನಾಜೂಕನಿಸುತ್ತದೆ\n\nಕೀವು ಭರಿತ ಭಾರಗಳ\nಭುಜದವನಿಗೆ\n\nಕಾಲೂರಿ ನಿಲ್ಲುವ\nನಿಮಿಷಗಳೆಲ್ಲ\nಬವಣೆಯ ಬಾಸುಂಡೆಗೆ\nಬೆವತು ಹೋಗುವಾಗ\nಭಯ ಮೂಗೂ ಮುರಿದಂತೆ\n\nಕಡದ ಕಡಲಾಸಿನ\nನೆತ್ತರು ಅಡಿಯಿಂದ\nಮುಡಿವರೆಗೂ ಪೂಸಿಕೊಂಡ\nಅಲೆಮಾರಿ\nತೂತು ದೋಣಿಯ ನಾವಿಕ\nಮುಚ್ಚಿದ್ದಷ್ಟೇ ಭುಗ್ಗೇಳುವ\nನೀಗುಗಳ್ಳ\n\nಕ್ಷಣಗಳೂ ತಿವಿಯುವ\nಈ ಹೊತ್ತು\nಮೌನದ ಮಾತಿನವನ\nಈ ಹರಿತವಾದ ಬೇನೆ\nತಡವಿದಷ್ಟೂ ಊನ..!"}]}, {"id": "poem-16", "title": "ಈ ಗಿಜಿಗುಡುವ ಷಹರದ", "meta": "36 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-16.jpg", "body": "ಈ ಗಿಜಿಗುಡುವ ಷಹರದ\nಮೂಲೆಯಲ್ಲಿ ಏಕಾಂತವನ್ನು\nಧೇನಿಸುವ ನನ್ನ ಬಗ್ಗೆ ಯಾವೊಂದು\nಪದ ಕವಿತೆ ಕಾವ್ಯ ದೊರಕದು\nನಿಮಗೆ\n\nಬದುಕಿನ ಬಟ್ಟೆಗೆ\nಕಸೂತಿ ಹಾಕುವಾಗ\nಬೆರಳುಗಳ ಹೊಲೆದುಕೊಂಡವನಿಗೆ\nನಕ್ಷತ್ರ ತೊಟ್ಟುಕೊಂಡವರ\nಮಧ್ಯೆ ಯಾವ ಬೆಳಕೂ ಸಿಗಲಾರದು\n\nಒಂಟಿ ಭರವಸೆಯ ಬೆನ್ನಿಗೆ\nನೇತುಹಾಕಿಕೊಂಡ ನನ್ನದೇ\nವಿಷಾದ ಪುಟಗಳ ತಿರುವಿ\nಖಾಲಿಕೋಣೆಯ ಮೂಕ\nಗೋಡೆಗೆ ಅಂಟಿಸುವ ಸದ್ದು\nಕಿವಿ ಮುರಿದ ಜಗಕೆ\nಕೇಳಿಸುವ ಇರಾದೆಯಿಲ್ಲ\n\nನಸೀಬಿಗೂ ಮುಖವಾಡ\nಇರುವ ದಿನಚರಿಯಲ್ಲಿ\nಏಕಮಾತ್ರವೂ\nಪವಾಡದ ಸಹಿಯ\nಅಚ್ಚರದು\n\nಬದಲಾಗಿ,\n\nತಿವಿದುಕೊಂಡು ಉಸಿರುಗಟ್ಟಿದ\nರೋದನೆಯ ರೋಹು\nಕಾಣಬಹುದು ಯಥೇಚ್ಚವಾಗಿ\n\nಆದ್ದರಿಂದ...\nಗಿಜಿಗುಡುವ ಈ ಷಹರದಲ್ಲಿ\nಏಕಾಂತ ಧ್ಯಾನಸ್ಥನಿಗೆ\nಒಂಟಿತನವಷ್ಟೇ ಪರಮಾಪ್ತ..!"}]}, {"id": "poem-17", "title": "ಇದು ಮೊದಲೇನಲ್ಲ", "meta": "35 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-17.jpg", "body": "ಇದು ಮೊದಲೇನಲ್ಲ\nತಿಳಿದಿದ್ದೇನೆ ಕೊನೆಯೂ\nಆಗಲಾರದು\nನಿಗಿ ಕೆಂಡವ ಕೆನ್ನೆಗೆ\nಸವರಿ\nಬೆಳಕ ಬೆರಳನ್ನು ಹುಡುಕುವ\nನನ್ನ ನಿರಂತರತೆ\n\nಬಾಗಿಲಲ್ಲ ಕದದ\nತಲಾಶೆ ಆತಂಕವಾದದ್ದು\nಮತ್ತು\nಬಯಲ ಬಟ್ಟೆಯಲ್ಲಿ\nನನ್ನ ಸುಟ್ಟುಕೊಂಡ ಕಲೆ\nಮರೆಸಿದಂತೆ ತೆರೆದಿರುವ\nಬೆತ್ತಲೆ ಆಕಾಶ\n\nಈ ಮುಳ್ಳಿನ ತುದಿ\nಚೂಪೇ ನಿಸ್ಸಂಶಯ\nನಂಬಿಕೆ ತುಣುಕಲ್ಲಷ್ಟೇ\nಒರತೆ ಬತ್ತಿಸುವ\nಭರವಸೆ\n\nಕನಸ ಚೀಲವೇಕೆ\nಬದುಕ ಹೊದಿಕೆಯೇ\nಹರಿದು ಹೋಗುವಾಗ\nಮಳೆ ತಡೆಯುವ\nಹುನ್ನಾರಕ್ಕೆ ನೀವು\nನಗಬಹುದು ಬಹುಷಃ\n\nಹೀಗೂ\nಬಿಸಿಯ ಬರಡುತನಕ್ಕೆ\nನನ್ನ ಕಾಯುವಿಕೆ\nಮೊದಲೇನಲ್ಲ\nಕೊನೆಯೂ ಆಗಲಾರದೆಂದು\nತಿಳಿದಿದ್ದೇನೆ..!"}]}, {"id": "poem-18", "title": "ಅವ ಬಂಡೆಕಲ್ಲಿನಂತೆ", "meta": "47 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-18.jpg", "body": "ಅವ ಬಂಡೆಕಲ್ಲಿನಂತೆ\nಬದುಕಿದ್ದ ಅನ್ನುತ್ತಾನೊಬ್ಬ\nಯಾವ ಮೊಳಕೆಯೂ\nಚಿಗುರೊಡೆಯದ\nಬಾಳ ಆಂಗಲದಲ್ಲಿ\nಬಂಡೆಯಂತಾಗಿದ್ದ ನಿಜವಾಗಿ\n\nತೂತು ಬಾಯಿಯ\nಜಗತ್ತಿನೆದುರು ಹೊಲೆದ\nತುಟಿಯಿದ್ದರೆ\nಈಜಲಾಗದೆಂಬೋದು\nಅವನಿಗೆ ತಿಳಿದಿರಲಿಲ್ಲ\nನಾಜೂಕಿನ ಈಜು\nದಕ್ಕುವುದಲ್ಲ\nಅನ್ನೋದು ತಿಳಿಯಲಾಗಲಿಲ್ಲ ಕೊನೆಗೂ\n\nಗುದ್ದಿ ಗುದ್ದಿ ಹಿಂಡಿಯಾದ\nಬಾಳ ಕಾಗದವ ಹಾಕಲು\nತಿಪ್ಪೆಯೂ ಸಿಗದಿದ್ದಾಗ\nಆತ ಬಂಡೆಕಲ್ಲಾದ\nಇದು\nಆತನ ಬಲ್ಲವರು\nಹೇಳಬಹುದಾದದ್ದು\n\nಹಾಡಲಾರದ ಪದ್ಯವಾಗಿದ್ದ\nಆತ ತನ್ನದೇ ಪದಗಳಲ್ಲಿ\nಯಾವ ಬಿಂದೂ\nಕೊನೆಯ ಚುಕ್ಕೆ ಸೇರಿಸಲಿಲ್ಲ\nತನ್ನ ಬಗಲ ಮೌನವಷ್ಟನ್ನೇ\nಸಾಂತ್ವನಗೊಳಿಸೋದ\nಕಲಿಯುವವರೆಗೂ\n\nಒಂದು ಗಾಢ ರಾತ್ರಿ\nಊರು ಇರುವಂತೆಯೇ\nಗಾಳಿಯ ಎಳೆ\nಹಿಡಿದು ಅನೂಹ್ಯತೆಯಲ್ಲಿ\nತೂರಿಕೊಂಡ ಆರ್ಯತೆಯಿಂದ\n\nಹಸಿದ ಜೋಳಿಗೆ\nತುಂಬಾ ಜಗತ್ತಿನ\nಹರಿದ ಜೋಗುಳ\nತುಂಬಿಸುತಾ\n\nಈಗ,\nಅವ ಬಂಡೆಕಲ್ಲಿನಂತೆ\nಬದುಕಿದ್ದ\nಅನ್ನುತ್ತಾನೊಬ್ಬ..!"}]}, {"id": "poem-19", "title": "ಇಳಿದ ಕಂದೀಲ", "meta": "30 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-19.jpg", "body": "ಇಳಿದ ಕಂದೀಲ\nಜೋಪಡಿಯಲ್ಲಿ\nಅಳುವ ಮಡಿಕೆ\nನಡೆಯದ ಗಡಿಯಾರಗಳಿವೆ\nರಜೆಯಲ್ಲಿ ಇಲ್ಲದ್ದೂ ಹಸಿವು\n\nಗೂಟದ ಲೈಟಿಗೆ\nಬಣ್ಣ ಕಟ್ಟಿದ್ದ ನಾನೂ\nಮುಂಡಿ ನೆಲ ಮುಟ್ಟಿದರೂ\nನನ್ನ ಬಾಗಿಲು ತೆರೆಯಲಿಲ್ಲ\nಯಾವ ಬಾವುಟಗಳು\n\nಕಿವಿ ಹರಿಯುವಷ್ಟು\nಕೂಗು ಕೇಳಿಸಿಕೊಳ್ಳುತ್ತೇನೆ\nಮತ್ತು\nನನ್ನ ನೆಲವನ್ನೇ ತಡಕಾಡಿ\nತಲುಪಬೇಕು ಈಗ\n\nಸಾಗರದ ದಾಹ ಈಗ\nಸಾವಿಗೆ\nನನ್ನ ಚಿತೆಯಲ್ಲಿ ನನ್ನವರ\nಸಹಿ ಇಲ್ಲ\n\nಉಸಿರು ನಿಲ್ಲುವುದಲ್ಲ\nಎದೆಕಣ್ಣು ಮಿನುಕದಿರಲೆಂದೇ\nಪ್ರಾರ್ಥಿಸುತ್ತೇನೆ\nಇಲ್ಲಿ\nಹೊಟ್ಟೆಯ ಗೂಡಿಗೆ\nಹೇಳಲು ನೂತನ\nಸುಳ್ಳುಗಳೆಲ್ಲ ನನ್ನಲ್ಲಿ..!"}]}, {"id": "poem-20", "title": "#World_Poetry_Day", "meta": "49 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-20.jpg", "body": "#World_Poetry_Day\n\nನನ್ನ ಸಂಜೆಗಳ ಕುರಿತು\nಕೇಳಬೇಡ\nಬಿಸಿಲು ಮೆತ್ತಿ ಮೆತ್ತಿ\nಬಣ್ಣ ಮಾಸಿದ\nಮುಖಕೆ ನೀರು\nಪೂಸಿ\nಒಡೆದ ಕಲ್ಲುಗಳ ಮೇಲೆ\nಭೂಮಿ ಭಾರ\nಹಾಕುವಂತೆ\nಕೂರಿ ಯಾವ\nಚಿಂತೆಯ ಬಗ್ಗೆ\nಚಿಂತಿಸಲಿಯೆಂಬ\nಗೊಂದಲಕ್ಕೀಡಾಗುತ್ತೇನೆ\n\nಗಲಿಬಿಲಿಯ ಜಮಾನವಿದು\nಖಾಲಿ ರಸ್ತೆ ತುಂಬಾ\nಧಾವಂತದ ನಡಿಗೆ\nಮತ್ತು\nಸಂತೆಯೊಳಗೆ\nಸ್ಮಶಾನ ಮೌನ\nಮತ್ತು ನಾನು\nಸುಟ್ಟ ಹೂವಿನ\nಎಸಳುಗಳಲ್ಲಿ\nದಿನಚರಿಯ ದಾಖಲಿಸುವವ\n\nಅಪರಾತ್ರಿಗಳ\nಭಯಗಳನ್ನೆಲ್ಲ\nಕೂಡಿಸಿ ನನ್ನದೆಂಬಂತೆ\nಘೋಷಿಸಿಕೊಳ್ಳಲಾಗದೆ\nಸಿಗ್ಗುನಾಗಬಲ್ಲೆ\nಕಡಲೂರಿಯ ಎದೆಗವಚಿಕೊಂಡು\nಹಿತ್ತಲ ಹೂವಿನ ಹಾಗೇ\nಕನಸಲಾರೆ\nಮತ್ತಿದು\nತೀರಾ ಸಾಮಾನ್ಯವಾಗುವ\nವಹಿವಾಟು\n\nಮಂಡಿಮೇಲೊಂದು\nಲೋಳಕಾರದ ಪ್ಯಾಂಟಿನ\nತೂತು\nತಳಕೈಯ ದೊಗರು\nಮಣ್ಣಿಗೆ ಸಾಕಷ್ಟೇ ಮುತ್ತಿಟ್ಟು\nಕೆಂದಾಗಿರುವ ಕೂದಲು\nತಿರುವಿಕೊಂಡು\nನಡೆವ ನನ್ನ ಸಂಜೆಗಳ\nಕುರಿತು ಕೇಳಬೇಡ\nಮತ್ತು ಪದ್ಯಗಳ ಕುರಿತೂ..!"}]}, {"id": "poem-21", "title": "ನನ್ನ ಉಸಿರೂ ನಿಲ್ಲಲಿದೆ", "meta": "37 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-21.jpg", "body": "ನನ್ನ ಉಸಿರೂ ನಿಲ್ಲಲಿದೆ\nಯಾವ ಆಸ್ಫೋಟನೆಯ\nಭೀಕರತೆಯಲ್ಲ ಅದು\nತಿಳಿದಿದ್ದೇನೆ\n\nತೊಟ್ಟು ಕಳಚುವ ಎಲೆಯ\nನೋವಿನಿತಾದರೂ\nದಕ್ಕಿಸಿಕೊಳ್ಳುವ\nವಿಶಾಲತೆ ನಿನ್ನಲ್ಲಿದ್ದರೆ\nಗ್ರಹಿಸಬಹುದು\nಅದೆಷ್ಟು ನಾಜೂಕಾಗಿರಬಹುದು\nಉಸಿರು ನಿಲ್ಲುವ ಕ್ರಿಯೆ\n\nಗಲಿಬಿಲಿಗೊಳ್ಳದೇ\nತದೇಕದಿಂದ ಗಮನಿಸು\nಮಳೆ ಇಳಿಯುವ ಮತ್ತು\nಮಣ್ಣು ನಗುವ ಸಮಯವನ್ನು\nಅಷ್ಟು ಕರಾರುವಕ್ಕಾಗಿ\nಉಸಿರು ನಿಲ್ಲಬಹುದೆಂದು\nಊಹಿಸಿಕೊಳ್ಳುತ್ತೇನೆ ಈಗ\n\nಬೆಳಕ ಪಾದ ಬಿರಿದ\nದಾರಿಯಲ್ಲಿ ಕತ್ತಲ\nಸಿಪ್ಪೆಯ ಹುಡುಕು\nಕಾಣಬಹುದು ಬಡಿತದ\nಸದ್ದು ಅದೇ ಮೈಲಿಗಲ್ಲಿನಾಚೆ\nಅಥವಾ ನೀ ಗಳಿಸಬೇಕೆನ್ನುವ\nಏಕಾಂತ\n\nಹಾಗೂ\nಯಾವ ಆಸ್ಫೋಟನೆಯ\nಭೀಕರತೆಯಲ್ಲ\nಉಸಿರು ನಿಲ್ಲುವಿಕೆ\nನಗುವ\nತೊಟ್ಟಿಲ ಕಕ್ಕುಲಾತಿ\nಅಥವಾ\nದಿಗಂತಕ್ಕಿಟ್ಟ ಶೂನ್ಯ ನೋಟ..!"}]}, {"id": "poem-22", "title": "ನೀನೊಂದು ದಕ್ಕಲಾರದ", "meta": "45 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-22.jpg", "body": "ನೀನೊಂದು ದಕ್ಕಲಾರದ\nಕವಿತೆ\nಆದರೂ ಬರೆಯುವ ಪಣ\nತೊಡುತ್ತೇನೆ\nಪದಗಳೆಲ್ಲ ಗೋಜಲಾಗಿದೆಯಾ?\n'ಕೇಳು,\nನಿನ್ನನ್ನಷ್ಟೇ ಕನಸಿದ್ದೇನೆ\nಈವರೆಗೆ\n\nನಿನ್ನ ನಗು ಕಲ್ಪನೆ\nನಾಚಿಕೆ ಬಿಂಕ\nಪಾಸ್ವರ್ಡ್ ಅಥವಾ\nನಿನ್ನಿಷ್ಟದ ಟೀ ಶರ್ಟ್\nನಾನಾಗಿರಬಹುದು ಬಹುಷಃ\nನಿನ್ನವನೆಂಬ ಷರಾ\nಬರೆಯಲಾರದ ಕೊರತೆಯೊಂದಿದೆ\nಪರದೆಗಳ ಗೊಡವೆ\nಕೆಡವಿದ ದಿನ\nಆ ಮೊಹರು ಒತ್ತಿಬಿಡಬಹುದು\n\nನಾ ಬದುಕಿನ ಅಪವಾದ\nಆದರೂ ಬದುಕುತ್ತೇನೆ\nನಿನ್ನೆಯಂತೆಯೇ ಇಂದನ್ನೂ\nನಿನ್ನ ಕತ್ತಲ ಸೋಲ್ಲಿನ\nಹೆಕ್ಕುವ ಹುಕಿಗೆ\nನಾಳೆಯನ್ನಾದರೂ\nಗಳಿಸಿಬಿಡಬಲ್ಲೆನೆಂಬ\nಹುಂಬದಿಂದ\n\nನನ್ನ ಇಬಾದತ್ತಿನಲ್ಲೂ\nನೀ ಸಿಗಬೇಕೆನ್ನುವ\nಅಹವಾಲಿದೆ\n'ಖುದಾ,\nಕ್ಷಣಿಕವಾಗಿಯಾದರೂ\nನೋಡಬಹುದೆನ್ನುವ\nಇರಾದೆಗೆ\n\nನನ್ನ ನಂತರವೂ\nನಿನ್ನ ಬೇಕೆನ್ನುವ\nಈ ಪವಿತ್ರ ಪ್ರಾರ್ಥನೆಗೆ\nಒಳಿತನ್ನುವ ಬೊಗಸೆಗಳಷ್ಟಾದರೂ\nಸಿಕ್ಕಿಬಿಡಲಿ\n'ಹೂರಿ,\nನಿನ್ನ ಎದುಕ್ಕೊಳ್ಳುವುದಕ್ಕೆ\nಜನ್ನತ್ತಿನ ಘಮವಿದೆ..!"}]}, {"id": "poem-23", "title": "ನಿನ್ನ ರಾತ್ರಿ", "meta": "60 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-23.jpg", "body": "ನಿನ್ನ ರಾತ್ರಿ\nನಿನಗೆ ಭಯ\nಆಗುವ ಕಂಪನವನ್ನು\nಬದುಕಿದ್ದೀಯಾ?\n\nಮಳೆ ಗಾಳಿಗೂ\nಮೈಯೊಡ್ಡಿ ಬಿಸಿಲಿಗೆ\nಕೊಡೆಯಾಗಿದ್ದ ಮನೆಯ\nಚಾದರ ಒಂದು\nನಿದ್ದೆ ಹೊತ್ತಿನಲ್ಲಿ\nಬೂದಿಯ ಕಣವಾಗಿದ್ದು\nನನ್ನ ರಾತ್ರಿಯ ಭಯ\n\nಹುಣ್ಣಿಮೆ ಅಮಾವಾಸ್ಯೆ\nನಕ್ಷತ್ರ ವಾಸ್ತು ನೋಡದೆ\nತನ್ನದೇ ರಾಗದಲ್ಲಿ\nಹಾಡುತ್ತಿದ್ದ ಬೀದಿ\nನಾಯಿಯ ಸ್ವರ\nಒಂದು ರಾತ್ರಿಯಿಂದ\nಕೇಳಿಸುತ್ತಿಲ್ಲ\nಬೂದಿಯಲ್ಲಿ ಮಿಂದ\nಎರಡು ಎಲುಬು ಸಿಕ್ಕಿತ್ತು\nಬೆಳಿಗ್ಗೆ\nಯಾವ\nಅಗ್ರಿಮೆಂಟೂ ಇಲ್ಲದೇ\nಟೊಂಗೆ ಪೋಟರೆಯಲ್ಲಿ\nಗೃಹಪ್ರವೇಶ ಮಾಡಿಕೊಂಡಿದ್ದ\nಹಕ್ಕಿಪಿಕ್ಕಿಗಳ\nರೆಕ್ಕೆ ಮತ್ತು ಬೆಂಕಿಯಲ್ಲಿ\nಬೆಂದ ಮರದ ಎಲೆಗಳೂ\nಸಿಕ್ಕಿದ್ದವು ನನಗೆ ಬೂದಿಯಲ್ಲಿ\n\nಸಾಮಾನ್ಯವಾಗಿ\nಗನ್ನು ಬಾಂಬಿನ\nಆಟದಲ್ಲಿ\nಕನಸು ಹೊದ್ದ ಕಣ್ಣುಗಳು\nಹೊರೆ ಇರುವ ಬೆನ್ನು\nಮೂಳೆಗಳು\nನೆಲಕ್ಕಿನ್ನೂ ಕಾಲು ಕುತ್ತದ\nಮನುಷ್ಯ ತಲೆಗಳೇ\nಮೈದಾನ\n\nಕಸಾರೆಯಲ್ಲಿ\nಕುಳಿತು ಇದನ್ನು\nಯುದ್ಧವೆನ್ನುತ್ತಾರೆ\nಸೂಟುಬೂಟಿನ ಜನ\n\nಹೆಣಗಳ ಎಣಿಕೆ\nಸರಿದೋಗಿದ ಮೇಲೆ\nಸಮಾಧಾನದ ಪಾರಿವಾಳ\nಹಾರಿಸುತ್ತಾರೆ ಅದೇ\nಬೂದಿಯಲ್ಲಿ ಹಕ್ಕಿದನ್ನು\n\nನಾನಿನ್ನೂ ಈ ಪದ್ಯ\nಪೂರ್ತಿಗೊಳಿಸಲು\nನನ್ನೊಂದು ಬೆರಳ\nಹುಡುಕುತ್ತಿದ್ದೇನೆ\nಬೂದಿಯ ಮಧ್ಯದಲ್ಲಿ\nನನ್ನದೇ ರಾತ್ರಿಯ\nಭಯದಲ್ಲಿ..!"}]}, {"id": "poem-24", "title": "ಯಾವ ನೋವಿಗೂ", "meta": "29 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-24.jpg", "body": "ಯಾವ ನೋವಿಗೂ\nತೆಕ್ಕೆಗಳಿಲ್ಲ ನಾಜೂಕತನದ\nಲೋಕದಲ್ಲಿ ಮುಸಾಫಿರ\nಅಲೆಮಾರಿ ಪಾದಕ್ಕೆ\nಗೂಟ ಹೊಡೆಯುವ\nನೆಪವುಳಿಸಿಯಾದರೂ ನಡೆದು\nಬಿಡು\n\nನೆತ್ತರ ಗಾಯಕ್ಕೆ ಬಣ್ಣಗಟ್ಟುವ\nಜಗತ್ತಿನೆದುರು\nಅದ್ಯಾವ ಉಯಿಲು\nಬರೆದುಕೊಂಡಿರಬಹುದು\nಕೇಳದಂತದ್ದು\nನೆಪಗಳೇ ನೆರಗೆಯಿಡಿದು\nಮುಂದೆ ನಿಲ್ಲುವಾಗ ಮುಸಾಫಿರಾ\n\nಈ ಇರುಳ ಸಲಾಕೆಯ\nಸದ್ದು ಚೊಬ್ಬಿರಿಯುತ್ತದೆ\nದುಗುಡ ಜೀಕುವ ಸದ್ದಿಗೆ\nಎದೆಯಂಗಳದಲ್ಲಿ ಸಿಕ್ಕು ಅದಂತೋ\nಈ ಮೌನಕ್ಕೆ ನಾಲಿಗೆಯ\nಜರೂ\nರತ್ತಿನ ಹಂಗಿಲ್ಲ\n\nಒಲವ ನೆನಪು\nಸಾವಾಕಾಶವಾಗುವ\nಜಗತ್ತಿದು ಮುಸಾಫಿರಾ\nಬಂದಷ್ಟೇ ಹೊರದೂಡಿಕೊಳ್ಳುವುದು\nಬಹಳವೇ..!"}]}, {"id": "poem-25", "title": "ಪ್ರೇಮವಿಲ್ಲದೇ", "meta": "19 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-25.jpg", "body": "ಪ್ರೇಮವಿಲ್ಲದೇ\nಇಲ್ಲೇನು ಜರುಗುವುದಿಲ್ಲ\nದ್ವೇಷವೂ ಕೂಡ\n\nಬದುಕು ಕಂಡ\nಸಂತ\nಬದುಕಿದ್ದನ್ನು ಹೇಳುವುದು\nಊರಿನ ಸೂಳೆ\nಬದುಕನ್ನು ಹೇಳುವುದೂ\nಪ್ರೇಮದಿಂದಲೇ\n\nಆ ದಂಡೆಯ ಮೇಲೆ\nಕೂತು ಕಾಗದಗಳ\nಗೀರಬೇಡಿರಿ\n'ಜನಗಳೇ,\n\nಸಾವು ಕೂಡ\nನಿಮ್ಮ ಬಳಿ\nಬರುವುದೂ ಪ್ರೇಮದಿಂದಾನೇ..!"}]}, {"id": "poem-28", "title": "ಬದುಕಿಗೆ ರಂಗು", "meta": "43 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-28.jpg", "body": "ಬದುಕಿಗೆ ರಂಗು\nಮೆತ್ತುವ ಈ ಉಸಾಬರಿ\nಶತಮಾನಗಳಿಂದ\nನನ್ನ ಬೆನ್ನು ತೊರೆದಿಲ್ಲ\nಇನ್ನೂ ರೂಪ ಬೇಕು ರೂಪ\nಬೇಕು ಎನ್ನುವ ಸದ್ದಿಗೆ\nಕುಂಚದ ಕಣ್ಣೀರಷ್ಟೇ\nಇಂಗಿ ಹೋಗುತ್ತಿದೆ\n\nಪ್ರೀತಿಯ ಬಣ್ಣ\nಹಚ್ಚಿದಾಗ ಮೋಸದ\nಚಿತ್ತಾರವೂ ಅರಳುತ್ತದೆ\nಪ್ರೇಮದ ಚಿನ್ನೆ ಇಟ್ಟಲ್ಲಿ\nಕಾಮದ ಮೋಗ್ಗು\n\nನಲಿವಿನ ನೆರಳಾಡಿಸಿದ್ದಷ್ಟೇ\nದುಃಖ ಸಾಗರವೇ\nಹರಿಯತೊಡಗುತ್ತದೆ\nಕ್ಯಾನ್ವಾಸ್ ತುಂಬಾ\nಸುಖದ ಬಣ್ಣ ಹುಡುಕುತ್ತೇನೆ\nಕೈಗೆಟುಕುವುದು\nದರ್ದಿನ ಕುಪ್ಪಿಗಳು\n\nಸ್ನೇಹದ ರೇಖೆ\nಎಳೆದಲ್ಲಿ ನಂಜಿನ\nಚುಕ್ಕೆ ಲಗ್ಗೆ ಇಟ್ಟಂತೆ\nನಂಬಿಕೆಯ ಗೆರೆಗೆ\nದ್ರೋಹದ ಶೇಡ್\nಅಡ್ಡ ಬರುತ್ತದೆ\n\nಪರಿಪೂರ್ಣ ಬಣ್ಣ\nಮೆತ್ತಲಾಗದಿದ್ದಾಗ\nಬದುಕಿನ ಒಂದೇ ಹನಿ\nಚಿಮುಕಿಸಿ ನೋಡುತ್ತೇನೆ\nಒಳಗಿಳಿದ ಪ್ರತಿ ಬೊಟ್ಟುಗಳೂ\nಸಾವಿನ ಅಮೂರ್ತ\nರೂಪವಾಗಿ ಮಾರ್ಪಾಟುಗೊಳ್ಳುತ್ತದೆ\n\nಈ ರಂಗಿನ ಉಸಾಬರಿ\nದಕ್ಕುವುದಿಲ್ಲ ನನಗೆ\nಇನ್ನೂ ಬೇಕೆನ್ನುವ\nಘೋಷಣೆ ನಿಲ್ಲುವುದಿಲ್ಲ\nಕೊನೆಗೆ..!"}]}, {"id": "poem-29", "title": "ನನ್ನನ್ನು ಕ್ಷಮಿಸಿ", "meta": "58 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-29.jpg", "body": "ನನ್ನನ್ನು ಕ್ಷಮಿಸಿ\nಕ್ಷಮಿಸಿ ನಿಮ್ಮ ಅಂತರಾಳದಿಂದ\nನಾಭಿ ಸೀಳಿದ ಕರುಣಾಜನಕತೆಯೊಂದು\nನಿಮ್ಮಲ್ಲಿ ನನ್ನ ಕುರಿತಾಗಿ\nಇದ್ದರೆ\nಬೇಷರತ್ ಕ್ಷಮೆ ಕೇಳುತ್ತೇನೆ\n\nಕಾಲ ಗೋಡೆಯ\nನಡುವಲ್ಲಿ ಜಂಗನೆ\nಹಾರಿದ ಜಂತು ಹುಳ\nಕೂದಲ ಮಹಡಿಯನ್ನು\nಸೆರೆಯಾಗಿಸಿ ಹಿಡಿದು\nಉತ್ತರ ದಕ್ಷಿಣ\nಪರ್ವತ ಪ್ರಪಾತ ಗುಡಿ\nಗರುಡಿ,ಅಟ್ಟ,ಬಾಗಿಲು\nನೆಲ,ಮಳೆಯೆಲ್ಲ ಆಳುವೆ\nಎನ್ನುವಾಗಿನ ಕೌತುಕ\nನಿಮ್ಮಲ್ಲಿ ಆಶ್ಚರ್ಯ\nಹುಟ್ಟಿಸಿದ್ದೇ ಆದಲ್ಲಿ\nಬನ್ನಿ ಕೂತು\nದೇವರ ಕುರಿತು ಚರ್ಚಿಸಿ\n\nಸಾವಿನ ಹಲ್ಲಿನಲ್ಲಿ\nಬದುಕು ಕಚ್ಚುವ\nನನ್ನಾತ್ಮವೆಂಬ ಹಾವಿನ\nವಿಷ ಪಸರಿಸಿದ\nಜಾಗದಲ್ಲಿ ನೆರತ\nಹುಲ್ಲಿನ ಕಥೆಯೊಂದು\nನಿಮ್ಮ ತರ್ಕಕ್ಕೆ ಉತ್ತರ\nಆಗಬಹುದು\n\nತೋಡು,ನೆಲ\nಮಾಳಿಗೆ,ಜಮೀನಿನ\nರಹದಾರಿಯಲ್ಲಿ ಹರಿಯಬಿಟ್ಟ\nನಿಮ್ಮೊಳಗಿನ ಕೌತುಕ\nಸಾವಿನ ಸಂಚಲನ\nಹುಟ್ಟಿಸಿ ಬಿಡುವುದು\nಮತ್ತು\nನಗ್ನ ಹುಡುಗಿಯ ನೆನೆದು\nಕೈಮೈಥುನ ಮಾಡಿಕೊಂಡ\nಹುಡುಗನ ಸಂತೃಪ್ತಿಯಲ್ಲಿ\nನಿಮ್ಮ ಕೌತುಕ ಮುದುಡಿ\nಮಲಗಿರುತ್ತದೆ\n\nಪುರಾಣ ಪುಣ್ಯ ಕಥೆಯ\nಸೆರಗಲ್ಲಿ ಬ್ರಹ್ಮಾಂಡದ\nಸಾರವನ್ನೇ ನೆಂಚಿತಿನ್ನುವ\nನಿಮ್ಮ ಕೌತುಕ\nಬರಿದಾಗುತ್ತಾ ತುಂಬಿಕೊಳ್ಳುತ್ತದೆ\n\nಈ ಕೌತುಕದ\nಕಟ್ಟುಕಡೆಯ ಆಣೆಯೂ\nನನ್ನಾತ್ಮದ ಮೇಲೆ\nಬಡಿದುಕೊಂಡಿದ್ದೇನೆ\nಅದಕ್ಕಾಗಿ ನನ್ನನ್ನು ಕ್ಷಮಿಸಿ\nನಾಭಿ ಸೀಳಿದ ಕರುಣಾಜನಕ\nಕಥೆಯನ್ನು ಕುಯ್ಯುಬಿಡಿ\nಕೌತುಕ ಉಸಿರಾಡುತ್ತಿರಲಿ..!"}]}, {"id": "poem-30", "title": "ದಣಿದವನಿದ್ದ ಅವ", "meta": "31 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-30.jpg", "body": "ದಣಿದವನಿದ್ದ ಅವ\nಅದೇನನ್ನೋ ಕಳೆದುಕೊಂಡವನಂತೆ\nಹುಡುಕು ಹತ್ತಿಸಿಕೊಂಡ\nಕಾಲುಗಳಲ್ಲಿ ವಿಶ್ರಾಂತಿಯ\nವಿಳಾಸ ಮರೆತವನಂತೆ\n\nಹಸಿವು ನಿದ್ದೆ ಆರಾಮದ\nಬಟ್ಟೆಯುಟ್ಟುಕೊಂಡರೂ\nಹುಡುಕುತ್ತಿದ್ದ ಅದೇನನ್ನೋ\nಕೊಡೆ ಹಿಡಿದೂ ನೆನೆದವನಂತೆ\n\nಮಂದಿರ ಚರ್ಚ್\nಮಸೀದಿಯೊಳಗೂ\nಪಾರ್ಕ್ ಬೀಚ್\nಸಾರ್ವಜನಿಕ ಶೌಚಾಲಯದೊಳಗೂ\nಹುಡುಕಿಗೂ ಬೇಡವಾಗುವಷ್ಟು\n\nಪ್ರೀತಿ ಪ್ರೇಮ ಕಾಮ\nಶೋಕ ಕೊನೆಗೆ\nಸಾವು ಎದುರಿಗಿಟ್ಟರೂ\nಮತ್ತೂ ಹುಡುಕುತ್ತಿದ್ದ\n\nಸಿಕ್ಕಿದ್ದು ಒಪ್ಪುತ್ತಿರಲಿಲ್ಲ\nಒಪ್ಪಿದ್ದು ದಕ್ಕುತ್ತಿರಲಿಲ್ಲ\n\nಇವನನ್ನು ಕಂಡರೆ\nಮುಸಿನಗದಿರಿ\nಗಳಿಸಿಕೊಂಡ ತೃಪ್ತಿಯಲ್ಲ\nಕಳೆದುಕೊಂಡಿರುವೆ\nಎಂಬ ಬೇಸರವನ್ನೇ\nಬದುಕುವವ ಅವ..!"}]}, {"id": "poem-31", "title": "ಇಲ್ಲಿ ನೋವಿದೆ ಸಾವಿದೆ", "meta": "67 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-31.jpg", "body": "ಇಲ್ಲಿ ನೋವಿದೆ ಸಾವಿದೆ\nಅದೇ ಸೂತಕದ ಸಂತೆ\n\nಕಡ್ಡೆ ಮಾರಿ\nಸಂಜೆಯಾದರೆ\nತನ್ನ ಪ್ಲಾಸ್ಟಿಕ್ ಚೀಲವನ್ನೇ\nದಿಂಬಾಗಿಸಿ ನಿದ್ದೆ\nಹೋಗುವ ಅಜ್ಜಿ\nನನ್ನ ಕುತೂಹಲ\n\nಫ್ಯಾನ್ ಐಸಿ\nಮೆತ್ತನೆ ಪಿಲ್ಲೋ\nಮುಖ್ಯವಾಗಿ\nಕೈಯಗಲ ಕಾಲಗಲ\nಬಿರಿಸಿದಷ್ಟು ತನ್ನದೇ\nಅನ್ನುವ ಸರ್ವ\nಸ್ವತಂತ್ರನೊಬ್ಬ\nನಿದ್ದೆಗಾಗಿ ಪೇಚಾಡುತ್ತಾನೆ\n\nಒಂದಾ ನೀವು\nಸುಖವನ್ನು ಹುಡುಕುವುದರಲ್ಲಿ\nಎಡವಿದ್ದೀರಿ\nಅಥವಾ\nಸುಖವನ್ನು ತಪ್ಪಾಗಿ\nಅರ್ಥೈಸಿದ್ದೀರಿ\n\nಮೂಳೆ ಮುರಿವ\nಸದ್ದನ್ನು ಸಂಗೀತದಂತೆ\nಮುಮ್ಮುಳಿಸುವ\nಆ ಕಲ್ಲು ಹೊರುವ\nಮಧ್ಯವಯಸ್ಕನನ್ನು\nನೀವು ಹೈಟೆಕ್\nಸ್ಪಾ ದಲ್ಲಿ ನೋಡಿರಲಿಕ್ಕಿಲ್ಲ\nಬೆನ್ನು ಹುರಿ ಮಣಿಗಂಟಿನ\nನೋವು ಆತನಿಗೆ\nಮಸಾಜ್ ಮಾಡಿಸಿಕೊಳ್ಳುವಂತದ್ದೂ\nಅಲ್ಲ\n\nಭಯಂಕರ\nಜೀವನೋತ್ಸಾಹಕ್ಕಾಗಿ\nಸಾವಿರ ಪುಟದ ಪುಸ್ತಕ,\nಆಶ್ರಮ,ಮೆಡಿಟೇಶನ್ನೂ\nತದ್ವಿರುದ್ಧವಾಗಿ\nಒಂದು ದೃಶ್ಯ ಕಂಡೆ\nಎರಡೂ ಕೈ ಕಾಲು\nಇಲ್ಲದ ಮನುಷ್ಯ\nದೇಹವನ್ನೇ\nಚಕ್ರಗಳಾಗಿಸಿ\nಬೇಡುತ್ತಿದ್ದ ಉರೂಸಿನಲ್ಲಿ\n\nಇಲ್ಲಿ ಸಾವಿದೆ ನೋವಿದೆ\nಅದೇ ಸೂತಕದ ಸಂತೆ\nಇದ್ದವನಲ್ಲಿ ಇದ್ದುದ್ದಕ್ಕೆ\nಇಲ್ಲದವನಲ್ಲಿ ಇರದಿದ್ದುದ್ದಕ್ಕೆ\n\nಬದುಕಿನ ಪರ\nವಕಾಲತ್ತು ವಹಿಸುವ\nಮಹಾಜನಗಳೇ\nನೀವು ಬದುಕನ್ನು ಕಂಡಿದ್ದಿಲ್ಲ\nಅಥವಾ\nನೀವು ನೋಡುವ\nಬದುಕು ನನಗೆ ಒಗ್ಗುವುದಿಲ್ಲ\n\nಅರ್ಥೈಸಲಾಗದ\nಜಗತ್ತನ್ನು ಅರಿಯಬೇಕೆಂಬ\nನಿಮ್ಮ ಮನುಷ್ಯ ಬುದ್ಧಿಗೆ\nನಮಸ್ಕಾರಗಳು..!"}]}, {"id": "poem-32", "title": "ನೀನು ಸಾವಧಾನಿಸು", "meta": "61 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-32.jpg", "body": "ನೀನು ಸಾವಧಾನಿಸು\nಈ ಉರಿಯ ಉಜ್ಜಿಕೊಂಡ\nರಾತ್ರಿಯಲ್ಲಿ ನನ್ನದೆಯ\nನಂಜನ್ನು ಕೇಳುವ ನಿನ್ನ\nತಾಳ್ಮೆಗೆ ಆಯಸ್ಸಿರಲಿ ನೂರು\n\nನನ್ನ ಬದುಕ ಚಿತ್ರಗಳು\nನಿನ್ನ ಕಣ್ಣಲ್ಲಿ ಪಳಗಿಕೊಳ್ಳಲಿ\nಆಶಿಸುತ್ತೇನೆ ಹಾಗೆನೇ\nಜೀರ್ಣವಾಗಲಿ ಈ ನೋವಿನ\nಪುಟಗಳೆಲ್ಲ ನಿನ್ನ ಕಣ್ಣ\nಕಡಲಿನಲ್ಲಿ ಈಜಾಡಿ\n\nಕೇಳಿಸಿ ಕೋ\nಕಿವಿಗಳಿಗೆ ಸಾಂತ್ವಾನದ\nಮುತ್ತನಿಡುತ್ತಾ...\n\nನನ್ನ ಬದುಕು\nಸೋಲಿನ ತಕ್ಕಡಿ\nಕತ್ತಲ ತುಟಿಯ ಚೀರಾಟ\nಹೆಣದ ಬಾಯಾರಿಕೆ\nಉರಿದ ತೊಗಲ ಘಮ\nಕರಿದ ಪುಣ್ಣ ಬಣ್ಣ\nಒಡೆದ ಪಾದದ ಗುರುತು\nಸವೆದ ಚಪ್ಪಲಿಯ ದೇಹ\nಸುಲಿದ ಚಮಡ\nತಿಪ್ಪೆಯ ಮೋರೆ\nಗೂನು ಬೆನ್ನ ಹೊರೆ\nಒಂಟಿ ಪಾದದ ನಡಿಗೆ\nನೊಗ ಕಳಚಿದ ತೇರು\nಸೋತ ಕೈಯ ಹತಾಶೆ\nಸುಟ್ಟ ಮೊಗದ ಕೂಗು\nಬೆಂದ ಬೆವರಿನ ಗಾಯ\nತುಂಬದ ಕೊಡದ ಅಲುಗಾಟ\nಗೋರಿಯ ಕೂಗು\nಅಲೆತುಪ್ಪಿದ ಹನಿ\nಕನಸ ಕೊಂದ ಬೆರಳು\nಕಾಂತಿಕೆಟ್ಟ ಹೂವು\nಕದಡಿದ ನೀರ ಬಿಂಬ\n\nಮತ್ತೂ...\n\nನನ್ನ ಬದುಕು\nಬರಿಗಾಲ ಹೆಜ್ಜೆಗಂಟಿದ\nತಂತಿಬೇಲಿ ಮುಳ್ಳು\nನೋವ ಸಪ್ಪಳದ ಕಿವಿ\nರಾತ್ರಿ ನೀರವತೆಯ ಭಯ\nಸಣಕಲು ದೇಹದ ಆಯಾಸ\nಕೊಳ್ಳಿತುದಿಯ ಬಿಸಿ\nಸೂರ್ಯನದೆಯ ಧಗೆ\nಸುನಾಮಿ ದಿನದ ಛಾಯೆ\nರಣಬಿಸಿಲಿನ ನಗೆ\nಮರುಭೂಮಿಯ ದಾಹ\nಜೋಪಡಿಯ ಹಸಿವು\nಸಾವಿನ ಮನೆಯ ಸೂತಕ\nಕುರುಡನ ಆಕಾಂಕ್ಷೆ\nಸ್ಮಶಾನದ ಮೌನ\nಸುಳ್ಳಿನ ಮುಗುಳ್ನಗೆ\nಭ್ರಮೆಯ ಉಡಾವು\nಬರಿಯ ಕವಿಯ\nಕಲ್ಪನೆ....!"}]}, {"id": "poem-33", "title": "ಎಲ್ಲಾ ಬೀದಿ", "meta": "48 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-33.jpg", "body": "ಎಲ್ಲಾ ಬೀದಿ\nದೀಪಗಳೂ ಆರಿಯೇ ಇರಲಿ\nಬೆಳಕಲ್ಲಿದೆ ಉರಿಯುತ್ತಿದ್ದರೂ\nಇದೆಯೆನ್ನುವ ಭ್ರಮೆಯ\nಬಿಟ್ಟು?\n\nಎಲೆ ಎಲ್ಲಾ ಉದುರಿ\nಮರ ಬೋಳಾಗಿಯೇ\nಇರಲಿ\nಚದುರದೇ ಇದ್ದರೂ\nಹಸಿರಲ್ಲಿದೆ\nಇದೆಯೆನ್ನುವ ಭ್ರಮೆಯ\nಬಿಟ್ಟು\n\nಯಾವ ಗಾಳಿಯೂ\nಬೀಸದೆಯೇ ಇರಲಿ\nಸುಯ್ಯನೆ ರಾಚಿದರೂ\nತಂಪಲ್ಲಿದೆ\nಇದೆಯೆನ್ನುವ ಭ್ರಮೆಯ\nಬಿಟ್ಟು\n\nಮೋಡಗಳೆಲ್ಲ\nಚದುರಿಯೇ ಹೋಗಲಿ\nಸುರಿಯದೇ ಮಳೆಯಾಗಿ\nಬಿದ್ದರೂ ಮಳೆ ಎಲ್ಲಿದೆ\nಹನಿ ಎನ್ನುವ\nಭ್ರಮೆಯ ಬಿಟ್ಟು\n\nಎಲ್ಲಾ ರೂಪವೂ\nಕುರೂಪ ಎಂದೆನಿಸಲಿ\nಸುಂದರ ಎಂದರೂ\nಸೌಂದರ್ಯ ಎಲ್ಲಿದೆ\nಇದೆಯೆನ್ನುವ\nಭ್ರಮೆಯ ಬಿಟ್ಟು\n\nಯಾವ ಪ್ರೇಮವೂ\nದಕ್ಕದೇ ಹೋಗಿಬಿಡಲಿ\nಸಿಕ್ಕಿದರೂ ಒಲವೆಲ್ಲಿದೆ\nಪ್ರೀತಿ ಎನ್ನುವ\nಭ್ರಮೆಯ ಬಿಟ್ಟು\n\nಎಲ್ಲಾ ದಿನ\nಹೀಗೆಯೇ ಸವೆದು\nಹೋಗಲಿ\nಜೀವಂತ ಎಂದೆನಿಸಿ\nಬದುಕಲ್ಲಿದೆ\nಇದೆಯೆನ್ನುವ\nಭ್ರಮೆಯನ್ನು ಬಿಟ್ಟು?"}]}, {"id": "poem-34", "title": "ನಾ ಬೊಗಸೆಯಾಗುತ್ತೇನೆ", "meta": "30 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-34.jpg", "body": "ನಾ ಬೊಗಸೆಯಾಗುತ್ತೇನೆ\nನಿನ್ನ ಕಣ್ಣೀರಿಗಲ್ಲ\nತಥಾ ನನ್ನಿಂದ\nಕಂಬನಿ ಜಾರದಿರಲೆಂಬ\nಪ್ರಾರ್ಥನೆಯಿದೆ\n\nದಿಗಿಲು ಹೊತ್ತ\nದಿಕ್ಕಿನೆದುರು ಏಕಾಂತ\nಹೊರಡುತ್ತಿದ್ದೇನೆ\nವಿಷಾದಗಳೆದುರು\nಎದೆಕೊಡುವುದರ\nಕಲಿತ ಮೇಲಿಂದ\n\nಕೆನ್ನೆ ಸವರುವ\nಈ ಜಡ ಕತ್ತಲಿಗೇನು\nಗೊತ್ತು\nಬೆಳಕಲ್ಲದ ನನ್ನ ದಿನದ\nಪಟ್ಟಿಗಳ\nನಡೆಯಬೇಕು ವಿರಾಗಿಯ\nಹೆಜ್ಜೆಯನಿಡಿದು\n\nಈವರೆಗಿನ\nಖಾಲಿತನವೆಲ್ಲವೂ\nಬೆತ್ತಲಬಯಲಾಚೆಗೆ\nತೂಗು ಹಾಕಲಾಗಿದೆ\n\nತಥಾ\nನನ್ನಿಂದ ನಿನ್ನ ಕಂಬನಿ\nಜಾರದಿರಲೆಂಬ\nಪ್ರಾರ್ಥನೆಯಿದೆ..!"}]}, {"id": "poem-35", "title": "ನನ್ನ ನೋವು ನನ್ನದಲ್ಲ", "meta": "49 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-35.jpg", "body": "ನನ್ನ ನೋವು ನನ್ನದಲ್ಲ\nಎಂದು ಕೊಂಡಾಕ್ಷಣ\nಬೊಗಸೆ ಕೈಯಾಗಿಸಿಬೇಡುವ\nಹರಿದ ಧಾವಣಿ ಟ್ರಾಫಿಕ್\nಹುಡುಗೀ\n\nಬದುಕೇ ದುರಂತವೆನಿಸುವ\nಕೈಗಳೆರಡೂ ಕಾಣೆಯಾದ\nಊರೂಸಿನ ಭಿಕ್ಷುಕ\nಶೂ ಪಾಲಿಷ್ ಹಾಕುವ\nಶಾಲೆ ವಯಸ್ಸಿನ ಹುಡುಗ\nಹೀಗೆಯೇ ಕಥೆಗಳು\nಕಾಣ ಸಿಗುತ್ತದೆ\n\nಎಲ್ಲಾ ಕಳಚಿ\nದಿಗಂಬರನಾಗಬೇಕು\nಒಂದು ಸೊಟ್ಟ ಗಾಯ\nಎದೆಯಲ್ಲಿ ಉಳಿಯದಂತೆ\nನೀರಿಗೆ ಪರದಾಡುವ\nಐದು ಮಕ್ಕಳ ತಾಯಿ\nಬೂದಿ ಹುಡುಕುವ\nಋತುಮತಿಯಾದ ಕನ್ಯೆ\nಈ ಷಹರದ ದಾರುಣ\nವ್ಯಥೆ ಚಾಲ್ತಿಯಲ್ಲಿರುವಾಗ\n\nಹಸಿವ ಬೆನ್ನಿಗೆ ಕಟ್ಟಿ\nಕರಾವು ಮಾಡುವವ\nಮೂವತ್ತು ಕಳೆದ\nಹೆಣ್ಣಿರುವ ತಂದೆ\nಯಾವ ವರಮಾನವಿಲ್ಲದೆಯೂ\nಸಂಸಾರ ಹೊರುವ\nಮನೆಯಜಮಾನ\nಜಗತ್ತೇ ಕಥೆಗಳ ಬುತ್ತಿ\nಇಷ್ಟೇ ಸಿಹಿ ಹೆಚ್ಚು ಕಹಿ\n\nಇನ್ನೊಂದಿಷ್ಟು ನೋವಿದೆ..\n\nಉಡದ ಬಟ್ಟೆಯ\nಕನಸುವ ಹುಡುಗೀ\nಷೋರೂಮಿನ\nಬೈಕ್ ಮೇಲೆ\nಆಸೆಗಣ್ಣು ನೆಟ್ಟುಬಿಡುವ\nಮಧ್ಯಮ ಯುವಕ\nಇನ್ನು ಹತ್ತು ಹಲವು\n\nಆದ್ದರಿಂದ...\nನನ್ನ ನೋವು ನನ್ನದಲ್ಲ\nಮುಗಿಯದ ಕಥೆಯ\nತುಣುಕೊಂಡಷ್ಟೇ..!"}]}, {"id": "poem-36", "title": "ಒಂದು ಸುಂದರ ಸಂಜೆ", "meta": "44 ಸಾಲುಗಳು · lines", "slides": [{"img": "Assets/newpoem-36.jpg", "body": "ಒಂದು ಸುಂದರ ಸಂಜೆ\nನಾ ಸಾಯಬೇಕು\nಆ ಪ್ರಶಾಂತತೆಯ ಬೆನ್ನಲ್ಲಿ\nಗೀರಿಟ್ಟುಕೊಂಡ\nಬದುಕ ಅಂಗಾತ\nಮಲಗಿಸಿಬಿಡಿ\nನೋವ ಸಂಕ್ಷಿಪ್ತತೆಯ\nಕನ್ನಡಿ ನನ್ನನ್ನಷ್ಟೇ ನೋಡುತಲಿರಲಿ\n\nಬದುಕ ದಕ್ಕಿಸಬೇಕೆಂಬ\nನನ್ನ ಹುಕಿಗೆ ಮುಳ್ಳು\nಪರಚಿದ ಭಾಗವೆಲ್ಲ\nಯಾವ ಕಣ್ಣೀರಿನಿಂದಾನೂ\nತೊಳೆಯದಿರಿ\nಮಸಣದ ದಾರಿಯುದ್ದಕ್ಕೂ\nಹಾಯ್ದುಹೋಗಲಿ\nಶರತ್ಕಾಲದ ಹೂವ\nಎಸಳಂತೆ ಒಂದೊಂದು\n\nಕನಸು ಒಡೆದ ಕಣ್ಣುಗಳ\nಚೂರು ಯಾವ\nಕಾಲಿಗೂ ತಾಕದಂತೆ\nನೋಡಿಕೊಳ್ಳಿ\nಪಾದಕ್ಕಂಟುವ ಶಾಪದ\nಉಮೇದಿನ ಧಾವಂತ\nಬದುಕ ಪುಟಗಳಿಗಲ್ಲ\nಗೆದ್ದಲು ಹಿಡಿಸಿಬಿಡುವ\nತುರ್ತಿನದ್ದು\n\nಗಳಿಸಿದ ಉತ್ತರಗಳ\nಪ್ರಶ್ನೆಯನ್ನಷ್ಟೇ ಬಿಸುಟಿ\nಹೋಗುತ್ತೇನೆ\nದಕ್ಕದ ಜವಾಬು\nನನ್ನಷ್ಟೇ ದಿವಂಗತ\n\nಮತ್ತೂ,\n\nಆ ಸುಂದರ ಸಂಜೆ\nನಾ ಸಾಯಬೇಕು\nಯಾವ ಕಡವೂ\nಬೆನ್ನೇರದ ಹಾಗೆ\nಬದುಕ ಹೊಲಪ\nಮೈಯೆಲ್ಲ ಮೆತ್ತಿಕೊಂಡಂತೆ\nನಿರ್ಲಿಪ್ತನಾಗಿ..!"}]}], "photos": [{"src": "Assets/photo-01.jpg", "cap": "ಓದುಗರೊಂದಿಗೆ · With readers"}, {"src": "Assets/photo-02.jpg", "cap": "ಪುಸ್ತಕಕ್ಕೆ ಸಹಿ · Signing a copy"}, {"src": "Assets/photo-03.jpg", "cap": "ಪದ ಪ್ರಕಾಶನದೊಂದಿಗೆ · With the publisher"}, {"src": "Assets/photo-04.jpg", "cap": "ಪುಸ್ತಕ ಬಿಡುಗಡೆ · Book launch, 2024"}, {"src": "Assets/photo-05.jpg", "cap": "ಕಾವ್ಯ ಪ್ರಶಸ್ತಿ ಪ್ರಮಾಣಪತ್ರ · The award certificate"}, {"src": "Assets/photo-06.jpg", "cap": "ಪುಸ್ತಕದ ಪ್ರತಿಗಳು · Copies of the book"}, {"src": "Assets/photo-07.jpg", "cap": "ಪುಸ್ತಕ ಬಿಡುಗಡೆ · Book launch, 2024"}, {"src": "Assets/photo-08.jpg", "cap": "ಅನಾಮಧೇಯ ಗೀರುಗಳು · The book"}, {"src": "Assets/photo-09.jpg", "cap": "ಪ್ರಶಸ್ತಿ ಸಮಾರಂಭದಲ್ಲಿ · At the award ceremony"}, {"src": "Assets/photo-10.jpg", "cap": "ಕಾವ್ಯ ಪ್ರಶಸ್ತಿ ೨೦೨೪ · Holding the award"}]};
+const $ = id => document.getElementById(id);
+let curCol = 0, curSlide = 0;
+function slideFile(ci, si){ var c = DATA.collections[ci]; if (c.id === 'hanigalu') return 'hanigalu-' + (si + 1) + '.html'; return c.id + '.html'; }
+
+/* ---------- sliding tagline (loop) ---------- */
+(() => {
+  const phrase = 'ಖಾಲಿ ಜೇಬಿನ ಫಕೀರ &nbsp;✦&nbsp; ';
+  const _tt = $('tagTrack'); if (_tt) _tt.innerHTML = phrase.repeat(6) + phrase.repeat(6);
+
+  /* home notification slides — slow sliding loop + hand swipe */
+  (function(){
+    const box = $('notifBox'), track = $('notifTrack');
+    if (!box || !track) return;
+    const N = 3;
+    let ni = 0, timer = null, snapT = null;
+    function goTo(idx, animate){
+      track.style.transition = animate === false ? 'none' : 'transform .9s ease';
+      track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+    }
+    function scheduleSnap(){
+      clearTimeout(snapT);
+      snapT = setTimeout(() => { goTo(0, false); ni = 0; }, 950);
+    }
+    function advance(){
+      ni++;
+      goTo(ni, true);
+      if (ni === N) scheduleSnap();
+    }
+    function startAuto(){ stopAuto(); timer = setInterval(advance, 4500); }
+    function stopAuto(){ if (timer) clearInterval(timer); timer = null; }
+    startAuto();
+    let drag = null, moved = false;
+    box.addEventListener('pointerdown', e => {
+      drag = { x: e.clientX, base: -ni * box.clientWidth };
+      moved = false;
+      stopAuto(); clearTimeout(snapT);
+      track.style.transition = 'none';
+      try { box.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    box.addEventListener('pointermove', e => {
+      if (!drag) return;
+      const dx = e.clientX - drag.x;
+      if (Math.abs(dx) > 8) moved = true;
+      track.style.transform = 'translateX(' + (drag.base + dx) + 'px)';
+    });
+    function endDrag(e){
+      if (!drag) return;
+      const dx = e.clientX - drag.x, W = box.clientWidth;
+      drag = null;
+      if (dx < -W * 0.22) {
+        ni++;
+        goTo(ni, true);
+      } else if (dx > W * 0.22 && ni > 0) {
+        ni--;
+        goTo(ni, true);
+      } else {
+        goTo(ni, true);
+      }
+      if (ni === N) scheduleSnap();
+      startAuto();
+      if (moved) {
+        const kill = ev => { ev.stopPropagation(); ev.preventDefault(); box.removeEventListener('click', kill, true); };
+        box.addEventListener('click', kill, true);
+        setTimeout(() => box.removeEventListener('click', kill, true), 350);
+      }
+    }
+    box.addEventListener('pointerup', endDrag);
+    box.addEventListener('pointercancel', endDrag);
+    document.querySelectorAll('#notifBox [data-act="comment"]').forEach(c =>
+      c.addEventListener('click', () => openPoem(0)));
+  })();
+})();
+
+/* ---------- views + menu ---------- */
+const panel = $('panel');
+$('menuBtn').onclick = () => panel.classList.add('open');
+$('closeBtn').onclick = () => panel.classList.remove('open');
+$('scrim').onclick = () => panel.classList.remove('open');
+function showView(name){
+  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', chaya:'chaya.html'};
+  if (M[name]) location.href = M[name];
+}
+document.querySelectorAll('#menuNav button').forEach(b =>
+  b.onclick = () => showView(b.dataset.view));
+document.querySelectorAll('[data-goto]').forEach(a =>
+  a.onclick = e => { e.preventDefault(); showView(a.dataset.goto); });
+
+
+/* ---------- poem page ---------- */
+function openPoem(i){ location.href = slideFile(i, 0); }
+function renderPoem(){
+  const col = DATA.collections[curCol];
+  const s = col.slides[curSlide];
+  $('ppImg').src = s.img;
+  $('ppTitle').textContent = col.title;
+  $('ppCount').textContent = col.slides.length > 1
+    ? (col.slideLabel ? col.slideLabel + ' ' : '') + (curSlide + 1) + ' / ' + col.slides.length : '';
+  $('ppBody').textContent = s.body;
+  $('ppPos').textContent = col.slides.length > 1 ? (curSlide + 1) + ' / ' + col.slides.length : '';
+  $('ppControls').style.display = col.slides.length > 1 ? 'flex' : 'none';
+  const nx = col.slides[(curSlide + 1) % col.slides.length];
+  if (nx) { const im = new Image(); im.src = nx.img; }
+  history.replaceState(null, '', '#' + col.id);
+  loadComments(col);
+}
+/* ---------- poem comments (Waline — public, name-only, no login) ---------- */
+let walineInst = null, walineLoading = false, walineWantedPath = '';
+function loadComments(col){
+  const path = col.id + '-' + curSlide;
+  walineWantedPath = path;
+  if (walineInst) { walineInst.update({ path: path }); return; }
+  if (walineLoading) return;
+  walineLoading = true;
+  import('https://unpkg.com/@waline/client@v3/dist/waline.js')
+    .then(m => {
+      walineInst = m.init({
+        el: '#waline',
+        serverURL: 'https://avigyani-comments.vercel.app',
+        path: walineWantedPath,
+        lang: 'en',
+        meta: ['nick'],
+        requiredMeta: ['nick'],
+        login: 'disable',
+        pageSize: 10,
+        commentSorting: 'latest',
+        dark: false,
+        search: false,
+        reaction: false
+      });
+    })
+    .catch(() => { walineLoading = false; });
+}
+
+
+/* ---------- hero video: make sure it plays (autoplay + first touch) ---------- */
+const heroVid = document.querySelector('.hero-video');
+if (heroVid) {
+  const tryPlay = () => { const p = heroVid.play(); if (p) p.catch(() => {}); };
+  tryPlay();
+  document.addEventListener('touchstart', tryPlay, {once: true});
+  document.addEventListener('click', tryPlay, {once: true});
+}
+
+/* ---------- background Sufi music: soft, starts on first touch ---------- */
+const bgm = $('bgMusic'), musicBtn = $('musicBtn');
+if (bgm && musicBtn) {
+  let musicOn = false, fadeTimer = null;
+  const setBtn = () => musicBtn.classList.toggle('off', !musicOn);
+  const fadeTo = target => {
+    if (fadeTimer) clearInterval(fadeTimer);
+    fadeTimer = setInterval(() => {
+      const d = target - bgm.volume;
+      if (Math.abs(d) < 0.02) { bgm.volume = target; clearInterval(fadeTimer); fadeTimer = null; }
+      else bgm.volume += d * 0.25;
+    }, 120);
+  };
+  const startMusic = () => {
+    if (musicOn) return;
+    bgm.volume = 0;
+    bgm.play().then(() => { musicOn = true; setBtn(); fadeTo(0.35); }).catch(() => {});
+  };
+  const stopMusic = () => {
+    musicOn = false; setBtn();
+    if (fadeTimer) clearInterval(fadeTimer);
+    bgm.pause();
+  };
+  startMusic();
+  document.addEventListener('touchstart', startMusic, {once: true});
+  document.addEventListener('click', startMusic, {once: true});
+  musicBtn.addEventListener('click', e => {
+    e.stopPropagation();
+    if (musicOn) stopMusic(); else startMusic();
+  });
+  setBtn();
+}
+
+/* ---------- welcome popup: close on X or backdrop tap ---------- */
+const wpop = $('welcomePop');
+if (wpop) {
+  $('wpopClose').onclick = () => wpop.classList.add('hide');
+  wpop.addEventListener('click', e => { if (e.target === wpop) wpop.classList.add('hide'); });
+}
+
+
+/* ---------- chaya: UPI link per platform (Android=intent, iPhone=upi) + copy id ---------- */
+const upiBtn = $('upiBtn');
+if (upiBtn && /Android/i.test(navigator.userAgent)) {
+  upiBtn.href = 'intent://pay?pa=7026384664@kotakbank&pn=Avijnani&cu=INR#Intent;scheme=upi;S.browser_fallback_url=https%3A%2F%2Favigyani.github.io%2F;end';
+}
+/* iPhone/iPad: no system UPI handler — give each app its own button,
+   and hide the generic button (on Apple it only shows Safari's error).
+   iPads in desktop mode send a Mac UA, so detect touch too. */
+const IS_IOS = /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+  (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+if (IS_IOS) {
+  if (upiBtn) upiBtn.style.display = 'none';
+  const row = $('appRow');
+  if (row) {
+    const P = 'pa=7026384664@kotakbank&pn=Avijnani&cu=INR';
+    [['Google Pay', 'tez://upi/pay?' + P],
+     ['PhonePe', 'phonepe://pay?' + P],
+     ['Paytm', 'paytmmp://pay?' + P],
+     ['BHIM', 'bhim://pay?' + P]].forEach(([nm, url]) => {
+      const a = document.createElement('a');
+      a.className = 'app-btn'; a.href = url; a.textContent = nm;
+      row.appendChild(a);
+    });
+    row.style.display = 'flex';
+  }
+}
+const copyUpi = $('copyUpi');
+if (copyUpi) copyUpi.onclick = async () => {
+  const id = '7026384664@kotakbank';
+  let ok = false;
+  try { await navigator.clipboard.writeText(id); ok = true; } catch (_) {}
+  if (!ok) {
+    const ta = document.createElement('textarea');
+    ta.value = id; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { ok = document.execCommand('copy'); } catch (_) {}
+    ta.remove();
+  }
+  $('copiedMsg').textContent = ok ? ('ಕಾಪಿ ಆಯಿತು ✓ · Copied ✓ — ' + id) : id;
+};
+if ($('toAwards')) $('toAwards').onclick = () => location.href = 'awards.html';
+
+/* ---------- poem page: finger-drag sideways = previous/next (slides first, then poems, looping) ---------- */
+function stepPoem(dir){
+  var n = DATA.collections.length, col = DATA.collections[curCol], ci = curCol, si = curSlide;
+  if (dir > 0) { if (si < col.slides.length - 1) si++; else { ci = (ci + 1) % n; si = 0; } }
+  else { if (si > 0) si--; else { ci = (ci - 1 + n) % n; si = 0; } }
+  location.href = slideFile(ci, si);
+}
+$('ppPrev').onclick = () => stepPoem(-1);
+$('ppNext').onclick = () => stepPoem(1);
+(function(){
+  const pg = $('poempage'); if (!pg) return;
+  let sx = 0, sy = 0, dx = 0, locked = false, pid = null, t0 = 0;
+  pg.addEventListener('dragstart', e => e.preventDefault());
+  pg.addEventListener('pointerdown', e => {
+    if (pid !== null) return;
+    if (e.target.closest('button, a, input, textarea, select')) return;
+    pid = e.pointerId; sx = e.clientX; sy = e.clientY; dx = 0; locked = false; t0 = Date.now();
+  });
+  pg.addEventListener('pointermove', e => {
+    if (e.pointerId !== pid) return;
+    const mx = e.clientX - sx, my = e.clientY - sy;
+    if (!locked) {
+      if (Math.abs(mx) > 12 && Math.abs(mx) > Math.abs(my) * 1.5) {
+        locked = true;
+        try { pg.setPointerCapture(pid); } catch (_) {}
+      } else return;
+    }
+    dx = mx;
+    pg.style.transition = 'none';
+    pg.style.transform = 'translateX(' + dx + 'px)';
+  });
+  const end = e => {
+    if (pid === null || (e && e.pointerId !== pid)) return;
+    const wasLocked = locked, d = dx, dt = Math.max(1, Date.now() - t0);
+    pid = null; locked = false; dx = 0;
+    pg.style.transition = 'transform .22s ease';
+    pg.style.transform = 'translateX(0)';
+    setTimeout(() => { pg.style.transition = ''; pg.style.transform = ''; }, 250);
+    if (wasLocked && (Math.abs(d) > pg.offsetWidth * 0.4 || (Math.abs(d) > 55 && Math.abs(d) / dt > 0.45))) {
+      stepPoem(d < 0 ? 1 : -1);
+    }
+  };
+  pg.addEventListener('pointerup', end);
+  pg.addEventListener('pointercancel', end);
+})();
+
+
+/* ---------- share: site link (footer) + this poem (poem page) ---------- */
+function shareTarget(scope){
+  if (scope === 'poem') {
+    const col = DATA.collections[curCol];
+    return { url: 'https://avigyani.github.io/' + slideFile(curCol, curSlide), text: col.title + ' — ಅವಿಜ್ಞಾನಿ' };
+  }
+  return { url: 'https://avigyani.github.io/', text: 'ಫಕೀರನ ಜೋಳಿಗೆ — ಅವಿಜ್ಞಾನಿಯವರ ಕವನಗಳು' };
+}
+document.querySelectorAll('[data-share]').forEach(b => {
+  b.onclick = () => {
+    const t = shareTarget(b.dataset.scope);
+    const u = encodeURIComponent(t.url), x = encodeURIComponent(t.text);
+    const full = encodeURIComponent(t.text + '\n' + t.url);
+    const k = b.dataset.share;
+    if (k === 'fb') window.open('https://www.facebook.com/sharer/sharer.php?u=' + u, '_blank');
+    else if (k === 'x') window.open('https://twitter.com/intent/tweet?text=' + x + '&url=' + u, '_blank');
+    else if (k === 'tg') window.open('https://t.me/share/url?url=' + u + '&text=' + x, '_blank');
+    else if (k === 'wa') window.open('https://wa.me/?text=' + full, '_blank');
+    else if (k === 'mail') location.href = 'mailto:?subject=' + x + '&body=' + full;
+    else if (k === 'ig') {
+      if (navigator.share) { navigator.share({ title: t.text, text: t.text, url: t.url }).catch(() => {}); }
+      else if (navigator.clipboard) {
+        navigator.clipboard.writeText(t.url);
+        const nm = b.querySelector('.nm'), old = nm.textContent;
+        nm.textContent = 'ಕಾಪಿ ಆಯಿತು ✓';
+        setTimeout(() => { nm.textContent = old; }, 1600);
+      }
+    }
+  };
+});
+
+
+/* ---------- AI assistant + translator (Gemini via the KAIMDV proxy) ---------- */
+const AI_API = 'https://kaimdv-api.vercel.app/api/gemini';
+const AI_FIXED = '"ಅವಿಜ್ಞಾನಿ" ಕನ್ನಡದ  ಅಪರೂಪದ ಕವಿ,ಯಾರಿಗೂ ಕಾಣದ,ಕಾಣಲೂ ಇಷ್ಟಪಡದ ಒಂದು ಜಿನ್ನ್,ಅವರ ಪುಸ್ತಕ ಅನಾಮಧೇಯ ಗೀರುಗಳು "ಈ ಹೊತ್ತಿಗೆ ಕಾವ್ಯ ಪ್ರಶಸ್ತಿ" ಪಡೆದು ಪ್ರಕಟವಾಗಿದೆ,ಮಂಗಳೂರಿನ TRF "ಯುವಕವಿ" ಸೇರಿದಂತೆ ನಾಡಿನ ಪ್ರಮುಖ ಪತ್ರಿಕೆಗಳಾದ ವಾರ್ತಾಭಾರತಿ,ವಿಜಯ ಕರ್ನಾಟಕ,ಪ್ರಜಾವಾಣಿಯ ವಿಶೇಷಾಂಕದಲ್ಲಿ ಕವನ ಪ್ರಕಟವಾಗಿದೆ,ಕಥೆ ಕವನಗಳಿಗೆ ಹಲವು ಬಹುಮಾನಗಳು ಸಂದಿವೆ,ಊರಿನಲ್ಲೇ ಕೂಲಿ ಕೆಲಸ ಮಾಡುವ ಅವರು ಈಗಲೂ ಜಗತ್ತಿಗೆ ನಿಗೂಢವಾಗಿ ಬದುಕಲು ಇಷ್ಟ ಪಡುತ್ತಾರೆ';
+function aiIsAbout(q){
+  if (!/ಅವಿಜ್ಞಾನಿ|avigyani|avijnyani|avignani|avigyaani/.test(q)) return false;
+  return /ಯಾರು|ಬಗ್ಗೆ|ಹೇಳು|ಕುರಿತು|ಪರಿಚಯ|who|koun|kaun|about|tell|bagge|helu|bare/.test(q);
+}
+const AI_PERSONA = 'ನೀವು ಕನ್ನಡ ಕವಿ ಅವಿಜ್ಞಾನಿಯವರ ಕವನ ಜಾಲತಾಣದ AI ಸಹಾಯಕರು. ಯಾವಾಗಲೂ ಸರಿಯಾದ, ಸುಂದರ ಕನ್ನಡದಲ್ಲಿ ಉತ್ತರಿಸಿ (ಬಳಕೆದಾರರು ಬೇರೆ ಭಾಷೆಯಲ್ಲಿ ಕೇಳಿದರೆ ಅದೇ ಭಾಷೆಯಲ್ಲಿ ಉತ್ತರಿಸಿ). ಅವಿಜ್ಞಾನಿ ಎಂಬುದು ಕವಿ ನಿಜಾಮ್ ಗೋಳಿಪಡ್ಪು ಅವರ ಕಾವ್ಯನಾಮ; ಅವರ ಮೊದಲ ಕವನ ಸಂಕಲನ "ಅನಾಮಧೇಯ ಗೀರುಗಳು". ಉತ್ತರಗಳನ್ನು ವಿವರವಾಗಿ, ಸ್ಪಷ್ಟವಾಗಿ, ಬೇಕಾದಲ್ಲಿ ಉದಾಹರಣೆಗಳೊಂದಿಗೆ ನೀಡಿ — ಒಂದೇ ಸಾಲಿನಲ್ಲಿ ಮುಗಿಸಬೇಡಿ. ಬೇರೆ ಪ್ರಶ್ನೆಗಳಿಗೆ ಎಂದಿನಂತೆ ಸಹಾಯ ಮಾಡಿ.';
+let aiMode = 'ask', aiLang = 'English';
+function aiSetMode(m){
+  aiMode = m;
+  $('tabAsk').classList.toggle('on', m === 'ask');
+  $('tabTr').classList.toggle('on', m === 'tr');
+  $('aiLangs').classList.toggle('show', m === 'tr');
+  $('aiInput').placeholder = m === 'tr' ? 'ಅನುವಾದಿಸಲು ಪಠ್ಯ ಬರೆಯಿರಿ…' : 'ಪ್ರಶ್ನೆ ಕೇಳಿ…';
+}
+function aiOpen(mode, prefill){
+  aiSetMode(mode || 'ask');
+  if (prefill) $('aiInput').value = prefill;
+  $('aiSheet').classList.add('open');
+}
+if ($('aiAskBtn')) $('aiAskBtn').onclick = () => aiOpen('ask');
+if ($('aiTrBtn')) $('aiTrBtn').onclick = () => aiOpen('tr');
+$('tabAsk').onclick = () => aiSetMode('ask');
+$('tabTr').onclick = () => aiSetMode('tr');
+$('aiClose').onclick = () => $('aiSheet').classList.remove('open');
+$('aiScrim').onclick = () => $('aiSheet').classList.remove('open');
+document.querySelectorAll('#aiLangs button').forEach(b => b.onclick = () => {
+  aiLang = b.dataset.lang;
+  document.querySelectorAll('#aiLangs button').forEach(x => x.classList.toggle('on', x === b));
+});
+if ($('poemTrBtn')) $('poemTrBtn').onclick = () => {
+  const col = DATA.collections[curCol];
+  aiOpen('tr', col.title + '\n\n' + col.slides.map(s => s.body).join('\n\n'));
+};
+async function aiCall(prompt){
+  const r = await fetch(AI_API, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ kind: 'text', prompt })
+  });
+  if (!r.ok) throw new Error('busy');
+  const d = await r.json();
+  if (!d.text) throw new Error('busy');
+  return d.text.trim();
+}
+$('aiGo').onclick = async () => {
+  const q = $('aiInput').value.trim();
+  if (!q) return;
+  const out = $('aiOut'), go = $('aiGo');
+  out.classList.add('show'); out.textContent = '…';
+  go.disabled = true;
+  try {
+    if (aiMode === 'ask' && aiIsAbout(q.toLowerCase())) out.textContent = AI_FIXED;
+    else if (aiMode === 'tr') out.textContent = await aiCall('Translate the following text into ' + aiLang + '. Give only the translation. If it is a poem, keep the line breaks and the feeling.\n\n' + q);
+    else out.textContent = await aiCall(AI_PERSONA + '\n\nಪ್ರಶ್ನೆ: ' + q);
+  } catch (e) {
+    out.textContent = 'ಈಗ AI ಬಿಜಿ ಇದೆ — ಸ್ವಲ್ಪ ಹೊತ್ತಿನ ನಂತರ ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ.';
+  }
+  go.disabled = false;
+};
+
+</script>
+<script>
+curCol = 2; curSlide = 12; loadComments(DATA.collections[2]);
+</script>
+</body>
+</html>
