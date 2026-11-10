@@ -1,1 +1,9 @@
 
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "io.github.avigyani.twa",
+        "sha256_cert_fingerprints": ["73:4D:5B:5A:6D:E0:7C:6F:1D:36:AE:40:23:4A:45:2A:F3:1E:68:33:FC:30:AA:82:79:C0:8B:DB:59:D4:62:35"]
+      }
+    }]
