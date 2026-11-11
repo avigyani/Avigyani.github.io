@@ -103,8 +103,9 @@
 .soc .soc-letter{font-family:"Playfair Display",serif;font-weight:700;font-size:1.05rem}
   .soc .nm{font-size:.66rem;font-weight:600}
   .socials button.soc{background:none;border:0;padding:0;font:inherit;cursor:pointer}
-  h2.sec{font-size:1.3rem;color:var(--maroon);margin:26px 0 12px;text-align:center}
-  h2.sec .en{font-family:"Playfair Display",serif;font-size:.9rem;color:var(--gold);display:block;font-style:italic}
+  h2.sec,h1.sec{font-size:1.3rem;color:var(--maroon);margin:26px 0 12px;text-align:center}
+  h2.sec .en,h1.sec .en{font-family:"Playfair Display",serif;font-size:.9rem;color:var(--gold);display:block;font-style:italic}
+  .seointro{max-width:660px;margin:16px auto 2px;padding:0 20px;text-align:center;font-size:.92rem;line-height:1.75;color:#6B5744}
   /* ---- home: collection cards (the paths) ---- */
   .paths{display:grid;gap:12px;margin-top:18px}
   @media(min-width:640px){.paths{grid-template-columns:1fr 1fr 1fr}}
@@ -140,7 +141,7 @@
   @media(max-width:640px){.poempage .imgwrap{height:230px}}
   .poempage .imgwrap img{width:100%;height:100%;object-fit:cover;object-position:center 32%;display:block}
   .poempage .inner{padding:20px 24px 22px}
-  .poempage h3{font-size:1.32rem;color:var(--maroon);text-align:center}
+  .poempage h3,.poempage h1{font-size:1.32rem;color:var(--maroon);text-align:center}
   .poempage .count{text-align:center;color:var(--gold);font-weight:600;font-size:.86rem;margin-top:2px}
   .poempage .body{white-space:pre-wrap;font-size:1rem;line-height:1.95;margin-top:14px}
   .poempage .sign{text-align:right;color:var(--maroon);font-weight:700;margin-top:12px}
@@ -216,7 +217,7 @@
   .support{background:var(--card);border:1px solid var(--line);border-radius:16px;
     padding:24px 22px;text-align:center;margin:32px 0 6px;
     box-shadow:0 2px 12px rgba(112,17,32,.06)}
-  .support h2{font-family:"Noto Serif Kannada","Playfair Display",serif;font-size:1.35rem;color:var(--maroon)}
+  .support h2,.support h1{font-family:"Noto Serif Kannada","Playfair Display",serif;font-size:1.35rem;color:var(--maroon)}
   .support p{color:var(--soft);max-width:520px;margin:8px auto 0;font-size:.95rem}
   .qr-slot{margin:20px auto 6px;width:216px;height:216px;background:#fff;
     border:1px solid var(--line);border-radius:14px;display:flex;align-items:center;
@@ -275,6 +276,7 @@
   .ntrack{display:flex;height:100%;will-change:transform}
   .nslide{flex:0 0 100%;display:flex;align-items:center;justify-content:center;padding:6px 12px;font-size:1.1rem;font-weight:600;line-height:1.35;color:#701120;text-align:center;cursor:pointer}
 </style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CreativeWork", "name": "ಬದುಕಿದ ಹನಿಗಳು · ಹನಿ 12", "inLanguage": "kn", "genre": "Poetry", "author": {"@type": "Person", "name": "ಅವಿಜ್ಞಾನಿ", "alternateName": "Avigyani"}, "url": "https://avigyani.github.io/hanigalu-12.html"}</script>
 </head>
 <body>
 <header>
@@ -334,7 +336,7 @@
     <div class="poempage" id="poempage">
       <div class="imgwrap"><img id="ppImg" src="Assets/hani-12.jpg" alt="ಬದುಕಿದ ಹನಿಗಳು"></div>
       <div class="inner">
-        <h3 id="ppTitle">ಬದುಕಿದ ಹನಿಗಳು</h3>
+        <h1 id="ppTitle">ಬದುಕಿದ ಹನಿಗಳು</h1>
         <div class="count" id="ppCount">ಹನಿ 12 / 45</div>
         <div class="body" id="ppBody">ಬದುಕ ಬಗ್ಗೆ
 ರಮ್ಯವಾಗಿ ಬರೆದವ
