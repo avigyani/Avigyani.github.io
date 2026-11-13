@@ -438,7 +438,7 @@
     <button class="soc" data-share="mail" data-scope="site"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span class="nm">Email</span></button>
   </div>
   <div class="sig">-ಅವಿಜ್ಞಾನಿ</div>
-  <div><a href="privacy.html">ಗೌಪ್ಯತಾ ನೀತಿ · Privacy Policy</a></div>
+  <div><a href="privacy.html">Privacy Policy</a></div>
   <div>ಸರ್ವ ಹಕ್ಕುಗಳೂ ಕವಿಯವು · All poems © Avigyani</div>
 </footer>
 
@@ -483,7 +483,7 @@ function slideFile(ci, si){ var c = DATA.collections[ci]; if (c.id === 'hanigalu
   (function(){
     const box = $('notifBox'), track = $('notifTrack');
     if (!box || !track) return;
-    const N = 3;
+    const N = 4; // unique slides in the strip (last child duplicates the first); bump when adding a slide
     let ni = 0, timer = null, snapT = null;
     function goTo(idx, animate){
       track.style.transition = animate === false ? 'none' : 'transform .9s ease';
