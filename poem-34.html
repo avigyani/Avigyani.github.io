@@ -181,6 +181,17 @@
 .ai-card .ai-t{font-weight:700;color:var(--maroon);font-size:.95rem;flex:1}
 .ai-card button{background:var(--maroon);color:var(--cream);border:0;border-radius:999px;padding:7px 14px;font:inherit;font-size:.8rem;font-weight:600;cursor:pointer}
 .ai-card button.alt{background:var(--paper);color:var(--maroon);border:1.5px solid var(--maroon)}
+.others-card{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:22px 0 2px;box-shadow:0 2px 10px rgba(112,17,32,.08);text-decoration:none;color:var(--ink);cursor:pointer}
+.others-card .others-t{font-weight:700;color:var(--maroon);font-size:1rem;flex:1}
+.others-card .others-s{font-size:.85rem;color:var(--soft)}
+.others-card .others-arrow{font-size:1.3rem;color:var(--gold);font-weight:700}
+.others-intro{text-align:center;color:var(--soft);font-size:.95rem;margin:0 0 18px}
+.others-entry{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px;box-shadow:0 2px 10px rgba(112,17,32,.06)}
+.others-entry h3{font-size:1.1rem;margin:0 0 4px}
+.others-entry h3 a{color:var(--maroon);text-decoration:none}
+.others-entry .others-author{font-weight:600;font-size:.92rem;margin:0 0 8px}
+.others-entry .others-links{font-size:.85rem;margin:0}
+.others-entry .others-links a{color:var(--gold);font-weight:600;text-decoration:none}
 .ai-sheet{position:fixed;left:0;right:0;bottom:0;top:0;z-index:90;display:none}
 .ai-sheet.open{display:block}
 .ai-scrim{position:absolute;inset:0;background:rgba(43,7,16,.45)}
@@ -320,6 +331,7 @@
       <button data-view="awards">ಕಡಿದು ಗುಡ್ಡೆ ಹಾಕಿದ್ದು</button>
       <button data-view="book">ಅಚ್ಚಾಗಿದ್ದು</button>
       <button data-view="chaya">ಚಾಯ ಕೊಡಿಸಿ</button>
+      <button data-view="others">ಇತರರ ಕೆಲಸಗಳು</button>
     </nav>
     <div class="p-follow">
       <div class="p-follow-t">ಹಿಂಬಾಲಿಸಿ</div>
@@ -538,7 +550,7 @@ $('menuBtn').onclick = () => panel.classList.add('open');
 $('closeBtn').onclick = () => panel.classList.remove('open');
 $('scrim').onclick = () => panel.classList.remove('open');
 function showView(name){
-  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', chaya:'chaya.html'};
+  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', chaya:'chaya.html', others:'itarara-kelasagalu.html'};
   if (M[name]) location.href = M[name];
 }
 document.querySelectorAll('#menuNav button').forEach(b =>

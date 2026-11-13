@@ -290,6 +290,13 @@
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2089759388986732"
      crossorigin="anonymous"></script>
+<style>
+.others-poet{display:flex;gap:12px;align-items:flex-start;margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.others-poet img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none}
+.others-poet .others-author{margin:0 0 2px}
+.others-poet .others-bio{font-size:.85rem;color:var(--soft);margin:0 0 6px}
+.others-poet .others-links{font-size:.85rem;margin:0}
+</style>
 </head>
 <body>
 <header>
@@ -353,9 +360,18 @@
            Pattern:
            <article class="others-entry">
              <h3><a href="POEM_URL" target="_blank" rel="noopener">WORK TITLE</a></h3>
-             <p class="others-author">FRIEND NAME</p>
-             <p class="others-links"><a href="FB_URL" target="_blank" rel="noopener">Facebook</a> · <a href="INSTA_URL" target="_blank" rel="noopener">Instagram</a></p>
-           </article> -->
+             <div class="others-poet">
+               <img src="PHOTO_URL" alt="FRIEND NAME" loading="lazy">
+               <div>
+                 <p class="others-author">FRIEND NAME</p>
+                 <p class="others-bio">SHORT INTRO, 1-2 lines</p>
+                 <p class="others-links"><a href="FB_URL" target="_blank" rel="noopener">Facebook</a> · <a href="INSTA_URL" target="_blank" rel="noopener">Instagram</a></p>
+               </div>
+             </div>
+           </article>
+           PHOTO_URL must be a direct image link Abhi sends (repo cannot take
+           binary uploads via the connector); the poet block sits BELOW the
+           poem link, small by design. -->
     </div>
   </section>
 </main>
