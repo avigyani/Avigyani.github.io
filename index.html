@@ -314,6 +314,7 @@
 .intro-ov{background:radial-gradient(120% 100% at 50% 38%,#16486e 0%,#0e2f4d 55%,#081c30 100%);cursor:default}
 .intro-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
 .intro-vid.show{opacity:1}
+.intro-scrim{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 52%,rgba(8,28,48,.55) 0%,rgba(8,28,48,.28) 45%,rgba(8,28,48,0) 72%);pointer-events:none}
 .intro-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(2rem,6.5vw,2.6rem);font-weight:700;line-height:1.5;color:#fffbf0;opacity:0;transition:opacity .7s ease;text-shadow:0 2px 18px rgba(0,0,0,.7);margin-top:0;pointer-events:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.35em}
 .intro-text.show{opacity:1}
 .intro-tl,.intro-tr{display:inline-block;opacity:0;transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .8s ease}
@@ -322,7 +323,8 @@
 .intro-text.show .intro-tl,.intro-text.show .intro-tr{opacity:1;transform:translateX(0)}
 </style>
 <div id="introOv" class="intro-ov">
-  <video id="introVid" class="intro-vid" src="https://videos.pexels.com/video-files/854323/854323-sd_640_360_25fps.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <video id="introVid" class="intro-vid" src="https://videos.pexels.com/video-files/5988794/5988794-hd_1280_720_25fps.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="intro-scrim" aria-hidden="true"></div>
   <div class="intro-text" id="introText"><span class="intro-tl">ಅವಿಜ್ಞಾನಿಯ</span><span class="intro-tr">ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</span></div>
 </div>
 <script>
@@ -334,7 +336,7 @@
   try{ if(sessionStorage.getItem('avigyaniIntroSeen')){ kill(); return; } }catch(e){}
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ kill(); return; }
   var done=false;
-  /* Silent video intro: no voice, no speech, no tap — visual only.
+  /* Silent video intro: fakir walking (Pexels 5988794). No voice, no speech, no tap — visual only.
      The video is decorative: the schedule below runs from page load,
      so a slow network or a blocked video can never hold up the site. */
   function finish(){
@@ -350,11 +352,6 @@
   setTimeout(finish,7300);
   setTimeout(function(){ if(!done) finish(); },12000);
   vid.addEventListener('playing',function(){ vid.classList.add('show'); });
-  try{
-    vid.addEventListener('loadedmetadata',function(){
-      try{ if(vid.duration>3) vid.currentTime=2; }catch(e){}
-    });
-  }catch(e){}
   function tryPlay(){ try{ var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){}); }catch(e){} }
   tryPlay();
   setTimeout(function(){ if(vid.paused) tryPlay(); },1000);
