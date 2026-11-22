@@ -312,10 +312,8 @@
 <!-- INTRO-START -->
 <style>
 .intro-ov{background:radial-gradient(120% 100% at 50% 38%,#16486e 0%,#0e2f4d 55%,#081c30 100%);cursor:default}
-.intro-stage{position:relative;width:min(460px,94vw);height:min(560px,84vh);display:flex;align-items:center;justify-content:center}
-.intro-phead{width:min(360px,88vw);height:min(520px,76vh);opacity:0;transition:opacity .5s ease}
-.intro-phead.show{opacity:1}
-.intro-phead canvas{display:block;margin:0 auto;max-width:100%;max-height:100%}
+.intro-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.intro-vid.show{opacity:1}
 .intro-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(2rem,6.5vw,2.6rem);font-weight:700;line-height:1.5;color:#fffbf0;opacity:0;transition:opacity .7s ease;text-shadow:0 2px 18px rgba(0,0,0,.7);margin-top:0;pointer-events:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.35em}
 .intro-text.show{opacity:1}
 .intro-tl,.intro-tr{display:inline-block;opacity:0;transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .8s ease}
@@ -324,12 +322,9 @@
 .intro-text.show .intro-tl,.intro-text.show .intro-tr{opacity:1;transform:translateX(0)}
 </style>
 <div id="introOv" class="intro-ov">
-  <div class="intro-stage">
-    <div class="intro-phead" id="introPhead"></div>
-    <div class="intro-text" id="introText"><span class="intro-tl">ಅವಿಜ್ಞಾನಿಯ</span><span class="intro-tr">ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</span></div>
-  </div>
+  <video id="introVid" class="intro-vid" src="https://videos.pexels.com/video-files/854323/854323-sd_640_360_25fps.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <div class="intro-text" id="introText"><span class="intro-tl">ಅವಿಜ್ಞಾನಿಯ</span><span class="intro-tr">ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</span></div>
 </div>
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
 <script>
 (function(){
   var ov=document.getElementById('introOv'); if(!ov) return;
@@ -339,186 +334,30 @@
   try{ if(sessionStorage.getItem('avigyaniIntroSeen')){ kill(); return; } }catch(e){}
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ kill(); return; }
   var done=false;
-  /* Silent intro: no voice, no speech — visual only. */
+  /* Silent video intro: no voice, no speech, no tap — visual only.
+     The video is decorative: the schedule below runs from page load,
+     so a slow network or a blocked video can never hold up the site. */
   function finish(){
     if(done) return; done=true;
     try{ sessionStorage.setItem('avigyaniIntroSeen','1'); }catch(e){}
     ov.classList.add('fade');
     setTimeout(kill,650);
   }
-  var head=document.getElementById('introPhead'),
+  var vid=document.getElementById('introVid'),
       txt=document.getElementById('introText');
-  var SPIN_MS=5000, VANISH_MS=1000;
-  var headStarted=false, headGone=false, timelineArmed=false;
   function showText(){ txt.classList.add('show'); }
-  function armTimeline(){
-    if(timelineArmed) return; timelineArmed=true;
-    setTimeout(showText,SPIN_MS+VANISH_MS+150);
-    setTimeout(finish,SPIN_MS+VANISH_MS+1300);
-  }
-  function showFallback(){
-    if(headGone) return; headGone=true;
-    showText(); setTimeout(finish,4500);
-  }
-  setTimeout(function(){ head.classList.add('show'); startHead(0); },150);
+  setTimeout(showText,5500);
+  setTimeout(finish,7300);
   setTimeout(function(){ if(!done) finish(); },12000);
-  function startHead(tries){
-    if(headStarted) return;
-    function retry(){
-      if(tries<7){ setTimeout(function(){ startHead(tries+1); },300); return; }
-      showFallback();
-    }
-    if(typeof THREE==='undefined'){ retry(); return; }
-    try{
-      headStarted=true;
-      var pts=buildHeadPoints();
-      var c=document.createElement('canvas');
-      c.width=360; c.height=520;
-      head.appendChild(c);
-      var renderer=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
-      renderer.setSize(360,520);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
-      var scene=new THREE.Scene();
-      var cam=new THREE.PerspectiveCamera(40,360/520,.1,100); cam.position.set(0,0,6.0);
-      var geo=new THREE.BufferGeometry();
-      geo.setAttribute('position',new THREE.Float32BufferAttribute(pts.pos,3));
-      geo.setAttribute('color',new THREE.Float32BufferAttribute(pts.col,3));
-      var mat=new THREE.PointsMaterial({size:0.06,sizeAttenuation:true,vertexColors:true,transparent:true,opacity:1,depthWrite:false});
-      var cloud=new THREE.Points(geo,mat);
-      var g=new THREE.Group(); g.add(cloud); scene.add(g);
-      var base=pts.pos.slice();
-      var t0=performance.now(), raf=null;
-      armTimeline();
-      (function tick(){
-        if(!ov.isConnected||done){ if(raf) cancelAnimationFrame(raf); return; }
-        var el=performance.now()-t0;
-        if(el<SPIN_MS){
-          g.rotation.y=(el/SPIN_MS)*Math.PI*2;
-        }else if(el<SPIN_MS+VANISH_MS){
-          var pr=(el-SPIN_MS)/VANISH_MS;
-          var arr=geo.attributes.position.array;
-          for(var i=0;i<arr.length;i+=3){
-            arr[i]=base[i]+pts.vel[i]*pr*1.5;
-            arr[i+1]=base[i+1]+pts.vel[i+1]*pr*1.5;
-            arr[i+2]=base[i+2]+pts.vel[i+2]*pr*1.5;
-          }
-          geo.attributes.position.needsUpdate=true;
-          mat.opacity=1-pr;
-        }else if(!headGone){
-          headGone=true;
-          cloud.visible=false;
-        }
-        renderer.render(scene,cam);
-        raf=requestAnimationFrame(tick);
-      })();
-    }catch(e){ showFallback(); }
-  }
-  /* Particle bust: TRUE 3D head volume (not a flat profile) — ellipsoid
-     cranium + face/jaw volume on the front (nose, lips, chin) + 3D ear
-     bumps on both sides + tapered neck cylinder + shoulders below, with
-     a dissolving particle crown like the reference. Real depth at every
-     point, so a full slow spin reads as a head from EVERY angle.
-     Blue-white particles on dark blue. Silent intro.
-     Axes: +x = face front, +y = up, +z = side. */
-  function buildHeadPoints(){
-    var pos=[],col=[],vel=[];
-    function pushPt(x,y,z,bright){
-      pos.push(x,y,z);
-      var r=Math.random();
-      var cc;
-      if(bright){ cc=r<0.6?[1,1,1]:[0.89,0.87,0.96]; }
-      else{ cc=r<0.42?[1,1,1]:r<0.68?[0.89,0.87,0.96]:r<0.88?[0.66,0.82,0.94]:[0.36,0.61,0.84]; }
-      col.push(cc[0],cc[1],cc[2]);
-      var dx=x+0.1,dy=y-0.1,dz=z,len=Math.sqrt(dx*dx+dy*dy+dz*dz)||1;
-      var sp=0.5+Math.random()*1.1+(y>0.7?0.7:0);
-      vel.push(dx/len*sp,dy/len*sp+0.55+Math.random()*0.7,dz/len*sp);
-    }
-    function rndDir(){
-      /* uniform random direction on the unit sphere */
-      var u=Math.random()*2-1, ph=Math.random()*Math.PI*2, s=Math.sqrt(1-u*u);
-      return [s*Math.cos(ph),u,s*Math.sin(ph)];
-    }
-    function profBump(y){
-      /* face-profile bump (nose/lips/chin) vs height; linear interp.
-         [height, outward bump]: nose tip +0.30, lips +0.10, chin +0.20. */
-      var P=[[1.50,0],[1.15,0.02],[0.90,0.06],[0.62,0.10],[0.42,0.30],[0.24,0.14],[0.08,0.10],[-0.02,0.05],[-0.10,0.09],[-0.20,0.05],[-0.30,0.20],[-0.45,0.03],[-0.60,0]];
-      if(y>=P[0][0]) return 0;
-      for(var i=0;i<P.length-1;i++){
-        if(y<=P[i][0]&&y>=P[i+1][0]){
-          var t=(P[i][0]-y)/(P[i][0]-P[i+1][0]);
-          return P[i][1]*(1-t)+P[i+1][1]*t;
-        }
-      }
-      return 0;
-    }
-    function facePt(x,y,z,dirX){
-      /* push the face front out along +x per the profile, fading with |z|
-         so the nose is a central ridge, not a slab */
-      var f=0;
-      if(dirX>0.1){
-        var s=(dirX-0.1)/0.45; if(s>1) s=1;
-        f=profBump(y)*s*Math.exp(-(z*z)/(2*0.30*0.30));
-      }
-      return x+f;
-    }
-    /* ---- cranium: ellipsoid, centre (-0.05,0.55,0), radii (0.78,0.95,0.80) ---- */
-    var CX=-0.05, CY=0.55, RX=0.78, RY=0.95, RZ=0.80;
-    var SKULL_SURF=3600, SKULL_FILL=1800, SHELL=1500, EAR=350, NECK=700, SH=1400, CROWN=350;
-    var i, d, u, x, y, z, sgn, th, rr, guard;
-    for(i=0;i<SKULL_SURF;i++){
-      d=rndDir();
-      x=CX+RX*d[0]; y=CY+RY*d[1]; z=RZ*d[2];
-      x=facePt(x,y,z,d[0]);
-      pushPt(x,y,z,false);
-    }
-    for(i=0;i<SKULL_FILL;i++){
-      d=rndDir(); u=Math.pow(Math.random(),1/3)*0.92;
-      x=CX+RX*d[0]*u; y=CY+RY*d[1]*u; z=RZ*d[2]*u;
-      pushPt(x,y,z,false);
-    }
-    /* bright shell: points exactly on the cranium surface so the
-       silhouette stays clear at every spin angle */
-    for(i=0;i<SHELL;i++){
-      d=rndDir();
-      x=CX+RX*d[0]; y=CY+RY*d[1]; z=RZ*d[2];
-      x=facePt(x,y,z,d[0]);
-      pushPt(x,y,z,true);
-    }
-    /* ---- ears: flattened ellipsoid bumps on BOTH sides, so the spin reads ---- */
-    for(sgn=-1;sgn<=1;sgn+=2){
-      for(i=0;i<EAR;i++){
-        d=rndDir();
-        x=-0.10+0.14*d[0]; y=0.38+0.24*d[1]; z=sgn*(0.78+0.10*d[2]);
-        pushPt(x,y,z,true);
-      }
-    }
-    /* ---- neck: tapered cylinder, y -0.25..-1.15, emerging from the jaw ---- */
-    for(i=0;i<NECK;i++){
-      th=Math.random()*Math.PI*2;
-      y=-0.25-Math.random()*0.90;
-      rr=(0.34+0.08*((-0.25-y)/0.90))*(0.85+0.15*Math.random());
-      x=-0.05+rr*Math.cos(th); z=rr*Math.sin(th);
-      pushPt(x,y,z,false);
-    }
-    /* ---- shoulders: flattened ellipsoid, centre (-0.05,-1.55,0),
-       radii (1.15,0.42,0.62), clipped at y>=-1.85 ---- */
-    guard=0;
-    while(pos.length/3<SKULL_SURF+SKULL_FILL+SHELL+EAR*2+NECK+SH&&guard++<30000){
-      d=rndDir();
-      u=Math.random()<0.6?1:Math.pow(Math.random(),1/3);
-      x=-0.05+1.15*d[0]*u; y=-1.55+0.42*d[1]*u; z=0.62*d[2]*u;
-      if(y<-1.85) continue;
-      pushPt(x,y,z,false);
-    }
-    /* ---- dissolving crown: sparse particles rising above the head,
-       denser near the crown, like the reference image ---- */
-    for(i=0;i<CROWN;i++){
-      x=-0.55+Math.random()*1.05; y=1.52+Math.random()*0.43; z=(Math.random()*2-1)*0.25;
-      pushPt(x,y,z,false);
-    }
-    /* total points: 3600+1800+1500+350*2+700+1400+350 = 10050 */
-    return {pos:pos,col:col,vel:vel};
-  }
+  vid.addEventListener('playing',function(){ vid.classList.add('show'); });
+  try{
+    vid.addEventListener('loadedmetadata',function(){
+      try{ if(vid.duration>3) vid.currentTime=2; }catch(e){}
+    });
+  }catch(e){}
+  function tryPlay(){ try{ var pr=vid.play(); if(pr&&pr.catch) pr.catch(function(){}); }catch(e){} }
+  tryPlay();
+  setTimeout(function(){ if(vid.paused) tryPlay(); },1000);
 })();
 </script>
 <!-- INTRO-END -->
