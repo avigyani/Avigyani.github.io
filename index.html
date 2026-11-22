@@ -310,44 +310,19 @@
 </head>
 <body>
 <!-- INTRO-START -->
+<style>
+.intro-ov{background:radial-gradient(120% 100% at 50% 38%,#16486e 0%,#0e2f4d 55%,#081c30 100%);cursor:default}
+.intro-stage{position:relative;width:min(420px,92vw);height:min(470px,82vh);display:flex;align-items:center;justify-content:center}
+.intro-phead{width:min(300px,78vw);height:min(300px,78vw);opacity:0;transition:opacity .5s ease}
+.intro-phead.show{opacity:1}
+.intro-phead canvas{display:block;margin:0 auto}
+.intro-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.92);width:100%;text-align:center;font-size:1.6rem;font-weight:700;line-height:1.5;color:#fffbf0;opacity:0;transition:opacity .7s ease,transform .7s ease;text-shadow:0 2px 18px rgba(0,0,0,.7);margin-top:0;pointer-events:none}
+.intro-text.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+</style>
 <div id="introOv" class="intro-ov">
   <div class="intro-stage">
-    <div class="intro-hand" id="introHand"><div class="intro-hand-wave">
-      <svg viewBox="0 0 240 220" width="100%" aria-hidden="true">
-        <defs><linearGradient id="ihMetal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c7ced6"/><stop offset="1" stop-color="#7d8791"/></linearGradient></defs>
-        <g fill="url(#ihMetal)" stroke="#2563eb" stroke-width="2">
-          <rect x="62" y="28" width="20" height="72" rx="10"/><rect x="88" y="18" width="20" height="82" rx="10"/>
-          <rect x="114" y="20" width="20" height="80" rx="10"/><rect x="140" y="30" width="20" height="70" rx="10"/>
-        </g>
-        <g stroke="#2563eb" stroke-width="2">
-          <line x1="62" y1="52" x2="82" y2="52"/><line x1="88" y1="46" x2="108" y2="46"/>
-          <line x1="114" y1="48" x2="134" y2="48"/><line x1="140" y1="54" x2="160" y2="54"/>
-        </g>
-        <g fill="#22d3ee"><circle cx="72" cy="30" r="5"/><circle cx="98" cy="20" r="5"/><circle cx="124" cy="22" r="5"/><circle cx="150" cy="32" r="5"/></g>
-        <g transform="rotate(-38 168 120)"><rect x="158" y="96" width="20" height="58" rx="10" fill="url(#ihMetal)" stroke="#2563eb" stroke-width="2"/><circle cx="168" cy="100" r="5" fill="#22d3ee"/></g>
-        <rect x="58" y="92" width="106" height="92" rx="20" fill="url(#ihMetal)" stroke="#2563eb" stroke-width="2.5"/>
-        <circle cx="111" cy="138" r="20" fill="#1e3a5f" stroke="#22d3ee" stroke-width="2.5"/>
-        <circle cx="111" cy="138" r="9" fill="#22d3ee"/>
-        <rect x="76" y="184" width="70" height="26" rx="10" fill="url(#ihMetal)" stroke="#2563eb" stroke-width="2"/>
-        <line x1="76" y1="197" x2="146" y2="197" stroke="#2563eb" stroke-width="2"/>
-      </svg>
-    </div></div>
-    <div class="intro-head" id="introHead"><div id="introHeadFb" style="display:none">
-      <svg viewBox="0 0 260 260" width="100%" aria-hidden="true">
-        <line x1="130" y1="18" x2="130" y2="48" stroke="#1e3a5f" stroke-width="6"/>
-        <circle cx="130" cy="14" r="10" fill="#22d3ee"/>
-        <rect x="55" y="48" width="150" height="120" rx="22" fill="#2563eb" stroke="#1e3a5f" stroke-width="3"/>
-        <rect x="55" y="48" width="150" height="26" rx="13" fill="#1e3a5f"/>
-        <circle cx="100" cy="105" r="14" fill="#22d3ee"/><circle cx="160" cy="105" r="14" fill="#22d3ee"/>
-        <rect x="85" y="140" width="90" height="10" rx="5" fill="#1e3a5f"/>
-        <g fill="#22d3ee"><rect x="95" y="138" width="14" height="14" rx="3"/><rect x="123" y="138" width="14" height="14" rx="3"/><rect x="151" y="138" width="14" height="14" rx="3"/></g>
-        <rect x="38" y="90" width="17" height="40" rx="8" fill="#1e3a5f"/>
-        <rect x="205" y="90" width="17" height="40" rx="8" fill="#1e3a5f"/>
-        <rect x="100" y="168" width="60" height="26" rx="8" fill="#1e3a5f"/>
-      </svg>
-    </div></div>
+    <div class="intro-phead" id="introPhead"></div>
     <div class="intro-text" id="introText">ಅವಿಜ್ಞಾನಿಯ ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</div>
-    <div class="intro-skip">ಮುಂದುವರಿಯಲು ಒತ್ತಿರಿ · tap to continue</div>
   </div>
 </div>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
@@ -359,79 +334,192 @@
   if(!(p===''||p==='/index.html'||p.slice(-11)==='/index.html')){ kill(); return; }
   try{ if(sessionStorage.getItem('avigyaniIntroSeen')){ kill(); return; } }catch(e){}
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ kill(); return; }
-  var spoken=false, done=false;
+  var done=false;
+  /* ---- voice: robust speech, never blocks entry ----
+     Phone browsers often report zero voices at first and block audio
+     before the first touch, so: wait once for voices to load, speak with
+     the best matching voice (kn-IN, else en-IN, else default), and retry
+     on the first touch if the first attempt never started. The intro
+     always auto-dismisses on its own timeline even if voice never plays. */
+  var voiceStarted=false, speakIssued=false, voicesWaited=false;
+  function pickVoice(vs,langs){
+    for(var j=0;j<langs.length;j++){
+      for(var i=0;i<vs.length;i++){
+        var l=(vs[i].lang||'').toLowerCase();
+        if(l.indexOf(langs[j])===0) return vs[i];
+      }
+    }
+    return null;
+  }
   function speak(){
-    if(spoken) return; spoken=true;
+    if(voiceStarted||speakIssued) return;
     try{
       if(!('speechSynthesis' in window)) return;
-      var u=new SpeechSynthesisUtterance('ಅವಿಜ್ಞಾನಿಯ ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ');
-      u.lang='kn-IN'; u.pitch=0.3; u.rate=0.85;
       var vs=speechSynthesis.getVoices();
-      for(var i=0;i<vs.length;i++){ if(vs[i].lang&&vs[i].lang.toLowerCase().indexOf('kn')===0){ u.voice=vs[i]; break; } }
-      speechSynthesis.cancel(); speechSynthesis.speak(u);
+      if(!vs.length&&!voicesWaited){
+        voicesWaited=true;
+        var fired=false;
+        var go=function(){ if(fired) return; fired=true; speak(); };
+        try{ speechSynthesis.addEventListener('voiceschanged',go); }catch(e){}
+        setTimeout(go,1500);
+        return;
+      }
+      var kn=pickVoice(vs,['kn']), en=pickVoice(vs,['en']);
+      speakIssued=true;
+      setTimeout(function(){
+        if(!voiceStarted){
+          try{ speechSynthesis.cancel(); }catch(e){}
+          speakIssued=false;
+        }
+      },1200);
+      function say(text,lang,voice,next){
+        var u=new SpeechSynthesisUtterance(text);
+        u.lang=lang; u.pitch=0.3; u.rate=0.85;
+        if(voice) u.voice=voice;
+        u.onstart=function(){ voiceStarted=true; };
+        var settled=false;
+        function go(){ if(settled) return; settled=true; if(next) next(); }
+        u.onend=go;
+        u.onerror=go;
+        /* watchdog: a blocked/stuck utterance must not stall the chain —
+           if it never ends, queue the next line anyway (speechSynthesis
+           plays queued utterances in order, so this never overlaps). */
+        setTimeout(go,2500);
+        speechSynthesis.speak(u);
+      }
+      say('ಅವಿಜ್ಞಾನಿಯ ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ','kn-IN',kn,function(){
+        say('welcome to avi world','en-IN',en,function(){});
+      });
     }catch(e){}
   }
+  /* A tap only retries the voice if it never started — it never skips
+     or advances the intro. */
+  function retryVoice(){ if(!voiceStarted) speak(); }
+  ov.addEventListener('pointerdown',retryVoice);
+  ov.addEventListener('touchstart',retryVoice);
   function finish(){
     if(done) return; done=true;
     try{ sessionStorage.setItem('avigyaniIntroSeen','1'); }catch(e){}
     ov.classList.add('fade');
     setTimeout(kill,650);
   }
-  ov.addEventListener('pointerdown',function(){ speak(); finish(); });
-  var hand=document.getElementById('introHand'),
-      head=document.getElementById('introHead'),
+  var head=document.getElementById('introPhead'),
       txt=document.getElementById('introText');
-  setTimeout(function(){ hand.classList.add('show'); },150);
-  setTimeout(function(){ hand.classList.add('gone'); },2000);
-  setTimeout(function(){
-    hand.style.display='none';
-    head.classList.add('show');
-    txt.classList.add('show');
-    startHead(0);
-  },2600);
-  setTimeout(speak,4200);
-  setTimeout(finish,6200);
-  setTimeout(function(){ if(!done) finish(); },7000);
+  var SPIN_MS=4500, VANISH_MS=1200;
+  var headStarted=false, headGone=false, timelineArmed=false;
+  function showText(){ txt.classList.add('show'); }
+  function armTimeline(){
+    if(timelineArmed) return; timelineArmed=true;
+    setTimeout(showText,SPIN_MS+VANISH_MS+150);
+    setTimeout(speak,SPIN_MS+VANISH_MS+450);
+    setTimeout(finish,SPIN_MS+VANISH_MS+1500);
+  }
+  function showFallback(){
+    if(headGone) return; headGone=true;
+    showText(); speak(); setTimeout(finish,4500);
+  }
+  setTimeout(function(){ head.classList.add('show'); startHead(0); },150);
+  setTimeout(function(){ if(!done) finish(); },12000);
   function startHead(tries){
-    var fb=document.getElementById('introHeadFb');
-    function showFallback(){ if(fb) fb.style.display='block'; }
-    if(typeof THREE==='undefined'){
+    if(headStarted) return;
+    function retry(){
       if(tries<7){ setTimeout(function(){ startHead(tries+1); },300); return; }
-      showFallback(); return;
+      showFallback();
     }
+    if(typeof THREE==='undefined'){ retry(); return; }
     try{
+      headStarted=true;
+      var pts=buildHeadPoints();
       var c=document.createElement('canvas');
-      c.width=270; c.height=270;
-      head.insertBefore(c,fb);
+      c.width=300; c.height=300;
+      head.appendChild(c);
       var renderer=new THREE.WebGLRenderer({canvas:c,alpha:true,antialias:true});
-      renderer.setSize(270,270);
+      renderer.setSize(300,300);
       renderer.setPixelRatio(Math.min(window.devicePixelRatio||1,2));
       var scene=new THREE.Scene();
-      var cam=new THREE.PerspectiveCamera(42,1,.1,100); cam.position.set(0,0,5.4);
-      var blue=new THREE.MeshStandardMaterial({color:0x2563eb,metalness:.85,roughness:.32});
-      var dark=new THREE.MeshStandardMaterial({color:0x1e3a5f,metalness:.7,roughness:.4});
-      var glow=new THREE.MeshStandardMaterial({color:0x22d3ee,emissive:0x22d3ee,emissiveIntensity:1.6});
-      var g=new THREE.Group();
-      var skull=new THREE.Mesh(new THREE.BoxGeometry(1.9,1.35,1.35),blue); g.add(skull);
-      var brow=new THREE.Mesh(new THREE.BoxGeometry(1.95,.18,1.4),dark); brow.position.set(0,.55,0); g.add(brow);
-      var jaw=new THREE.Mesh(new THREE.BoxGeometry(1.35,.5,1.1),dark); jaw.position.set(0,-.85,.05); g.add(jaw);
-      [-0.45,0.45].forEach(function(x){ var e=new THREE.Mesh(new THREE.SphereGeometry(.16,20,20),glow); e.position.set(x,.12,.68); g.add(e); });
-      var ant=new THREE.Mesh(new THREE.CylinderGeometry(.05,.05,.7,12),dark); ant.position.set(0,1.0,0); g.add(ant);
-      var tip=new THREE.Mesh(new THREE.SphereGeometry(.12,16,16),glow); tip.position.set(0,1.4,0); g.add(tip);
-      [-1,1].forEach(function(s){ var ear=new THREE.Mesh(new THREE.CylinderGeometry(.22,.22,.18,20),dark); ear.rotation.z=Math.PI/2; ear.position.set(s*1.02,0,0); g.add(ear); });
-      for(var i=-1;i<=1;i++){ var t=new THREE.Mesh(new THREE.BoxGeometry(.28,.06,.05),glow); t.position.set(i*.4,-.82,.62); g.add(t); }
-      scene.add(g);
-      scene.add(new THREE.AmbientLight(0xffffff,.7));
-      var dl=new THREE.DirectionalLight(0xffffff,1.1); dl.position.set(2,3,4); scene.add(dl);
-      var pl=new THREE.PointLight(0x22d3ee,1.2,10); pl.position.set(-2,1,3); scene.add(pl);
-      var raf;
+      var cam=new THREE.PerspectiveCamera(40,1,.1,100); cam.position.set(0,0,5.6);
+      var geo=new THREE.BufferGeometry();
+      geo.setAttribute('position',new THREE.Float32BufferAttribute(pts.pos,3));
+      geo.setAttribute('color',new THREE.Float32BufferAttribute(pts.col,3));
+      var mat=new THREE.PointsMaterial({size:0.045,sizeAttenuation:true,vertexColors:true,transparent:true,opacity:1,depthWrite:false});
+      var cloud=new THREE.Points(geo,mat);
+      var g=new THREE.Group(); g.add(cloud); scene.add(g);
+      var base=pts.pos.slice();
+      var t0=performance.now(), raf=null;
+      armTimeline();
       (function tick(){
         if(!ov.isConnected||done){ if(raf) cancelAnimationFrame(raf); return; }
-        g.rotation.y+=0.006; g.rotation.x=Math.sin(Date.now()/1400)*0.05;
+        var el=performance.now()-t0;
+        if(el<SPIN_MS){
+          g.rotation.y=(el/SPIN_MS)*Math.PI*2;
+        }else if(el<SPIN_MS+VANISH_MS){
+          var pr=(el-SPIN_MS)/VANISH_MS;
+          var arr=geo.attributes.position.array;
+          for(var i=0;i<arr.length;i+=3){
+            arr[i]=base[i]+pts.vel[i]*pr*1.5;
+            arr[i+1]=base[i+1]+pts.vel[i+1]*pr*1.5;
+            arr[i+2]=base[i+2]+pts.vel[i+2]*pr*1.5;
+          }
+          geo.attributes.position.needsUpdate=true;
+          mat.opacity=1-pr;
+        }else if(!headGone){
+          headGone=true;
+          cloud.visible=false;
+        }
         renderer.render(scene,cam);
         raf=requestAnimationFrame(tick);
       })();
     }catch(e){ showFallback(); }
+  }
+  /* Particle head: side-profile human head (facing right) sampled as a
+     point cloud inside a smoothed profile outline — blue-white particles
+     on dark blue, dissolving upward like the reference image. */
+  function buildHeadPoints(){
+    var ctrl=[[0.10,1.45],[0.42,1.38],[0.55,1.12],[0.52,0.88],[0.60,0.62],[0.84,0.38],[0.72,0.18],[0.56,0.08],[0.62,-0.05],[0.55,-0.18],[0.62,-0.35],[0.45,-0.55],[0.16,-0.95],[0.05,-1.35],[-0.70,-1.35],[-0.78,-0.90],[-0.90,-0.35],[-0.95,0.30],[-0.92,0.80],[-0.75,1.22]];
+    var out=[];
+    function cr(p0,p1,p2,p3,t){
+      var t2=t*t,t3=t2*t;
+      return 0.5*((2*p1)+(-p0+p2)*t+(2*p0-5*p1+4*p2-p3)*t2+(-p0+3*p1-3*p2+p3)*t3);
+    }
+    for(var s=0;s<ctrl.length;s++){
+      var p0=ctrl[(s-1+ctrl.length)%ctrl.length],p1=ctrl[s],p2=ctrl[(s+1)%ctrl.length],p3=ctrl[(s+2)%ctrl.length];
+      for(var k=0;k<16;k++){
+        var t=k/16;
+        out.push([cr(p0[0],p1[0],p2[0],p3[0],t),cr(p0[1],p1[1],p2[1],p3[1],t)]);
+      }
+    }
+    function inside(x,y){
+      var ok=false;
+      for(var i=0,j=out.length-1;i<out.length;j=i++){
+        var xi=out[i][0],yi=out[i][1],xj=out[j][0],yj=out[j][1];
+        if(((yi>y)!==(yj>y))&&(x<(xj-xi)*(y-yi)/(yj-yi)+xi)) ok=!ok;
+      }
+      return ok;
+    }
+    function minDist(x,y){
+      var m=1e9;
+      for(var i=0;i<out.length;i++){
+        var dx=x-out[i][0],dy=y-out[i][1],d=dx*dx+dy*dy;
+        if(d<m) m=d;
+      }
+      return Math.sqrt(m);
+    }
+    var pos=[],col=[],vel=[],COUNT=7000,n=0,guard=0;
+    while(n<COUNT&&guard++<60000){
+      var x=-1.05+Math.random()*2.1, y=-1.45+Math.random()*3.0;
+      if(!inside(x,y)) continue;
+      var dm=minDist(x,y);
+      var zh=0.18+0.42*Math.min(1,dm/0.45);
+      var z=(Math.random()*2-1)*zh;
+      pos.push(x,y,z);
+      var r=Math.random(),cc=r<0.42?[1,1,1]:r<0.68?[0.89,0.87,0.96]:r<0.88?[0.66,0.82,0.94]:[0.36,0.61,0.84];
+      col.push(cc[0],cc[1],cc[2]);
+      var dx=x+0.1,dy=y-0.1,dz=z,len=Math.sqrt(dx*dx+dy*dy+dz*dz)||1;
+      var sp=0.5+Math.random()*1.1+(y>0.7?0.7:0);
+      vel.push(dx/len*sp,dy/len*sp+0.55+Math.random()*0.7,dz/len*sp);
+      n++;
+    }
+    return {pos:pos,col:col,vel:vel};
   }
 })();
 </script>
