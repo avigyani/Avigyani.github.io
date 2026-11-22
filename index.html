@@ -316,13 +316,17 @@
 .intro-phead{width:min(300px,78vw);height:min(300px,78vw);opacity:0;transition:opacity .5s ease}
 .intro-phead.show{opacity:1}
 .intro-phead canvas{display:block;margin:0 auto}
-.intro-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) scale(.92);width:100%;text-align:center;font-size:1.6rem;font-weight:700;line-height:1.5;color:#fffbf0;opacity:0;transition:opacity .7s ease,transform .7s ease;text-shadow:0 2px 18px rgba(0,0,0,.7);margin-top:0;pointer-events:none}
-.intro-text.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.intro-text{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;text-align:center;font-size:clamp(2rem,6.5vw,2.6rem);font-weight:700;line-height:1.5;color:#fffbf0;opacity:0;transition:opacity .7s ease;text-shadow:0 2px 18px rgba(0,0,0,.7);margin-top:0;pointer-events:none;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:.35em}
+.intro-text.show{opacity:1}
+.intro-tl,.intro-tr{display:inline-block;opacity:0;transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .8s ease}
+.intro-tl{transform:translateX(-80px)}
+.intro-tr{transform:translateX(80px);transition-delay:.14s}
+.intro-text.show .intro-tl,.intro-text.show .intro-tr{opacity:1;transform:translateX(0)}
 </style>
 <div id="introOv" class="intro-ov">
   <div class="intro-stage">
     <div class="intro-phead" id="introPhead"></div>
-    <div class="intro-text" id="introText">ಅವಿಜ್ಞಾನಿಯ ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</div>
+    <div class="intro-text" id="introText"><span class="intro-tl">ಅವಿಜ್ಞಾನಿಯ</span><span class="intro-tr">ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</span></div>
   </div>
 </div>
 <script async src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.149.0/three.min.js"></script>
@@ -335,68 +339,7 @@
   try{ if(sessionStorage.getItem('avigyaniIntroSeen')){ kill(); return; } }catch(e){}
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ kill(); return; }
   var done=false;
-  /* ---- voice: robust speech, never blocks entry ----
-     Phone browsers often report zero voices at first and block audio
-     before the first touch, so: wait once for voices to load, speak with
-     the best matching voice (kn-IN, else en-IN, else default), and retry
-     on the first touch if the first attempt never started. The intro
-     always auto-dismisses on its own timeline even if voice never plays. */
-  var voiceStarted=false, speakIssued=false, voicesWaited=false;
-  function pickVoice(vs,langs){
-    for(var j=0;j<langs.length;j++){
-      for(var i=0;i<vs.length;i++){
-        var l=(vs[i].lang||'').toLowerCase();
-        if(l.indexOf(langs[j])===0) return vs[i];
-      }
-    }
-    return null;
-  }
-  function speak(){
-    if(voiceStarted||speakIssued) return;
-    try{
-      if(!('speechSynthesis' in window)) return;
-      var vs=speechSynthesis.getVoices();
-      if(!vs.length&&!voicesWaited){
-        voicesWaited=true;
-        var fired=false;
-        var go=function(){ if(fired) return; fired=true; speak(); };
-        try{ speechSynthesis.addEventListener('voiceschanged',go); }catch(e){}
-        setTimeout(go,1500);
-        return;
-      }
-      var kn=pickVoice(vs,['kn']), en=pickVoice(vs,['en']);
-      speakIssued=true;
-      setTimeout(function(){
-        if(!voiceStarted){
-          try{ speechSynthesis.cancel(); }catch(e){}
-          speakIssued=false;
-        }
-      },1200);
-      function say(text,lang,voice,next){
-        var u=new SpeechSynthesisUtterance(text);
-        u.lang=lang; u.pitch=0.3; u.rate=0.85;
-        if(voice) u.voice=voice;
-        u.onstart=function(){ voiceStarted=true; };
-        var settled=false;
-        function go(){ if(settled) return; settled=true; if(next) next(); }
-        u.onend=go;
-        u.onerror=go;
-        /* watchdog: a blocked/stuck utterance must not stall the chain —
-           if it never ends, queue the next line anyway (speechSynthesis
-           plays queued utterances in order, so this never overlaps). */
-        setTimeout(go,2500);
-        speechSynthesis.speak(u);
-      }
-      say('ಅವಿಜ್ಞಾನಿಯ ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ','kn-IN',kn,function(){
-        say('welcome to avi world','en-IN',en,function(){});
-      });
-    }catch(e){}
-  }
-  /* A tap only retries the voice if it never started — it never skips
-     or advances the intro. */
-  function retryVoice(){ if(!voiceStarted) speak(); }
-  ov.addEventListener('pointerdown',retryVoice);
-  ov.addEventListener('touchstart',retryVoice);
+  /* Silent intro: no voice, no speech — visual only. */
   function finish(){
     if(done) return; done=true;
     try{ sessionStorage.setItem('avigyaniIntroSeen','1'); }catch(e){}
@@ -411,12 +354,11 @@
   function armTimeline(){
     if(timelineArmed) return; timelineArmed=true;
     setTimeout(showText,SPIN_MS+VANISH_MS+150);
-    setTimeout(speak,SPIN_MS+VANISH_MS+450);
     setTimeout(finish,SPIN_MS+VANISH_MS+1500);
   }
   function showFallback(){
     if(headGone) return; headGone=true;
-    showText(); speak(); setTimeout(finish,4500);
+    showText(); setTimeout(finish,4500);
   }
   setTimeout(function(){ head.classList.add('show'); startHead(0); },150);
   setTimeout(function(){ if(!done) finish(); },12000);
@@ -472,10 +414,15 @@
     }catch(e){ showFallback(); }
   }
   /* Particle head: side-profile human head (facing right) sampled as a
-     point cloud inside a smoothed profile outline — blue-white particles
-     on dark blue, dissolving upward like the reference image. */
+     point cloud — anatomical outline (forehead, brow, nose, lips, chin,
+     jaw, neck, back of skull) with a dense bright edge so the profile
+     reads clearly, plus a dissolving particle crown like the reference.
+     Blue-white particles on dark blue. Silent intro. */
   function buildHeadPoints(){
-    var ctrl=[[0.10,1.45],[0.42,1.38],[0.55,1.12],[0.52,0.88],[0.60,0.62],[0.84,0.38],[0.72,0.18],[0.56,0.08],[0.62,-0.05],[0.55,-0.18],[0.62,-0.35],[0.45,-0.55],[0.16,-0.95],[0.05,-1.35],[-0.70,-1.35],[-0.78,-0.90],[-0.90,-0.35],[-0.95,0.30],[-0.92,0.80],[-0.75,1.22]];
+    /* Named anatomical profile, facing right (+x = face front, +y = up).
+       Crown -> forehead -> brow -> nose -> lips -> chin -> jaw -> neck
+       front -> neck back -> back of skull -> crown. */
+    var ctrl=[[0.08,1.50],[0.40,1.40],[0.52,1.14],[0.50,0.90],[0.57,0.66],[0.72,0.50],[0.84,0.36],[0.68,0.14],[0.52,0.06],[0.59,-0.05],[0.50,-0.12],[0.56,-0.20],[0.48,-0.28],[0.58,-0.36],[0.42,-0.56],[0.14,-0.95],[0.02,-1.35],[-0.70,-1.35],[-0.80,-0.92],[-0.92,-0.38],[-0.94,0.28],[-0.92,0.78],[-0.72,1.24]];
     var out=[];
     function cr(p0,p1,p2,p3,t){
       var t2=t*t,t3=t2*t;
@@ -504,19 +451,41 @@
       }
       return Math.sqrt(m);
     }
-    var pos=[],col=[],vel=[],COUNT=7000,n=0,guard=0;
-    while(n<COUNT&&guard++<60000){
-      var x=-1.05+Math.random()*2.1, y=-1.45+Math.random()*3.0;
-      if(!inside(x,y)) continue;
-      var dm=minDist(x,y);
-      var zh=0.18+0.42*Math.min(1,dm/0.45);
-      var z=(Math.random()*2-1)*zh;
+    function pushPt(pos,col,vel,x,y,z,bright){
       pos.push(x,y,z);
-      var r=Math.random(),cc=r<0.42?[1,1,1]:r<0.68?[0.89,0.87,0.96]:r<0.88?[0.66,0.82,0.94]:[0.36,0.61,0.84];
+      var r=Math.random();
+      var cc;
+      if(bright){ cc=r<0.6?[1,1,1]:[0.89,0.87,0.96]; }
+      else{ cc=r<0.42?[1,1,1]:r<0.68?[0.89,0.87,0.96]:r<0.88?[0.66,0.82,0.94]:[0.36,0.61,0.84]; }
       col.push(cc[0],cc[1],cc[2]);
       var dx=x+0.1,dy=y-0.1,dz=z,len=Math.sqrt(dx*dx+dy*dy+dz*dz)||1;
       var sp=0.5+Math.random()*1.1+(y>0.7?0.7:0);
       vel.push(dx/len*sp,dy/len*sp+0.55+Math.random()*0.7,dz/len*sp);
+    }
+    var pos=[],col=[],vel=[];
+    /* Dense edge layer: points on the profile curve so the silhouette
+       (nose, lips, chin) reads clearly even while spinning. */
+    var EDGE=1800;
+    for(var e=0;e<EDGE;e++){
+      var p=out[(Math.random()*out.length)|0];
+      var jx=(Math.random()*2-1)*0.015, jy=(Math.random()*2-1)*0.015;
+      pushPt(pos,col,vel,p[0]+jx,p[1]+jy,(Math.random()*2-1)*0.10,true);
+    }
+    /* Dissolving crown: sparse particles rising above the head, denser
+       near the crown, like the reference image. */
+    var CROWN=300;
+    for(var c=0;c<CROWN;c++){
+      var cx=-0.55+Math.random()*1.05, cy=1.52+Math.random()*0.43;
+      pushPt(pos,col,vel,cx,cy,(Math.random()*2-1)*0.25,false);
+    }
+    var COUNT=7000, n=pos.length/3, guard=0;
+    while(n<COUNT&&guard++<60000){
+      var x=-1.05+Math.random()*2.1, y=-1.45+Math.random()*3.0;
+      if(!inside(x,y)) continue;
+      var dm=minDist(x,y);
+      var zh=0.16+0.34*Math.min(1,dm/0.45);
+      var z=(Math.random()*2-1)*zh;
+      pushPt(pos,col,vel,x,y,z,false);
       n++;
     }
     return {pos:pos,col:col,vel:vel};
