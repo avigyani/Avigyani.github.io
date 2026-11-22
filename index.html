@@ -323,7 +323,7 @@
 .intro-text.show .intro-tl,.intro-text.show .intro-tr{opacity:1;transform:translateX(0)}
 </style>
 <div id="introOv" class="intro-ov">
-  <video id="introVid" class="intro-vid" src="https://videos.pexels.com/video-files/5988794/5988794-hd_1280_720_25fps.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
+  <video id="introVid" class="intro-vid" src="https://videos.pexels.com/video-files/40635666/17361861_2160_3840_30fps.mp4" autoplay muted playsinline preload="auto" aria-hidden="true"></video>
   <div class="intro-scrim" aria-hidden="true"></div>
   <div class="intro-text" id="introText"><span class="intro-tl">ಅವಿಜ್ಞಾನಿಯ</span><span class="intro-tr">ಲೋಕಕ್ಕೆ ಸ್ವಾಗತ</span></div>
 </div>
@@ -336,7 +336,8 @@
   try{ if(sessionStorage.getItem('avigyaniIntroSeen')){ kill(); return; } }catch(e){}
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches){ kill(); return; }
   var done=false;
-  /* Silent video intro: fakir walking (Pexels 5988794). No voice, no speech, no tap — visual only.
+  /* Silent video intro: single fakir walking away across desert dunes (Pexels 40635666).
+     No voice, no speech, no tap — visual only.
      The video is decorative: the schedule below runs from page load,
      so a slow network or a blocked video can never hold up the site. */
   function finish(){
