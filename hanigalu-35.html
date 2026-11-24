@@ -346,6 +346,7 @@
       <button data-view="photos">ಚೆಹರೆಗಳು</button>
       <button data-view="awards">ಕಡಿದು ಗುಡ್ಡೆ ಹಾಕಿದ್ದು</button>
       <button data-view="book">ಅಚ್ಚಾಗಿದ್ದು</button>
+      <button data-view="ebook">ಇ-ಪುಸ್ತಕ</button>
       <button data-view="chaya">ಚಾಯ ಕೊಡಿಸಿ</button>
       <button data-view="others">ಇತರರ ಕೆಲಸಗಳು</button>
       <button data-view="lekhanegalu">ಲೇಖನಗಳು</button>
@@ -549,7 +550,7 @@ $('menuBtn').onclick = () => panel.classList.add('open');
 $('closeBtn').onclick = () => panel.classList.remove('open');
 $('scrim').onclick = () => panel.classList.remove('open');
 function showView(name){
-  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html'};
+  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html'};
   if (M[name]) location.href = M[name];
 }
 document.querySelectorAll('#menuNav button').forEach(b =>
