@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://avigyani.github.io/sitemap.xml
-Sitemap: https://avigyani.github.io/video-sitemap.xml
+Sitemap: https://avigyani.com/sitemap.xml
+Sitemap: https://avigyani.com/video-sitemap.xml
