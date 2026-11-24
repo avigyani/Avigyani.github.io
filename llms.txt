@@ -4,34 +4,34 @@
 
 ## ಕವಿಯ ಬಗ್ಗೆ
 
-- [ಕವಿಯ ಬಗ್ಗೆ](https://avigyani.github.io/about.html): ಅವಿಜ್ಞಾನಿ ಅವರ ಪರಿಚಯ — ನಿಜಾಮ್ ಗೋಳಿಪಡ್ಪು, ಸಜೀಪನಡು, ಮಂಗಳೂರು.
-- [ಪ್ರಶಸ್ತಿಗಳು](https://avigyani.github.io/awards.html): 2024 ಈ ಹೊತ್ತಿಗೆ ಕಾವ್ಯ ಪ್ರಶಸ್ತಿ, 2020 TRF ಯುವಕವಿ ಪ್ರಶಸ್ತಿ, ಪತ್ರಿಕೆಗಳ ವಾರ್ಷಿಕ ವಿಶೇಷಾಂಕಗಳಲ್ಲಿ ಕವನ ಪ್ರಕಟಣೆ.
-- [FAQ](https://avigyani.github.io/faq.html): ಕವಿ, ಪುಸ್ತಕ ಮತ್ತು site ಬಗ್ಗೆ ಆಗಾಗ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಗಳು.
+- [ಕವಿಯ ಬಗ್ಗೆ](https://avigyani.com/about.html): ಅವಿಜ್ಞಾನಿ ಅವರ ಪರಿಚಯ — ನಿಜಾಮ್ ಗೋಳಿಪಡ್ಪು, ಸಜೀಪನಡು, ಮಂಗಳೂರು.
+- [ಪ್ರಶಸ್ತಿಗಳು](https://avigyani.com/awards.html): 2024 ಈ ಹೊತ್ತಿಗೆ ಕಾವ್ಯ ಪ್ರಶಸ್ತಿ, 2020 TRF ಯುವಕವಿ ಪ್ರಶಸ್ತಿ, ಪತ್ರಿಕೆಗಳ ವಾರ್ಷಿಕ ವಿಶೇಷಾಂಕಗಳಲ್ಲಿ ಕವನ ಪ್ರಕಟಣೆ.
+- [FAQ](https://avigyani.com/faq.html): ಕವಿ, ಪುಸ್ತಕ ಮತ್ತು site ಬಗ್ಗೆ ಆಗಾಗ ಕೇಳಲಾಗುವ ಪ್ರಶ್ನೆಗಳಿಗೆ ಉತ್ತರಗಳು.
 
 ## ಪುಸ್ತಕ
 
-- [ಅನಾಮಧೇಯ ಗೀರುಗಳು](https://avigyani.github.io/book.html): ಪ್ರಥಮ ಕವನ ಸಂಕಲನ, ಪದ ಪ್ರಕಾಶನ, ₹108 (MRP ₹120), Beetle Bookshop ಮತ್ತು Prajodaya ನಲ್ಲಿ ಸಿಗುತ್ತೆ.
+- [ಅನಾಮಧೇಯ ಗೀರುಗಳು](https://avigyani.com/book.html): ಪ್ರಥಮ ಕವನ ಸಂಕಲನ, ಪದ ಪ್ರಕಾಶನ, ₹108 (MRP ₹120), Beetle Bookshop ಮತ್ತು Prajodaya ನಲ್ಲಿ ಸಿಗುತ್ತೆ.
 
 ## ವಿಷಯವಾರು ಕವನ ಪುಟಗಳು
 
-- [ಪ್ರೇಮ ಕವನಗಳು](https://avigyani.github.io/preeti-kavanagalu.html): ಪ್ರೀತಿಯ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ಬದುಕಿನ ಕವನಗಳು](https://avigyani.github.io/baduku-kavanagalu.html): ಬದುಕಿನ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ನೋವಿನ ಕವನಗಳು](https://avigyani.github.io/novu-kavanagalu.html): ನೋವಿನ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ಸಾವಿನ ಕವನಗಳು](https://avigyani.github.io/savu-kavanagalu.html): ಸಾವಿನ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ಒಂಟಿತನದ ಕವನಗಳು](https://avigyani.github.io/ontitana-kavanagalu.html): ಒಂಟಿತನದ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ಕನಸಿನ ಕವನಗಳು](https://avigyani.github.io/kanasu-kavanagalu.html): ಕನಸಿನ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ಬಡತನ ಮತ್ತು ಹಸಿವಿನ ಕವನಗಳು](https://avigyani.github.io/badatana-kavanagalu.html): ಬಡತನ ಮತ್ತು ಹಸಿವಿನ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ತತ್ವ ಕವನಗಳು](https://avigyani.github.io/tatva-kavanagalu.html): ತತ್ವದ ಬಗ್ಗೆ ಕವನಗಳು.
-- [ಬದುಕಿದ ಹನಿಗಳು](https://avigyani.github.io/hanigalu.html): 45 ಸಣ್ಣ ಹನಿಗವನಗಳು.
-- [ಕನ್ನಡ ಕೋಟ್ಸ್](https://avigyani.github.io/kannada-quotes.html): ಕವನಗಳಿಂದ ಆಯ್ದ ಸಾಲುಗಳು.
+- [ಪ್ರೇಮ ಕವನಗಳು](https://avigyani.com/preeti-kavanagalu.html): ಪ್ರೀತಿಯ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ಬದುಕಿನ ಕವನಗಳು](https://avigyani.com/baduku-kavanagalu.html): ಬದುಕಿನ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ನೋವಿನ ಕವನಗಳು](https://avigyani.com/novu-kavanagalu.html): ನೋವಿನ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ಸಾವಿನ ಕವನಗಳು](https://avigyani.com/savu-kavanagalu.html): ಸಾವಿನ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ಒಂಟಿತನದ ಕವನಗಳು](https://avigyani.com/ontitana-kavanagalu.html): ಒಂಟಿತನದ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ಕನಸಿನ ಕವನಗಳು](https://avigyani.com/kanasu-kavanagalu.html): ಕನಸಿನ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ಬಡತನ ಮತ್ತು ಹಸಿವಿನ ಕವನಗಳು](https://avigyani.com/badatana-kavanagalu.html): ಬಡತನ ಮತ್ತು ಹಸಿವಿನ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ತತ್ವ ಕವನಗಳು](https://avigyani.com/tatva-kavanagalu.html): ತತ್ವದ ಬಗ್ಗೆ ಕವನಗಳು.
+- [ಬದುಕಿದ ಹನಿಗಳು](https://avigyani.com/hanigalu.html): 45 ಸಣ್ಣ ಹನಿಗವನಗಳು.
+- [ಕನ್ನಡ ಕೋಟ್ಸ್](https://avigyani.com/kannada-quotes.html): ಕವನಗಳಿಂದ ಆಯ್ದ ಸಾಲುಗಳು.
 
 ## ಇತರ ಪುಟಗಳು
 
-- [ವಿಡಿಯೋಗಳು](https://avigyani.github.io/videos.html): @homosep YouTube ಚಾನಲ್‌ನ ಕವನ ಶಾರ್ಟ್ಸ್.
-- [ಇತರರ ಕೆಲಸಗಳು](https://avigyani.github.io/itarara-kelasagalu.html): ಸ್ನೇಹಿತರ ಕವನಗಳು ಮತ್ತು ಲೇಖನಗಳು.
-- [ಚೆಹರೆಗಳು](https://avigyani.github.io/photos.html): ಪುಸ್ತಕ ಬಿಡುಗಡೆ ಮತ್ತು ಪ್ರಶಸ್ತಿ ಸಮಾರಂಭದ ಫೋಟೋಗಳು.
-- [ಚಾಯ ಕೊಡಿಸಿ](https://avigyani.github.io/chaya.html): ಕವಿಗೆ ಸ್ವಯಂಪ್ರೇರಿತವಾಗಿ ಚಾಯ ಕೊಡಿಸಿ ಬೆಂಬಲಿಸುವ ಪುಟ.
-- [Privacy Policy](https://avigyani.github.io/privacy.html): English privacy policy.
+- [ವಿಡಿಯೋಗಳು](https://avigyani.com/videos.html): @homosep YouTube ಚಾನಲ್‌ನ ಕವನ ಶಾರ್ಟ್ಸ್.
+- [ಇತರರ ಕೆಲಸಗಳು](https://avigyani.com/itarara-kelasagalu.html): ಸ್ನೇಹಿತರ ಕವನಗಳು ಮತ್ತು ಲೇಖನಗಳು.
+- [ಚೆಹರೆಗಳು](https://avigyani.com/photos.html): ಪುಸ್ತಕ ಬಿಡುಗಡೆ ಮತ್ತು ಪ್ರಶಸ್ತಿ ಸಮಾರಂಭದ ಫೋಟೋಗಳು.
+- [ಚಾಯ ಕೊಡಿಸಿ](https://avigyani.com/chaya.html): ಕವಿಗೆ ಸ್ವಯಂಪ್ರೇರಿತವಾಗಿ ಚಾಯ ಕೊಡಿಸಿ ಬೆಂಬಲಿಸುವ ಪುಟ.
+- [Privacy Policy](https://avigyani.com/privacy.html): English privacy policy.
 
 ## ಹಿಂಬಾಲಿಸಿ
 
