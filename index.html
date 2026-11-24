@@ -95,7 +95,7 @@
   .hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
   .hero-cta .buy-btn{padding:10px 22px;font-size:.95rem}
   /* ---- 3D book (Dark Royal hero): tilts with mouse / finger ---- */
-  .book3d{width:188px;height:272px;margin:4px auto 16px;perspective:1000px}
+  .book3d{width:188px;height:272px;margin:4px auto 16px;perspective:1000px;touch-action:none}
   .book3d-cover{position:relative;width:100%;height:100%;transform-style:preserve-3d;
     transform:rotateY(var(--ry,-14deg)) rotateX(var(--rx,6deg));
     transition:transform .18s ease-out;will-change:transform}
@@ -802,11 +802,36 @@ renderPaths();
     cover.style.setProperty('--ry', (-px * 28).toFixed(1) + 'deg');
     cover.style.setProperty('--rx', (py * 16).toFixed(1) + 'deg');
   }
-  hero.addEventListener('pointermove', function(e){ tilt(e.clientX, e.clientY); });
+  hero.addEventListener('pointermove', function(e){
+    if (e.target && e.target.closest && e.target.closest('#book3d')) return;
+    tilt(e.clientX, e.clientY);
+  });
   hero.addEventListener('pointerleave', function(){
     cover.style.setProperty('--ry', '-14deg');
     cover.style.setProperty('--rx', '6deg');
   });
+  /* Touch/drag on the book itself: touch-action:none on .book3d stops the
+     browser claiming the finger for page scroll (pointercancel), so the
+     tilt keeps tracking the drag. Uses the book's own rect for full range. */
+  function tiltBook(cx, cy){
+    var r = book.getBoundingClientRect();
+    if (!r.width || !r.height) return;
+    var px = (cx - r.left) / r.width - 0.5;
+    var py = (cy - r.top) / r.height - 0.5;
+    cover.style.setProperty('--ry', (-px * 36).toFixed(1) + 'deg');
+    cover.style.setProperty('--rx', (py * 22).toFixed(1) + 'deg');
+  }
+  function resetBook(){
+    cover.style.setProperty('--ry', '-14deg');
+    cover.style.setProperty('--rx', '6deg');
+  }
+  book.addEventListener('pointerdown', function(e){
+    try { book.setPointerCapture(e.pointerId); } catch (_){}
+    tiltBook(e.clientX, e.clientY);
+  });
+  book.addEventListener('pointermove', function(e){ tiltBook(e.clientX, e.clientY); });
+  book.addEventListener('pointerup', resetBook);
+  book.addEventListener('pointercancel', resetBook);
 })();
 
 /* ---------- background Sufi music: soft, starts on first touch ---------- */
