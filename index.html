@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="color-scheme" content="light">
 <title>ಅವಿಜ್ಞಾನಿ — ಕನ್ನಡ ಕವನ ಸಂಗ್ರಹ | Kannada Poems by Avigyani</title>
+<link rel="alternate" hreflang="kn" href="https://avigyani.com/">
+<link rel="alternate" hreflang="en" href="https://avigyani.com/english.html">
+<link rel="alternate" hreflang="x-default" href="https://avigyani.com/">
 <link rel="canonical" href="https://avigyani.com/">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <link rel="icon" type="image/png" sizes="192x192" href="favicon.png">
@@ -409,6 +412,7 @@
       <button data-view="others">ಇತರರ ಕೆಲಸಗಳು</button>
       <button data-view="lekhanegalu">ಲೇಖನಗಳು</button>
       <button data-view="library">ಗ್ರಂಥಾಲಯ</button>
+      <button data-view="english">English</button>
     </nav>
     <div class="p-follow">
       <div class="p-follow-t">ಹಿಂಬಾಲಿಸಿ</div>
@@ -490,6 +494,30 @@
         <a href="videos.html" style="background:var(--card);border:1px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--maroon);font-weight:600;font-size:.9rem">ವಿಡಿಯೋಗಳು</a>
       </div>
     </div>
+
+    <a class="others-card" href="library.html">
+      <span class="others-t">📚 ಗ್ರಂಥಾಲಯ</span>
+      <span class="others-s">ಉಚಿತ ಕನ್ನಡ ಪುಸ್ತಕಗಳು · Kannada books PDF</span>
+      <span class="others-arrow">›</span>
+    </a>
+
+    <a class="others-card" href="lekhanegalu.html">
+      <span class="others-t">✍️ ಲೇಖನಗಳು</span>
+      <span class="others-s">ಅವಿಜ್ಞಾನಿಯವರ ಲೇಖನಗಳು · Essays in Kannada</span>
+      <span class="others-arrow">›</span>
+    </a>
+
+    <a class="others-card" href="ebook.html">
+      <span class="others-t">📖 ಇ-ಪುಸ್ತಕ</span>
+      <span class="others-s">ಅನಾಮಧೇಯ ಗೀರುಗಳು · ₹101 · Read online</span>
+      <span class="others-arrow">›</span>
+    </a>
+
+    <a class="others-card" href="english.html">
+      <span class="others-t">🌐 English</span>
+      <span class="others-s">About the poet, in English</span>
+      <span class="others-arrow">›</span>
+    </a>
 
     <div class="suggest-card">
       <h3 class="suggest-t">ನಿಮ್ಮ ಮಂಡೆಯಲ್ಲಿ ಏನಿದೆ ಹೇಳಲು</h3>
@@ -640,7 +668,7 @@ $('menuBtn').onclick = () => panel.classList.add('open');
 $('closeBtn').onclick = () => panel.classList.remove('open');
 $('scrim').onclick = () => panel.classList.remove('open');
 function showView(name){
-  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html'};
+  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html', english:'english.html'};
   if (M[name]) location.href = M[name];
 }
 document.querySelectorAll('#menuNav button').forEach(b =>
@@ -891,7 +919,7 @@ document.querySelectorAll('[data-share]').forEach(b => {
 (function(){
   const id = decodeURIComponent(location.hash.replace('#', ''));
   if (!id) return;
-  const VM = {about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html'};
+  const VM = {about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html', english:'english.html'};
   if (VM[id]) { location.replace(VM[id]); return; }
   const i = DATA.collections.findIndex(c => c.id === id);
   if (i >= 0) location.replace(slideFile(i, 0));

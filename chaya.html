@@ -352,6 +352,7 @@
       <button data-view="others">ಇತರರ ಕೆಲಸಗಳು</button>
       <button data-view="lekhanegalu">ಲೇಖನಗಳು</button>
       <button data-view="library">ಗ್ರಂಥಾಲಯ</button>
+      <button data-view="english">English</button>
     </nav>
     <div class="p-follow">
       <div class="p-follow-t">ಹಿಂಬಾಲಿಸಿ</div>
@@ -402,7 +403,7 @@
     <button class="soc" data-share="mail" data-scope="site"><span class="ic"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span><span class="nm">Email</span></button>
   </div>
   <div class="sig">-ಅವಿಜ್ಞಾನಿ</div>
-  <div><a href="privacy.html">Privacy Policy</a></div>
+  <div><a href="terms.html">Terms of Sale</a> · <a href="privacy.html">Privacy Policy</a> · <a href="refund.html">Refund Policy</a> · <a href="contact.html">Contact</a></div>
   <div><a href="faq.html">FAQ</a></div>
   <div>ಸರ್ವ ಹಕ್ಕುಗಳೂ ಕವಿಯವು · All poems © Avigyani</div>
 </footer>
@@ -515,7 +516,7 @@ $('menuBtn').onclick = () => panel.classList.add('open');
 $('closeBtn').onclick = () => panel.classList.remove('open');
 $('scrim').onclick = () => panel.classList.remove('open');
 function showView(name){
-  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html'};
+  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html', english:'english.html'};
   if (M[name]) location.href = M[name];
 }
 document.querySelectorAll('#menuNav button').forEach(b =>
