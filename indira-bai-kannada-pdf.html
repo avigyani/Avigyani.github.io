@@ -348,6 +348,8 @@
       <button data-view="book">ಅಚ್ಚಾಗಿದ್ದು</button>
       <button data-view="chaya">ಚಾಯ ಕೊಡಿಸಿ</button>
       <button data-view="others">ಇತರರ ಕೆಲಸಗಳು</button>
+      <button data-view="lekhanegalu">ಲೇಖನಗಳು</button>
+      <button data-view="library">ಗ್ರಂಥಾಲಯ</button>
     </nav>
     <div class="p-follow">
       <div class="p-follow-t">ಹಿಂಬಾಲಿಸಿ</div>
@@ -372,7 +374,7 @@
 <p>ಗುಲ್ವಾಡಿ ವೆಂಕಟರಾಯರ (1844–1913) ಇಂದಿರಾಬಾಯಿ — 1899ರಲ್ಲಿ ಮೊದಲು ಪ್ರಕಟವಾದ ಕನ್ನಡದ ಮೊದಲ ಆಧುನಿಕ ಕಾದಂಬರಿ.</p><p>“ಇಂದಿರಾಬಾಯಿ PDF” ಎಂಬುದು ಪಠ್ಯಕ್ರಮ ಮತ್ತು ಪರೀಕ್ಷಾ ವಿದ್ಯಾರ್ಥಿಗಳ ಪ್ರಮುಖ ಹುಡುಕಾಟಗಳಲ್ಲಿ ಒಂದು. ಕನ್ನಡ ಕಾದಂಬರಿಯ ಇತಿಹಾಸದಲ್ಲಿ ಇದೊಂದು ಮೈಲಿಗಲ್ಲು.</p>
 </div>
 <div class="lib-btns">
-<a class="lib-btn" href="https://archive.org/download/indira-bai-gulvadi-e-book/Indira-Bai_Gulvadi_e-book.pdf" target="_blank" rel="noopener">PDF ಓದಿ / Download ↓</a>
+<a class="lib-btn" href="Assets/library/indira-bai.pdf" target="_blank" rel="noopener">PDF ಓದಿ / Download ↓</a>
 <a class="lib-btn lib-btn2" href="https://archive.org/details/indira-bai-gulvadi-e-book" target="_blank" rel="noopener">ಮೂಲ ಪುಟ ›</a>
 </div>
 <p class="lib-credit">ಮೂಲ: <a href="https://archive.org/details/indira-bai-gulvadi-e-book" target="_blank" rel="noopener">Internet Archive (archive.org)</a> — ಈ ಪುಸ್ತಕ public domain ಆಗಿದೆ; PDF ಉಚಿತವಾಗಿ ಓದಿ / download ಮಾಡಿ.</p>
@@ -401,8 +403,6 @@
   <div class="sig">-ಅವಿಜ್ಞಾನಿ</div>
   <div><a href="terms.html">Terms of Sale</a> · <a href="privacy.html">Privacy Policy</a> · <a href="refund.html">Refund Policy</a> · <a href="contact.html">Contact</a></div>
   <div><a href="faq.html">FAQ</a></div>
-  <div><a href="lekhanegalu.html">ಲೇಖನಗಳು</a></div>
-  <div><a href="library.html">ಗ್ರಂಥಾಲಯ</a></div>
   <div>ಸರ್ವ ಹಕ್ಕುಗಳೂ ಕವಿಯವು · All poems © Avigyani</div>
 </footer>
 
@@ -514,7 +514,7 @@ $('menuBtn').onclick = () => panel.classList.add('open');
 $('closeBtn').onclick = () => panel.classList.remove('open');
 $('scrim').onclick = () => panel.classList.remove('open');
 function showView(name){
-  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', chaya:'chaya.html', others:'itarara-kelasagalu.html'};
+  var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html'};
   if (M[name]) location.href = M[name];
 }
 document.querySelectorAll('#menuNav button').forEach(b =>
