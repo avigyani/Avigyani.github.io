@@ -79,6 +79,27 @@
   .topnav a:hover::after{left:120%}
   .topnav a:active{transform:translateY(1px) scale(.975);box-shadow:inset 0 2px 10px rgba(2,6,16,.35),inset 0 1px 0 rgba(255,255,255,.35),0 6px 14px rgba(2,6,16,.4)}
   .topnav a:focus-visible{outline:2px solid #e6c65c;outline-offset:3px}
+  /* ---- site search (2026-11-26): header magnifier + panel below header ---- */
+  .bar-actions{display:flex;gap:8px;align-items:center}
+  .search-btn svg{width:19px;height:19px;display:block}
+  .search-panel{position:fixed;top:54px;left:0;right:0;z-index:55;padding:0 14px}
+  .search-panel[hidden]{display:none}
+  .search-box{max-width:640px;margin:0 auto;display:flex;align-items:center;gap:8px;background:rgba(12,24,48,.97);border:1px solid rgba(201,162,39,.5);border-radius:999px;padding:8px 8px 8px 16px;box-shadow:0 16px 40px rgba(0,0,0,.5)}
+  .search-box .search-ic{width:19px;height:19px;flex:none;color:var(--gold)}
+  .search-box input{flex:1;min-width:0;background:none;border:0;outline:0;color:var(--ink);font:inherit;font-size:1rem}
+  .search-box input::placeholder{color:#8b93a8}
+  .search-x{background:none;border:0;color:var(--soft);font-size:1.1rem;cursor:pointer;padding:4px 10px;border-radius:999px}
+  .search-quick{max-width:640px;margin:8px auto 0;display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+  .search-quick a{font-size:.85rem;color:var(--gold);border:1px solid rgba(201,162,39,.5);border-radius:999px;padding:4px 12px;text-decoration:none}
+  .search-results{max-width:640px;margin:8px auto 0;background:rgba(12,24,48,.97);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.5);max-height:60vh;overflow-y:auto}
+  .search-results:empty{display:none}
+  .search-result{display:block;padding:10px 16px;text-decoration:none;color:var(--ink);border-bottom:1px solid rgba(43,63,102,.6)}
+  .search-result:last-child{border-bottom:0}
+  .search-result.sel,.search-result:hover{background:rgba(201,162,39,.14)}
+  .search-result .sr-t{display:block;font-weight:700;font-size:.98rem}
+  .search-result .sr-y{display:inline-block;font-size:.72rem;color:var(--gold);border:1px solid rgba(201,162,39,.5);border-radius:999px;padding:0 8px;margin:2px 0}
+  .search-result .sr-s{display:block;font-size:.85rem;color:var(--soft);line-height:1.45}
+  .search-empty{max-width:640px;margin:8px auto 0;text-align:center;color:var(--soft);font-size:.92rem;background:rgba(12,24,48,.97);border:1px solid var(--line);border-radius:14px;padding:14px}
   #panel .p-follow{margin-top:14px;border-top:1px solid rgba(201,162,39,.25);padding-top:12px;flex:none}
   #panel .p-follow-t{color:#f3ead3;font-size:.8rem;font-weight:700;margin-bottom:8px}
   #panel .socials{margin:0;justify-content:flex-start;gap:15px}
@@ -396,9 +417,24 @@ header .bar .dots{position:relative;left:auto;right:auto;top:auto;bottom:auto;wi
 <header>
   <div class="bar">
     <a class="brand" href="#" data-goto="poems">ಅವಿಜ್ಞಾನಿ</a>
-    <button class="dots" id="menuBtn" aria-label="Menu">⋮</button>
+    <div class="bar-actions">
+      <button class="dots search-btn" id="searchBtn" aria-label="ಹುಡುಕಿ"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg></button>
+      <button class="dots" id="menuBtn" aria-label="Menu">⋮</button>
+    </div>
   </div>
 </header>
+<div class="search-panel" id="searchPanel" hidden>
+  <div class="search-box">
+    <svg class="search-ic" viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.8-3.8"/></svg>
+    <input id="searchInput" type="search" placeholder="ಕವನ, ಪುಸ್ತಕ, ಲೇಖನ ಹುಡುಕಿ..." aria-label="ಹುಡುಕಿ" autocomplete="off">
+    <button class="search-x" id="searchClose" aria-label="ಮುಚ್ಚಿ">✕</button>
+  </div>
+  <div class="search-quick" id="searchQuick">
+    <a href="library.html">ಗ್ರಂಥಾಲಯ</a><a href="ebook.html">ಇ-ಪುಸ್ತಕ</a><a href="lekhanegalu.html">ಲೇಖನಗಳು</a><a href="english.html">English</a><a href="faq.html">FAQ</a>
+  </div>
+  <div class="search-results" id="searchResults" role="listbox" aria-label="ಹುಡುಕಾಟದ ಫಲಿತಾಂಶಗಳು"></div>
+  <p class="search-empty" id="searchEmpty" hidden>ಏನೂ ಸಿಗಲಿಲ್ಲ — ಬೇರೆ ಪದ ಪ್ರಯತ್ನಿಸಿ</p>
+</div>
 
 <div class="wpop hide" id="welcomePop">
   <div class="wpop-card">
@@ -561,6 +597,89 @@ try{
   if(_lgPanel&&_lgScrim)_lgScrim.addEventListener('click',function(){_lgPanel.classList.remove('open');});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&_lgPanel)_lgPanel.classList.remove('open');});
 }catch(e){}
+/* ---------- site search (2026-11-26): lazy JSON index, live results ---------- */
+(function(){
+  var btn=$('searchBtn'), sp=$('searchPanel'), input=$('searchInput'),
+      res=$('searchResults'), empty=$('searchEmpty'), quick=$('searchQuick'),
+      xBtn=$('searchClose');
+  if(!btn||!sp||!input) return;
+  var idx=null, loaded=false, loading=false, sel=-1;
+  function load(cb){
+    if(loaded){ if(cb) cb(); return; }
+    if(loading) return;
+    loading=true;
+    fetch('Assets/search-index.json').then(function(r){ return r.json(); })
+      .then(function(j){ idx=j; loaded=true; loading=false; if(cb) cb(); })
+      .catch(function(){ loading=false; });
+  }
+  function open(){
+    var p=$('panel'); if(p) p.classList.remove('open');
+    sp.hidden=false; load();
+    setTimeout(function(){ input.focus(); }, 30);
+  }
+  function close(){
+    sp.hidden=true; input.value=''; res.innerHTML='';
+    empty.hidden=true; quick.hidden=false; sel=-1;
+  }
+  btn.addEventListener('click', function(){ sp.hidden ? open() : close(); });
+  if(xBtn) xBtn.addEventListener('click', close);
+  var mb=$('menuBtn'); if(mb) mb.addEventListener('click', close);
+  document.addEventListener('keydown', function(e){
+    if(e.key==='Escape' && !sp.hidden) close();
+  });
+  document.addEventListener('click', function(e){
+    if(sp.hidden) return;
+    if(sp.contains(e.target) || btn.contains(e.target)) return;
+    close();
+  });
+  function norm(s){ return (s||'').toLowerCase(); }
+  function setSel(i){
+    var items=res.querySelectorAll('.search-result');
+    items.forEach(function(el,j){ el.classList.toggle('sel', j===i); });
+    sel=i;
+  }
+  function render(q){
+    q=norm(q).trim();
+    res.innerHTML=''; sel=-1;
+    if(!q){ empty.hidden=true; quick.hidden=false; return; }
+    quick.hidden=true;
+    if(!idx){ empty.hidden=true; return; }
+    var out=[];
+    for(var i=0; i<idx.length && out.length<10; i++){
+      if(norm(idx[i].t).indexOf(q)>-1) out.push(idx[i]);
+    }
+    for(var j=0; j<idx.length && out.length<10; j++){
+      var f=idx[j];
+      if(out.indexOf(f)>-1) continue;
+      if(norm(f.s).indexOf(q)>-1 || norm(f.y).indexOf(q)>-1) out.push(f);
+    }
+    if(!out.length){ empty.hidden=false; return; }
+    empty.hidden=true;
+    out.forEach(function(e,i){
+      var a=document.createElement('a');
+      a.className='search-result'; a.href=e.u; a.setAttribute('role','option');
+      var t=document.createElement('span'); t.className='sr-t'; t.textContent=e.t;
+      var y=document.createElement('span'); y.className='sr-y'; y.textContent=e.y;
+      var s=document.createElement('span'); s.className='sr-s'; s.textContent=e.s;
+      a.appendChild(t); a.appendChild(y); a.appendChild(s);
+      a.addEventListener('mouseenter', function(){ setSel(i); });
+      res.appendChild(a);
+    });
+  }
+  input.addEventListener('input', function(){
+    if(!loaded){ load(function(){ render(input.value); }); }
+    render(input.value);
+  });
+  input.addEventListener('keydown', function(e){
+    var items=res.querySelectorAll('.search-result');
+    if(e.key==='ArrowDown' && items.length){ e.preventDefault(); setSel(Math.min(sel+1, items.length-1)); }
+    else if(e.key==='ArrowUp' && items.length){ e.preventDefault(); setSel(Math.max(sel-1, 0)); }
+    else if(e.key==='Enter'){
+      if(sel>=0 && items[sel]){ location.href=items[sel].getAttribute('href'); }
+      else if(items.length){ location.href=items[0].getAttribute('href'); }
+    }
+  });
+})();
 let curCol = 0, curSlide = 0;
 function slideFile(ci, si){ var c = DATA.collections[ci]; if (c.id === 'hanigalu') return 'hanigalu-' + (si + 1) + '.html'; return c.id + '.html'; }
 function openPoem(i){ location.href = slideFile(i, 0); }
