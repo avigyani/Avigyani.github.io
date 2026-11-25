@@ -33,6 +33,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;font-size:15px}
+  html,body{overflow-x:clip}
   body{background:var(--paper);color:var(--ink);
     font-family:"Noto Serif Kannada",Georgia,serif;line-height:1.7}
   header{position:sticky;top:0;z-index:30;background:rgba(12,24,48,.96);
@@ -80,7 +81,7 @@
   .wrap{max-width:880px;margin:0 auto;padding:0 20px}
   .view{display:none;padding-bottom:10px}
   .view.active{display:block}
-  .hero{position:relative;text-align:center;overflow:hidden;border-radius:22px;margin-top:8px;min-height:420px;
+  .hero{position:relative;isolation:isolate;text-align:center;overflow:hidden;border-radius:22px;margin-top:8px;min-height:420px;
     display:flex;align-items:center;justify-content:center;
     background:radial-gradient(120% 130% at 50% 0%,#1b2f57 0%,#0c1830 62%,#081226 100%);
     border:1px solid rgba(201,162,39,.35);
@@ -379,10 +380,11 @@
   .lg-ripple.go{transform:translate(-50%,-50%) scale(1);opacity:0}
   @media (prefers-reduced-motion: reduce){.lg-ripple{display:none}}
 /* ---- Liquid Glass hero blob (approved preview 2026-11-25, verbatim .blob) ---- */
-.lg-blob{position:absolute;width:62vmax;height:62vmax;left:50%;top:6%;translate:-50% 0;border-radius:58% 42% 55% 45%/52% 56% 44% 48%;opacity:.85;filter:blur(28px) saturate(135%);pointer-events:none;z-index:0;background:radial-gradient(60% 55% at 32% 28%,rgba(255,255,255,.50),rgba(255,255,255,0) 60%),radial-gradient(70% 70% at 72% 78%,rgba(201,162,39,.50),rgba(201,162,39,0) 62%),radial-gradient(80% 80% at 78% 22%,rgba(64,145,160,.42),rgba(64,145,160,0) 65%),radial-gradient(90% 90% at 22% 82%,rgba(120,90,180,.34),rgba(120,90,180,0) 65%),linear-gradient(140deg,rgba(255,255,255,.20),rgba(255,255,255,.05));animation:lgBlobMorph 26s ease-in-out infinite alternate,lgBlobDrift 34s ease-in-out infinite alternate}
+.lg-blob{position:absolute;width:min(62vmax,100vw);height:min(62vmax,100vw);left:50%;top:6%;translate:-50% 0;border-radius:58% 42% 55% 45%/52% 56% 44% 48%;opacity:.85;filter:blur(28px) saturate(135%);pointer-events:none;z-index:0;background:radial-gradient(60% 55% at 32% 28%,rgba(255,255,255,.50),rgba(255,255,255,0) 60%),radial-gradient(70% 70% at 72% 78%,rgba(201,162,39,.50),rgba(201,162,39,0) 62%),radial-gradient(80% 80% at 78% 22%,rgba(64,145,160,.42),rgba(64,145,160,0) 65%),radial-gradient(90% 90% at 22% 82%,rgba(120,90,180,.34),rgba(120,90,180,0) 65%),linear-gradient(140deg,rgba(255,255,255,.20),rgba(255,255,255,.05));animation:lgBlobMorph 26s ease-in-out infinite alternate,lgBlobDrift 34s ease-in-out infinite alternate}
 @keyframes lgBlobMorph{0%{border-radius:58% 42% 55% 45%/52% 56% 44% 48%}33%{border-radius:45% 55% 48% 52%/58% 42% 60% 40%}66%{border-radius:52% 48% 62% 38%/44% 58% 42% 56%}100%{border-radius:48% 52% 42% 58%/56% 46% 54% 44%}}
 @keyframes lgBlobDrift{from{transform:rotate(0deg) scale(1)}to{transform:rotate(14deg) scale(1.07)}}
 @media (prefers-reduced-motion: reduce){.lg-blob{animation:none}}
+@media (max-width:640px){.lg-blob{width:92vw;height:92vw;top:2%;filter:blur(22px) saturate(135%)}}
 </style>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2089759388986732"
@@ -533,6 +535,7 @@ const DATA = {"collections": [{"id": "rangu", "title": "ಬದುಕಿಗೆ �
 
 /* ---------- Liquid Glass touch ripple: press = light from the fingertip ---------- */
 (function(){
+  try{
   if(window.__lgRipple)return;window.__lgRipple=1;
   var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('pointerdown',function(e){
@@ -557,8 +560,20 @@ const DATA = {"collections": [{"id": "rangu", "title": "ಬದುಕಿಗೆ �
     requestAnimationFrame(function(){s.classList.add('go');});
     setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},650);
   },{passive:true,capture:true});
+  }catch(e){}
 })();
 const $ = id => document.getElementById(id);
+
+/* ---------- menu: bound FIRST + bulletproof (2026-11-25 overflow fix) ---------- */
+try{
+  var _lgPanel=document.getElementById('panel');
+  var _lgMenu=document.getElementById('menuBtn');
+  var _lgClose=document.getElementById('closeBtn');
+  var _lgScrim=document.getElementById('scrim');
+  if(_lgPanel&&_lgMenu)_lgMenu.addEventListener('click',function(){_lgPanel.classList.add('open');});
+  if(_lgPanel&&_lgClose)_lgClose.addEventListener('click',function(){_lgPanel.classList.remove('open');});
+  if(_lgPanel&&_lgScrim)_lgScrim.addEventListener('click',function(){_lgPanel.classList.remove('open');});
+}catch(e){}
 let curCol = 0, curSlide = 0;
 function slideFile(ci, si){ var c = DATA.collections[ci]; if (c.id === 'hanigalu') return 'hanigalu-' + (si + 1) + '.html'; return c.id + '.html'; }
 function openPoem(i){ location.href = slideFile(i, 0); }
@@ -634,9 +649,11 @@ function openPoem(i){ location.href = slideFile(i, 0); }
 
 /* ---------- views + menu ---------- */
 const panel = $('panel');
-$('menuBtn').onclick = () => panel.classList.add('open');
-$('closeBtn').onclick = () => panel.classList.remove('open');
-$('scrim').onclick = () => panel.classList.remove('open');
+try{
+  var _mb=$('menuBtn');if(_mb)_mb.addEventListener('click',function(){panel.classList.add('open');});
+  var _cb=$('closeBtn');if(_cb)_cb.addEventListener('click',function(){panel.classList.remove('open');});
+  var _sc=$('scrim');if(_sc)_sc.addEventListener('click',function(){panel.classList.remove('open');});
+}catch(e){}
 function showView(name){
   var M = {poems:'index.html', about:'about.html', photos:'photos.html', awards:'awards.html', book:'book.html', ebook:'ebook.html', chaya:'chaya.html', others:'itarara-kelasagalu.html', lekhanegalu:'lekhanegalu.html', library:'library.html', english:'english.html'};
   if (M[name]) location.href = M[name];

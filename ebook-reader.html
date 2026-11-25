@@ -84,6 +84,8 @@
   .lg-ripple{position:absolute;border-radius:50%;pointer-events:none;z-index:3;background:radial-gradient(circle,rgba(30,42,58,.20) 0%,rgba(30,42,58,.09) 40%,rgba(30,42,58,0) 70%);transform:translate(-50%,-50%) scale(.15);opacity:.95;transition:transform .55s ease-out,opacity .55s ease-out}
   .lg-ripple.go{transform:translate(-50%,-50%) scale(1);opacity:0}
   @media (prefers-reduced-motion: reduce){.lg-ripple{display:none}}
+  /* overflow safety net (2026-11-25): no page may ever scroll sideways */
+  html,body{overflow-x:clip}
 
 </style>
 
@@ -2592,6 +2594,7 @@
 <script>
 /* ---------- Liquid Glass touch ripple: press = light from the fingertip ---------- */
 (function(){
+  try{
   if(window.__lgRipple)return;window.__lgRipple=1;
   var REDUCED=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   document.addEventListener('pointerdown',function(e){
@@ -2616,6 +2619,7 @@
     requestAnimationFrame(function(){s.classList.add('go');});
     setTimeout(function(){if(s.parentNode)s.parentNode.removeChild(s);},650);
   },{passive:true,capture:true});
+  }catch(e){}
 })();
 </script>
 
