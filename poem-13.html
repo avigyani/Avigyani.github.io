@@ -90,12 +90,16 @@
   .hero-cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
   .hero-cta .buy-btn{padding:10px 22px;font-size:.95rem}
   /* ---- 3D book (Dark Royal hero): tilts with mouse / finger ---- */
-  .book3d{width:188px;height:272px;margin:4px auto 16px;perspective:1000px}
+  .book3d{width:188px;height:272px;margin:4px auto 16px;perspective:1000px;touch-action:none}
   .book3d-cover{position:relative;width:100%;height:100%;transform-style:preserve-3d;
     transform:rotateY(var(--ry,-14deg)) rotateX(var(--rx,6deg));
     transition:transform .18s ease-out;will-change:transform}
   .book3d-cover img{width:100%;height:100%;object-fit:cover;display:block;border-radius:4px 10px 10px 4px;
-    box-shadow:24px 26px 44px rgba(0,0,0,.55),0 0 0 1px rgba(201,162,39,.45)}
+    box-shadow:24px 26px 44px rgba(0,0,0,.55),0 0 0 1px rgba(201,162,39,.45);backface-visibility:hidden}
+  .book3d-back{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:18px;border-radius:4px 10px 10px 4px;background:linear-gradient(150deg,#16264a,#0c1830 70%);border:1px solid rgba(201,162,39,.5);transform:rotateY(180deg);backface-visibility:hidden}
+  .book3d-back .t{color:#e3c565;font-weight:700;font-size:1.05rem;line-height:1.4}
+  .book3d-back .a{color:#f3ead3;font-size:.85rem}
+  .book3d-back .n{color:#b3ac93;font-size:.78rem}
   .book3d-cover::before{content:"";position:absolute;left:0;top:0;bottom:0;width:12px;border-radius:4px 0 0 4px;
     background:linear-gradient(90deg,#8a6d1a,#c9a227 55%,#e3c565);transform:translateZ(1px)}
   @media (prefers-reduced-motion: reduce){.book3d-cover{transition:none}}
@@ -660,18 +664,50 @@ function loadComments(col){
   if (!hero || !book) return;
   var cover = book.querySelector('.book3d-cover');
   if (!cover) return;
-  function tilt(cx, cy){
+  var FRONT_RY = -14, FRONT_RX = 6;
+  var rotY = FRONT_RY, rotX = FRONT_RX, spun = false;
+  var dragging = false, startX = 0, startY = 0, startRY = 0, startRX = 0;
+  function apply(){
+    cover.style.setProperty('--ry', rotY.toFixed(1) + 'deg');
+    cover.style.setProperty('--rx', rotX.toFixed(1) + 'deg');
+  }
+  function clamp(v, lo, hi){ return v < lo ? lo : (v > hi ? hi : v); }
+  /* Mouse hover over the hero (not the book): gentle tilt until first drag */
+  hero.addEventListener('pointermove', function(e){
+    if (spun || dragging || e.pointerType === 'touch') return;
+    if (e.target && e.target.closest && e.target.closest('#book3d')) return;
     var r = hero.getBoundingClientRect();
     if (!r.width || !r.height) return;
-    var px = (cx - r.left) / r.width - 0.5;
-    var py = (cy - r.top) / r.height - 0.5;
-    cover.style.setProperty('--ry', (-px * 28).toFixed(1) + 'deg');
-    cover.style.setProperty('--rx', (py * 16).toFixed(1) + 'deg');
-  }
-  hero.addEventListener('pointermove', function(e){ tilt(e.clientX, e.clientY); });
+    var px = (e.clientX - r.left) / r.width - 0.5;
+    var py = (e.clientY - r.top) / r.height - 0.5;
+    rotY = FRONT_RY + (-px * 14);
+    rotX = FRONT_RX + (py * 10);
+    apply();
+  });
   hero.addEventListener('pointerleave', function(){
-    cover.style.setProperty('--ry', '-14deg');
-    cover.style.setProperty('--rx', '6deg');
+    if (spun || dragging) return;
+    rotY = FRONT_RY; rotX = FRONT_RX; apply();
+  });
+  /* Drag the book: horizontal drag spins it a full 360° (1.2° per px —
+     one full swipe turns it right around), vertical drag tilts it.
+     touch-action:none on .book3d stops the browser claiming the finger
+     for page scroll, so the spin keeps tracking. Angle stays where the
+     drag leaves it; double-tap spins back to the front cover. */
+  book.addEventListener('pointerdown', function(e){
+    dragging = true; spun = true;
+    startX = e.clientX; startY = e.clientY; startRY = rotY; startRX = rotX;
+    try { book.setPointerCapture(e.pointerId); } catch (_){}
+  });
+  book.addEventListener('pointermove', function(e){
+    if (!dragging) return;
+    rotY = startRY + (e.clientX - startX) * 1.2;
+    rotX = clamp(startRX + (e.clientY - startY) * 0.3, -30, 30);
+    apply();
+  });
+  book.addEventListener('pointerup', function(){ dragging = false; });
+  book.addEventListener('pointercancel', function(){ dragging = false; });
+  book.addEventListener('dblclick', function(){
+    spun = false; rotY = FRONT_RY; rotX = FRONT_RX; apply();
   });
 })();
 
