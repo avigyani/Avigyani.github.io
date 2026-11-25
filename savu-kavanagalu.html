@@ -69,6 +69,16 @@
   #panel nav button:hover{background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.14) 42%,rgba(255,255,255,.08) 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -10px 18px rgba(255,255,255,.10),0 16px 34px rgba(2,6,16,.5)}
   #panel nav button .en{font-size:.78rem;color:#f3ead3;font-family:"Playfair Display",serif}
   #panel nav button.active{background:linear-gradient(180deg,rgba(230,198,92,.34),rgba(201,162,39,.16));border-color:rgba(230,198,92,.75);color:#ffe9a8;font-weight:700}
+  /* ---- top nav row (home only, 2026-11-25): 5 glass links below header ---- */
+  .topnav{display:flex;gap:8px;overflow-x:auto;padding:10px 2px 6px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .topnav::-webkit-scrollbar{display:none}
+  .topnav a{flex:none;background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.10) 42%,rgba(255,255,255,.05) 100%);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);border:1px solid rgba(255,255,255,.34);color:var(--ink);border-radius:999px;padding:8px 16px;font-size:.92rem;font-weight:600;text-decoration:none;white-space:nowrap;cursor:pointer;position:relative;isolation:isolate;overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -10px 18px rgba(255,255,255,.07),inset 0 0 0 1px rgba(255,255,255,.04),0 12px 28px rgba(2,6,16,.42)}
+  .topnav a::before{content:"";position:absolute;inset:1px 1px 55% 1px;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,0));pointer-events:none}
+  .topnav a::after{content:"";position:absolute;top:-30%;bottom:-30%;width:55%;left:-80%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);transition:left .6s ease;pointer-events:none}
+  .topnav a:hover{background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.14) 42%,rgba(255,255,255,.08) 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.65),inset 0 -10px 18px rgba(255,255,255,.10),0 16px 34px rgba(2,6,16,.5);transform:translateY(-1px);border-color:rgba(255,255,255,.5)}
+  .topnav a:hover::after{left:120%}
+  .topnav a:active{transform:translateY(1px) scale(.975);box-shadow:inset 0 2px 10px rgba(2,6,16,.35),inset 0 1px 0 rgba(255,255,255,.35),0 6px 14px rgba(2,6,16,.4)}
+  .topnav a:focus-visible{outline:2px solid #e6c65c;outline-offset:3px}
   #panel .p-follow{margin-top:14px;border-top:1px solid rgba(201,162,39,.25);padding-top:12px;flex:none}
   #panel .p-follow-t{color:#f3ead3;font-size:.8rem;font-weight:700;margin-bottom:8px}
   #panel .socials{margin:0;justify-content:flex-start;gap:15px}
@@ -186,16 +196,6 @@
   .controls{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
   .controls button:disabled{opacity:.35;cursor:default}
   footer .tea-btn{margin-bottom:4px}
-  .music-btn{position:fixed;right:16px;bottom:16px;z-index:60;width:46px;height:46px;border-radius:50%;
-    border:1px solid rgba(255,255,255,.34);background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.10) 42%,rgba(255,255,255,.05) 100%);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);color:var(--ink);font-size:1.3rem;
-    display:flex;align-items:center;justify-content:center;cursor:pointer;
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -10px 18px rgba(255,255,255,.07),inset 0 0 0 1px rgba(255,255,255,.04),0 12px 28px rgba(2,6,16,.42)}
-  .music-btn:hover{background:linear-gradient(180deg,rgba(255,255,255,.30),rgba(255,255,255,.14) 42%,rgba(255,255,255,.08) 100%)}
-  .music-btn.off{opacity:.55}
-  .music-btn.off::after{content:"";position:absolute;left:6px;right:6px;top:50%;height:2px;
-    background:var(--on-gold);transform:rotate(-38deg)}
-  .music-btn:not(.off){animation:mpulse 2.4s ease-in-out infinite}
-  @keyframes mpulse{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
   .copy-btn{margin-top:12px;background:linear-gradient(180deg,rgba(255,255,255,.26),rgba(255,255,255,.10) 42%,rgba(255,255,255,.05) 100%);-webkit-backdrop-filter:blur(16px) saturate(170%);backdrop-filter:blur(16px) saturate(170%);color:var(--ink);border:1px solid rgba(255,255,255,.34);
     padding:9px 18px;border-radius:999px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;
     box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -10px 18px rgba(255,255,255,.07),inset 0 0 0 1px rgba(255,255,255,.04),0 12px 28px rgba(2,6,16,.42)}
@@ -358,14 +358,14 @@
   .nslide{flex:0 0 100%;display:flex;align-items:center;justify-content:center;padding:6px 12px;font-size:1.1rem;font-weight:600;line-height:1.35;color:#c9a227;text-align:center;cursor:pointer}
 /* ---- Liquid Glass v2 (approved preview 2026-11-25, more glassy) ---- */
 .dots,#panel .close,#panel nav button,.backbtn,.pn-link,.rel-links a,.tea-btn,button.soc .ic,.copy-btn,.controls button,.suggest-btn,.ai-card button,.ai-x,.ai-tabs button,.ai-langs button,.ai-go,.pay-btn,.app-btn,.link-btn,.buy-btn.alt,.ai-card button.alt{position:relative;isolation:isolate;overflow:hidden;color:#eef1f6;-webkit-tap-highlight-color:transparent}
-.music-btn,.wpop-x{isolation:isolate;overflow:hidden;color:#eef1f6;-webkit-tap-highlight-color:transparent}
-.dots::before,#panel .close::before,#panel nav button::before,.backbtn::before,.pn-link::before,.rel-links a::before,.tea-btn::before,button.soc .ic::before,.copy-btn::before,.controls button::before,.suggest-btn::before,.ai-card button::before,.ai-x::before,.ai-tabs button::before,.ai-langs button::before,.ai-go::before,.pay-btn::before,.app-btn::before,.link-btn::before,.buy-btn.alt::before,.ai-card button.alt::before,.music-btn::before,.wpop-x::before{content:"";position:absolute;inset:1px 1px 55% 1px;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,0));pointer-events:none}
-.dots::after,#panel .close::after,#panel nav button::after,.backbtn::after,.pn-link::after,.rel-links a::after,.tea-btn::after,button.soc .ic::after,.copy-btn::after,.controls button::after,.suggest-btn::after,.ai-card button::after,.ai-x::after,.ai-tabs button::after,.ai-langs button::after,.ai-go::after,.pay-btn::after,.app-btn::after,.link-btn::after,.buy-btn.alt::after,.ai-card button.alt::after,.music-btn::after,.wpop-x::after{content:"";position:absolute;top:-30%;bottom:-30%;width:55%;left:-80%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);transition:left .6s ease;pointer-events:none}
-.dots:hover,#panel .close:hover,#panel nav button:hover,.backbtn:hover,.pn-link:hover,.rel-links a:hover,.tea-btn:hover,button.soc .ic:hover,.copy-btn:hover,.controls button:hover,.suggest-btn:hover,.ai-card button:hover,.ai-x:hover,.ai-tabs button:hover,.ai-langs button:hover,.ai-go:hover,.pay-btn:hover,.app-btn:hover,.link-btn:hover,.buy-btn.alt:hover,.ai-card button.alt:hover,.music-btn:hover,.wpop-x:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.5)}
-.dots:hover::after,#panel .close:hover::after,#panel nav button:hover::after,.backbtn:hover::after,.pn-link:hover::after,.rel-links a:hover::after,.tea-btn:hover::after,button.soc .ic:hover::after,.copy-btn:hover::after,.controls button:hover::after,.suggest-btn:hover::after,.ai-card button:hover::after,.ai-x:hover::after,.ai-tabs button:hover::after,.ai-langs button:hover::after,.ai-go:hover::after,.pay-btn:hover::after,.app-btn:hover::after,.link-btn:hover::after,.buy-btn.alt:hover::after,.ai-card button.alt:hover::after,.music-btn:hover::after,.wpop-x:hover::after{left:120%}
-.dots:active,#panel .close:active,#panel nav button:active,.backbtn:active,.pn-link:active,.rel-links a:active,.tea-btn:active,button.soc .ic:active,.copy-btn:active,.controls button:active,.suggest-btn:active,.ai-card button:active,.ai-x:active,.ai-tabs button:active,.ai-langs button:active,.ai-go:active,.pay-btn:active,.app-btn:active,.link-btn:active,.buy-btn.alt:active,.ai-card button.alt:active,.music-btn:active,.wpop-x:active{transform:translateY(1px) scale(.975);box-shadow:inset 0 2px 10px rgba(2,6,16,.35),inset 0 1px 0 rgba(255,255,255,.35),0 6px 14px rgba(2,6,16,.4)}
-.dots:focus-visible,#panel .close:focus-visible,#panel nav button:focus-visible,.backbtn:focus-visible,.pn-link:focus-visible,.rel-links a:focus-visible,.tea-btn:focus-visible,button.soc .ic:focus-visible,.copy-btn:focus-visible,.controls button:focus-visible,.suggest-btn:focus-visible,.ai-card button:focus-visible,.ai-x:focus-visible,.ai-tabs button:focus-visible,.ai-langs button:focus-visible,.ai-go:focus-visible,.pay-btn:focus-visible,.app-btn:focus-visible,.link-btn:focus-visible,.buy-btn.alt:focus-visible,.ai-card button.alt:focus-visible,.music-btn:focus-visible,.wpop-x:focus-visible{outline:2px solid #e6c65c;outline-offset:3px}
-.dots:disabled,#panel .close:disabled,#panel nav button:disabled,.backbtn:disabled,.pn-link:disabled,.rel-links a:disabled,.tea-btn:disabled,button.soc .ic:disabled,.copy-btn:disabled,.controls button:disabled,.suggest-btn:disabled,.ai-card button:disabled,.ai-x:disabled,.ai-tabs button:disabled,.ai-langs button:disabled,.ai-go:disabled,.pay-btn:disabled,.app-btn:disabled,.link-btn:disabled,.buy-btn.alt:disabled,.ai-card button.alt:disabled,.music-btn:disabled,.wpop-x:disabled{opacity:.38;pointer-events:none}
+.wpop-x{isolation:isolate;overflow:hidden;color:#eef1f6;-webkit-tap-highlight-color:transparent}
+.dots::before,#panel .close::before,#panel nav button::before,.backbtn::before,.pn-link::before,.rel-links a::before,.tea-btn::before,button.soc .ic::before,.copy-btn::before,.controls button::before,.suggest-btn::before,.ai-card button::before,.ai-x::before,.ai-tabs button::before,.ai-langs button::before,.ai-go::before,.pay-btn::before,.app-btn::before,.link-btn::before,.buy-btn.alt::before,.ai-card button.alt::before,.wpop-x::before{content:"";position:absolute;inset:1px 1px 55% 1px;border-radius:inherit;z-index:-1;background:linear-gradient(180deg,rgba(255,255,255,.34),rgba(255,255,255,0));pointer-events:none}
+.dots::after,#panel .close::after,#panel nav button::after,.backbtn::after,.pn-link::after,.rel-links a::after,.tea-btn::after,button.soc .ic::after,.copy-btn::after,.controls button::after,.suggest-btn::after,.ai-card button::after,.ai-x::after,.ai-tabs button::after,.ai-langs button::after,.ai-go::after,.pay-btn::after,.app-btn::after,.link-btn::after,.buy-btn.alt::after,.ai-card button.alt::after,.wpop-x::after{content:"";position:absolute;top:-30%;bottom:-30%;width:55%;left:-80%;z-index:-1;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-18deg);transition:left .6s ease;pointer-events:none}
+.dots:hover,#panel .close:hover,#panel nav button:hover,.backbtn:hover,.pn-link:hover,.rel-links a:hover,.tea-btn:hover,button.soc .ic:hover,.copy-btn:hover,.controls button:hover,.suggest-btn:hover,.ai-card button:hover,.ai-x:hover,.ai-tabs button:hover,.ai-langs button:hover,.ai-go:hover,.pay-btn:hover,.app-btn:hover,.link-btn:hover,.buy-btn.alt:hover,.ai-card button.alt:hover,.wpop-x:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.5)}
+.dots:hover::after,#panel .close:hover::after,#panel nav button:hover::after,.backbtn:hover::after,.pn-link:hover::after,.rel-links a:hover::after,.tea-btn:hover::after,button.soc .ic:hover::after,.copy-btn:hover::after,.controls button:hover::after,.suggest-btn:hover::after,.ai-card button:hover::after,.ai-x:hover::after,.ai-tabs button:hover::after,.ai-langs button:hover::after,.ai-go:hover::after,.pay-btn:hover::after,.app-btn:hover::after,.link-btn:hover::after,.buy-btn.alt:hover::after,.ai-card button.alt:hover::after,.wpop-x:hover::after{left:120%}
+.dots:active,#panel .close:active,#panel nav button:active,.backbtn:active,.pn-link:active,.rel-links a:active,.tea-btn:active,button.soc .ic:active,.copy-btn:active,.controls button:active,.suggest-btn:active,.ai-card button:active,.ai-x:active,.ai-tabs button:active,.ai-langs button:active,.ai-go:active,.pay-btn:active,.app-btn:active,.link-btn:active,.buy-btn.alt:active,.ai-card button.alt:active,.wpop-x:active{transform:translateY(1px) scale(.975);box-shadow:inset 0 2px 10px rgba(2,6,16,.35),inset 0 1px 0 rgba(255,255,255,.35),0 6px 14px rgba(2,6,16,.4)}
+.dots:focus-visible,#panel .close:focus-visible,#panel nav button:focus-visible,.backbtn:focus-visible,.pn-link:focus-visible,.rel-links a:focus-visible,.tea-btn:focus-visible,button.soc .ic:focus-visible,.copy-btn:focus-visible,.controls button:focus-visible,.suggest-btn:focus-visible,.ai-card button:focus-visible,.ai-x:focus-visible,.ai-tabs button:focus-visible,.ai-langs button:focus-visible,.ai-go:focus-visible,.pay-btn:focus-visible,.app-btn:focus-visible,.link-btn:focus-visible,.buy-btn.alt:focus-visible,.ai-card button.alt:focus-visible,.wpop-x:focus-visible{outline:2px solid #e6c65c;outline-offset:3px}
+.dots:disabled,#panel .close:disabled,#panel nav button:disabled,.backbtn:disabled,.pn-link:disabled,.rel-links a:disabled,.tea-btn:disabled,button.soc .ic:disabled,.copy-btn:disabled,.controls button:disabled,.suggest-btn:disabled,.ai-card button:disabled,.ai-x:disabled,.ai-tabs button:disabled,.ai-langs button:disabled,.ai-go:disabled,.pay-btn:disabled,.app-btn:disabled,.link-btn:disabled,.buy-btn.alt:disabled,.ai-card button.alt:disabled,.wpop-x:disabled{opacity:.38;pointer-events:none}
 /* guard (fix #3, 2026-11-25): the menu button stays in the header row — no
    glass pseudo/state rule may ever reposition or disable it again */
 header .bar .dots{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto;opacity:1;pointer-events:auto}
@@ -431,12 +431,7 @@ header .bar .dots{position:relative;left:auto;right:auto;top:auto;bottom:auto;wi
       <button data-view="photos">ಚೆಹರೆಗಳು</button>
       <button data-view="awards">ಕಡಿದು ಗುಡ್ಡೆ ಹಾಕಿದ್ದು</button>
       <button data-view="book">ಅಚ್ಚಾಗಿದ್ದು</button>
-      <button data-view="ebook">ಇ-ಪುಸ್ತಕ</button>
-      <button data-view="chaya">ಚಾಯ ಕೊಡಿಸಿ</button>
       <button data-view="others">ಇತರರ ಕೆಲಸಗಳು</button>
-      <button data-view="lekhanegalu">ಲೇಖನಗಳು</button>
-      <button data-view="library">ಗ್ರಂಥಾಲಯ</button>
-      <button data-view="english">English</button>
     </nav>
     <div class="p-follow">
       <div class="p-follow-t">ಹಿಂಬಾಲಿಸಿ</div>
@@ -543,8 +538,6 @@ header .bar .dots{position:relative;left:auto;right:auto;top:auto;bottom:auto;wi
   </div>
 </div>
 
-<audio id="bgMusic" src="Assets/sufi-music.mp3" loop preload="auto"></audio>
-<button class="music-btn off" id="musicBtn" aria-label="Sufi music on/off">♪</button>
 
 <script>
 
@@ -560,7 +553,7 @@ const DATA = {"collections": [{"id": "rangu", "title": "ಬದುಕಿಗೆ �
     var t=e.target&&e.target.closest?e.target.closest('button,a'):null;
     if(!t)return;
     var cn=(typeof t.className==='string')?t.className:'';
-    var isBtn=t.tagName==='BUTTON'||/btn|pn-link|lib-btn|pay-btn|app-btn|link-btn|buy-btn|tea-btn|copy-btn|music-btn|suggest-btn|dots|soc/.test(cn);
+    var isBtn=t.tagName==='BUTTON'||/btn|pn-link|lib-btn|pay-btn|app-btn|link-btn|buy-btn|tea-btn|copy-btn|suggest-btn|dots|soc|topnav-link/.test(cn);
     if(!isBtn)return;
     var r=t.getBoundingClientRect();
     if(!r.width||!r.height)return;
@@ -734,39 +727,6 @@ document.querySelectorAll('[data-goto]').forEach(a =>
     spun = false; rotY = FRONT_RY; rotX = FRONT_RX; apply();
   });
 })();
-
-/* ---------- background Sufi music: soft, starts on first touch ---------- */
-const bgm = $('bgMusic'), musicBtn = $('musicBtn');
-if (bgm && musicBtn) {
-  let musicOn = false, fadeTimer = null;
-  const setBtn = () => musicBtn.classList.toggle('off', !musicOn);
-  const fadeTo = target => {
-    if (fadeTimer) clearInterval(fadeTimer);
-    fadeTimer = setInterval(() => {
-      const d = target - bgm.volume;
-      if (Math.abs(d) < 0.02) { bgm.volume = target; clearInterval(fadeTimer); fadeTimer = null; }
-      else bgm.volume += d * 0.25;
-    }, 120);
-  };
-  const startMusic = () => {
-    if (musicOn) return;
-    bgm.volume = 0;
-    bgm.play().then(() => { musicOn = true; setBtn(); fadeTo(0.35); }).catch(() => {});
-  };
-  const stopMusic = () => {
-    musicOn = false; setBtn();
-    if (fadeTimer) clearInterval(fadeTimer);
-    bgm.pause();
-  };
-  startMusic();
-  document.addEventListener('touchstart', startMusic, {once: true});
-  document.addEventListener('click', startMusic, {once: true});
-  musicBtn.addEventListener('click', e => {
-    e.stopPropagation();
-    if (musicOn) stopMusic(); else startMusic();
-  });
-  setBtn();
-}
 
 /* ---------- welcome popup: close on X or backdrop tap ---------- */
 const wpop = $('welcomePop');
